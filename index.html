@@ -1,154 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Go Limitless: martial arts, strength, coaching, events and grassroots opportunity in Tamraght, Morocco.">
+  <meta name="theme-color" content="#171313">
+  <title>Go Limitless | Tamraght, Morocco</title>
+  <style>
+    :root{--ink:#171313;--paper:#f2eadc;--sand:#d7b98d;--purple:#6b315f;--rose:#b56373;--line:rgba(23,19,19,.18);--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;font-weight:800}.display{font-family:Georgia,'Times New Roman',serif;text-transform:uppercase;letter-spacing:-.04em;line-height:.9;margin:0}.section{padding:88px 0;border-top:1px solid var(--line)}
+    header{position:sticky;top:0;z-index:20;background:rgba(242,234,220,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Georgia,serif;font-weight:900;letter-spacing:.06em;font-size:1.25rem}.brand span{color:var(--purple)}.navlinks{display:flex;gap:24px;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800}.navlinks a:hover{color:var(--purple)}
+    .hero{min-height:calc(100vh - 76px);display:grid;align-items:end;padding:80px 0 56px;background:radial-gradient(circle at 80% 15%,rgba(107,49,95,.18),transparent 30%),linear-gradient(145deg,var(--paper) 55%,#e5d3b7)}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end}.hero h1{font-size:clamp(4rem,11vw,9.5rem)}.hero-copy{font-size:1.15rem;max-width:580px;margin:26px 0}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:1px solid var(--ink);font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;font-weight:900}.btn.primary{background:var(--ink);color:var(--paper)}.btn:hover{transform:translateY(-2px)}.logo-art{max-width:420px;margin-left:auto;border:1px solid var(--ink);padding:10px;background:rgba(242,234,220,.7);box-shadow:18px 18px 0 rgba(107,49,95,.18)}.logo-art img{display:block;width:100%;height:auto}.logo-caption{display:flex;justify-content:space-between;gap:14px;padding:12px 4px 2px;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;font-weight:900}.ticker{overflow:hidden;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:13px 0;font-weight:900;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}.ticker span{display:inline-block;padding-right:42px}
+    .intro{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px}.intro h2,.section-head h2{font-size:clamp(2.7rem,6vw,5.5rem)}.lead{font-size:1.35rem;max-width:760px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:38px}.card{border:1px solid var(--line);padding:30px;background:rgba(255,255,255,.18)}.card .num{font-family:Georgia,serif;font-size:2rem;color:var(--purple)}.card h3{font-family:Georgia,serif;font-size:1.65rem;margin:.25rem 0}.card p{margin-bottom:0}.dark{background:var(--ink);color:var(--paper)}.dark .card{border-color:rgba(242,234,220,.25)}.dark .eyebrow,.dark .num{color:var(--sand)}
+    .founder{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}.portrait{min-height:520px;background:linear-gradient(160deg,var(--purple),#241a20 60%,var(--rose));display:flex;align-items:end;padding:34px;color:white;position:relative;overflow:hidden}.portrait:before{content:'限';position:absolute;right:-10px;top:-70px;font-family:serif;font-size:20rem;opacity:.08}.portrait strong{font-family:Georgia,serif;font-size:2.6rem;line-height:1}.quote{font-family:Georgia,serif;font-size:1.8rem;line-height:1.25;border-left:3px solid var(--purple);padding-left:24px;margin:30px 0}
+    .class-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}.class{background:var(--paper);padding:30px;min-height:220px}.class h3{font-family:Georgia,serif;font-size:1.45rem}.tag{display:inline-block;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid currentColor;padding:6px 9px;margin-bottom:14px}
+    .events{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.feature{padding:45px;background:var(--purple);color:white;min-height:430px;display:flex;flex-direction:column;justify-content:flex-end}.feature h3{font-family:Georgia,serif;font-size:clamp(2.7rem,5vw,5rem);line-height:.95;margin:.4rem 0}.event-list{display:grid;gap:20px}.event{border:1px solid var(--line);padding:28px}.event h3{font-family:Georgia,serif;margin:.2rem 0;font-size:1.55rem}
 
-⛩
-GO LIMITLESS
-TAMRAGHT • MOROCCO
-MENU
-PERFORMANCE • ADVENTURE • COMMUNITY
-Go Limitless
-TRAIN. EVOLVE. GO LIMITLESS.
-Go Limitless is a performance, adventure and community brand. We create coaching, training experiences and events with a grassroots heart and a global standard.
-EXPLORE THE BRAND JOIN THE MOVEMENT
-ONE PLATFORM
-DojoCoachingNext Gen
-A real lifestyle and performance brand with a strong grassroots foundation, built to grow into locations, events and experiences.
+    .gallery{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:16px;margin-top:38px}
+    .gallery figure{margin:0;position:relative;overflow:hidden;min-height:520px;background:#201a1a}
+    .gallery figure:nth-child(2),.gallery figure:nth-child(3){min-height:420px}
+    .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+    .gallery figure:hover img{transform:scale(1.025)}
+    .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:52px 22px 20px;color:white;background:linear-gradient(transparent,rgba(0,0,0,.82));font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:900}
+    .nextgen{background:linear-gradient(125deg,#e5d3b7,var(--paper))}.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.impact div{border-top:2px solid var(--ink);padding-top:14px}.impact strong{display:block;font-family:Georgia,serif;font-size:2.4rem}
+    .cta{text-align:center;padding:100px 0}.cta h2{font-size:clamp(3.5rem,9vw,8rem)}footer{background:var(--ink);color:var(--paper);padding:45px 0}.foot{display:flex;justify-content:space-between;gap:30px;align-items:end}.social{display:flex;gap:16px;flex-wrap:wrap}.social a{border-bottom:1px solid rgba(242,234,220,.5)}
+    @media(max-width:800px){.navlinks{display:none}.hero-grid,.intro,.founder,.events,.next-grid{grid-template-columns:1fr}.hero{min-height:auto}.logo-art{margin:24px 0 0;max-width:100%;box-shadow:10px 10px 0 rgba(107,49,95,.18)}.grid,.class-grid,.gallery{grid-template-columns:1fr}.gallery figure,.gallery figure:nth-child(2),.gallery figure:nth-child(3){min-height:420px}.section{padding:64px 0}.portrait{min-height:400px}.impact{grid-template-columns:1fr}.foot{display:block}.social{margin-top:24px}}
+  </style>
+</head>
+<body>
+<header><nav class="wrap"><a class="brand" href="#top">GO <span>LIMITLESS</span></a><div class="navlinks"><a href="#founder">Founder</a><a href="#classes">Classes</a><a href="#coaching">Coaching</a><a href="#events">Events</a><a href="#community">Community</a><a href="#nextgen">Next Gen</a></div></nav></header>
+<main id="top">
+<section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Tamraght · Morocco · Built from the ground up</p><h1 class="display">Train.<br>Evolve.<br>Go Limitless.</h1><p class="hero-copy">Martial arts, strength, coaching, events and grassroots opportunity under one name. Rooted in community. Built with discipline. Open to anyone ready to grow.</p><div class="actions"><a class="btn primary" href="#classes">Explore training</a><a class="btn" href="#nextgen">Join the movement</a></div></div><figure class="logo-art"><img src="assets/limitless-logo-art.jpeg" alt="Limitless martial arts and strength training brand artwork"><figcaption class="logo-caption"><span>Rooted in Tamraght</span><span>Built to grow</span></figcaption></figure></div></section>
+<div class="ticker"><span>Train · Evolve · Go Limitless · Rooted · Community · Discipline · Opportunity ·</span><span>Train · Evolve · Go Limitless · Rooted · Community · Discipline · Opportunity ·</span></div>
+
+<section class="section"><div class="wrap intro"><div><p class="eyebrow">The brand</p><h2 class="display">More than a place to train.</h2></div><div><p class="lead">Go Limitless connects performance and purpose. It brings together a rooftop dojo, specialist coaching, athlete-led events and a grassroots foundation creating access for the next generation.</p><div class="grid"><article class="card"><div class="num">01</div><h3>Limitless Dojo</h3><p>Martial arts, open mats, workshops, women’s classes and strength sessions in Tamraght.</p></article><article class="card" id="coaching"><div class="num">02</div><h3>Strength & Online Coaching</h3><p>Individual coaching for physique, performance, lifestyle change, contest preparation and posing.</p></article><article class="card"><div class="num">03</div><h3>Limitless Events</h3><p>Beach wrestling, grappling, seminars and endurance experiences designed to make athletes visible.</p></article><article class="card"><div class="num">04</div><h3>Limitless Next Gen</h3><p>Free sport, youth development, women’s access and support for emerging athletes.</p></article></div></div></div></section>
+
+<section class="section dark" id="founder"><div class="wrap founder"><div class="portrait"><div><span class="eyebrow">Founder</span><strong>Danielle<br>Askari</strong><p>Coach · Organiser · Community Builder</p></div></div><div><p class="eyebrow">Built from lived experience</p><h2 class="display" style="font-size:clamp(3rem,7vw,6rem)">A movement with edge and purpose.</h2><p>Danielle Askari created Go Limitless to connect high-level coaching, meaningful community and real opportunity. With more than 15 years in coaching and years spent building grassroots sport in Tamraght, she has developed a brand that is both culturally rooted and ready to grow.</p><p>The identity draws on Japanese martial discipline and Amazigh strength: simple, resilient, welcoming and shaped by the place it comes from.</p><div class="quote">“Local in heart. Global in standard. Built so more people can discover what they are capable of.”</div><a class="btn" style="border-color:var(--paper)" href="https://www.instagram.com/dannii_askari/">Follow Danielle ↗</a></div></div></section>
+
+<section class="section" id="classes"><div class="wrap"><div class="section-head"><p class="eyebrow">Classes</p><h2 class="display">Train with purpose.</h2></div><div class="class-grid"><article class="class"><span class="tag">Martial arts</span><h3>Jujutsu & Grappling</h3><p>Technique, drilling and live work for complete beginners through to experienced practitioners.</p></article><article class="class"><span class="tag">Performance</span><h3>Strength & Conditioning</h3><p>Structured training for resilience, movement quality, fitness and real-world performance.</p></article><article class="class"><span class="tag">Women</span><h3>Women’s Classes</h3><p>Supportive sessions that make martial arts and strength training feel accessible and empowering.</p></article><article class="class"><span class="tag">Youth</span><h3>Next Gen Academy</h3><p>Free guided sport and development opportunities for young people coming through the Limitless community.</p></article><article class="class"><span class="tag">Community</span><h3>Open Mats & Workshops</h3><p>Guest seminars and shared sessions connecting local athletes, travellers and coaches.</p></article><article class="class"><span class="tag">Anywhere</span><h3>Online Coaching</h3><p>Personalised programming, nutrition guidance, accountability and a coaching relationship that travels.</p></article></div></div></section>
+
+<section class="section" id="events"><div class="wrap"><p class="eyebrow">Events</p><div class="events"><article class="feature"><span class="eyebrow">Flagship competition</span><h3>Limitless Beach Wrestling</h3><p>Edition 5 · January 2027</p><p>Athlete walkouts, real atmosphere and a platform designed around one message: compete, get seen, create opportunity.</p><a class="btn" style="border-color:white;align-self:flex-start" href="https://www.instagram.com/limitless_dojo/">Follow event updates ↗</a></article><div class="event-list"><article class="event"><span class="eyebrow">Adventure</span><h3>Limitless Ultra</h3><p>Endurance challenges shaped by Moroccan landscapes, resilience and personal transformation.</p></article><article class="event"><span class="eyebrow">Culture</span><h3>Seminars & Open Mats</h3><p>Guest workshops and community sessions that raise the level of local training.</p></article><article class="event"><span class="eyebrow">Opportunity</span><h3>Athlete Showcase</h3><p>Events built to help emerging athletes perform, gain visibility and build new pathways.</p></article></div></div></div></section>
 
 
+<section class="section dark" id="community">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The community</p>
+      <h2 class="display">Real people. Real progress.</h2>
+      <p class="lead">Go Limitless is built through the people who train, show up, compete and grow together.</p>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="assets/community-training.jpeg" alt="Members of the Go Limitless training community together at the dojo">
+        <figcaption>Training together · Tamraght</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/womens-strength.jpeg" alt="Women taking part in a Go Limitless strength training session">
+        <figcaption>Women’s strength community</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/event-achievement.jpeg" alt="Athlete and founder together after a Limitless competition">
+        <figcaption>Compete · Get seen · Create opportunity</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
+<section class="section nextgen" id="nextgen"><div class="wrap next-grid"><div><p class="eyebrow">Limitless Next Gen</p><h2 class="display" style="font-size:clamp(3.2rem,7vw,6.5rem)">Access without barriers.</h2></div><div><p class="lead">The social-impact arm of Go Limitless uses free sport and education to create stronger pathways for youth, women and emerging athletes.</p><p>It began locally, with limited resources and a belief that opportunity should not depend on where someone starts. Every programme is designed to build confidence, discipline, leadership and belonging.</p><div class="impact"><div><strong>FREE</strong><span>Youth sport and development</span></div><div><strong>OPEN</strong><span>Women’s access and community</span></div><div><strong>REAL</strong><span>Athlete support and opportunity</span></div></div><div class="actions" style="margin-top:30px"><a class="btn primary" href="https://www.instagram.com/limitlessnextgen/">Support Next Gen ↗</a></div></div></div></section>
 
-TRAIN
-EVOLVE
-GO LIMITLESS
-ROOTED
-COMMUNITY
-ADVENTURE
-DISCIPLINE
-OPPORTUNITY
-TRAIN
-EVOLVE
-GO LIMITLESS
-ROOTED
-COMMUNITY
-ADVENTURE
-DISCIPLINE
-OPPORTUNITY
-ABOUT THE FOUNDER
-Built from lived experience.
-FOUNDER
-DA
-Danielle Askari
-COACH • ORGANISER • COMMUNITY BUILDER
-Danielle Askari created Go Limitless to connect three worlds under one roof: high-level coaching, meaningful community and real opportunity.
-With over 15 years in coaching, a background in physique transformation and performance, and years of building grassroots sport in Tamraght, Danielle has developed a brand with both edge and purpose.
-The vision is simple: create something that feels rooted, inspiring and culturally distinct now, while building a model strong enough to scale into a future franchise brand.
-“Go Limitless should feel like a movement. Local in heart. Global in standard.”
-Follow Danielle ↗
-THE BRAND
-Performance. Events. Impact.
-01
-Limitless Dojo
-Martial arts, local classes, workshops, open mats and strength sessions delivered through the rooftop dojo culture in Tamraght.
-	•	MARTIAL ARTS
-	•	STRENGTH TRAINING
-	•	COMMUNITY SESSIONS
-02
-Strength & Online Coaching
-Tailored coaching for physique goals, performance, lifestyle change and contest preparation, available online and in person.
-	•	ONLINE COACHING
-	•	NUTRITION GUIDANCE
-	•	CONTEST PREP & POSING
-03
-Limitless Next Gen
-A community-first platform creating access through free sport, youth development, women’s opportunities and athlete support.
-	•	YOUTH DEVELOPMENT
-	•	WOMEN’S ACCESS
-	•	ATHLETE OPPORTUNITY
-04
-Limitless Events
-Distinctive competitions and endurance experiences designed to bring together athletes, culture, adventure and community.
-	•	BEACH WRESTLING
-	•	ULTRA ENDURANCE
-	•	DESTINATION EVENTS
-CLASSES
-Train with purpose.
-01
-Jujutsu & Grappling
-Technical training, drilling and live work for beginners through to experienced practitioners.
-02
-Strength & Conditioning
-Structured sessions to build resilience, movement quality, fitness and real-world performance.
-03
-Women’s Classes
-Supportive spaces that make martial arts and strength training feel welcoming and accessible.
-04
-Next Gen Academy
-Free sessions and guided development for young people coming through the Limitless system.
-05
-Workshops & Open Mats
-Community-led sessions, guest seminars and training experiences that connect locals and visitors.
-06
-Online Coaching
-Remote support for clients who want structure, accountability and a coaching relationship that travels.
-BRAND FEEL
-Adventure. Japanese. Classic. Minimal. Street.
-The visual direction combines clean editorial layouts, subtle Japanese-inspired structure, grounded textures, street confidence and community warmth. The result should feel like a genuine sports and lifestyle brand first, with a visible social purpose rather than a charity identity.
-EVENTS
-Competition. Endurance. Adventure.
-FLAGSHIP EVENT
-Limitless Beach Wrestling
-EDITION 5 • JANUARY 2027
-A signature competition built around athlete experience, atmosphere and visibility. Grassroots in spirit, but presented with the identity and standard of a serious sports brand.
-FOLLOW EVENT UPDATES
-FUTURE FLAGSHIP
-Limitless Ultra
-A future endurance event combining ultra-distance running, Moroccan landscapes, personal challenge and community support.
-ADVENTURE
-Last One Standing
-Endurance challenges designed around resilience, mental strength and the question at the heart of the brand: how limitless can you go?
-SEMINARS
-Guest workshops
-High-value sessions that elevate the training culture and bring outside energy into the brand.
-COMMUNITY
-Open mats & socials
-Rooted moments that build belonging and turn the space into more than a place to train.
-SHOWCASE
-Athlete opportunity
-Events that help athletes compete, get seen and create pathways beyond the local scene.
-BRAND ARCHITECTURE
-One brand. Different ways to belong.
-COMMERCIAL
-Training & Coaching
-Paid services that fund growth, create employment and build a sustainable business.
-EXPERIENTIAL
-Events & Adventures
-Competitions, ultras and destination challenges that expand the brand beyond the dojo.
-SOCIAL IMPACT
-Limitless Next Gen
-The grassroots arm creating free access, youth pathways and community opportunity.
-FUTURE VISION
-Built to franchise one day.
-Clear identity
-A strong master brand that can stretch across coaching, apparel, locations, endurance events and competitions without losing coherence.
-Replicable system
-Services, event formats, tone, visual language and community standards designed to be repeatable as the brand grows.
-Local soul
-Even as the brand expands, it stays rooted in Moroccan culture, adventure, local partnerships and grassroots community spirit.
-Premium edge
-Minimal, classic and cool enough to scale beyond one location and attract partners, athletes, audiences and future franchisees.
-COMMUNITY VALUES
-What Go Limitless stands for.
-Rooted
-Built from local culture, lived experience and genuine connection.
-Disciplined
-Structured coaching and martial values without ego.
-Inclusive
-Open to all levels with space for women, youth and newcomers.
-Elevated
-A brand standard that feels strong enough to grow far beyond one rooftop.
-START HERE
-Choose your path.
-Train at the dojo, apply for coaching, support the community or follow the next event.
-LIMITLESS DOJO ONLINE COACHING LIMITLESS NEXT GEN
-TAMRAGHT • AGADIR • MOROCCO
-© 2026 Go Limitless. Train. Evolve. Go Limitless.
-Back to top ↑
-
+<section class="cta"><div class="wrap"><p class="eyebrow">Choose your path</p><h2 class="display">How limitless can you go?</h2><p>Train at the dojo. Apply for coaching. Join an event. Support the next generation.</p><div class="actions" style="justify-content:center"><a class="btn primary" href="https://www.instagram.com/limitless_dojo/">Start on Instagram ↗</a><a class="btn" href="#top">Back to top ↑</a></div></div></section>
+</main>
+<footer><div class="wrap foot"><div><div class="brand">GO <span>LIMITLESS</span></div><p>Tamraght · Agadir · Morocco<br>© 2026 Go Limitless</p></div><div class="social"><a href="https://www.instagram.com/limitless_dojo/">Dojo</a><a href="https://www.instagram.com/dannii_askari/">Founder</a><a href="https://www.instagram.com/limitlessnextgen/">Next Gen</a></div></div></footer>
+</body>
+</html>
