@@ -24,10 +24,20 @@
       align-items: center;
     }
     .founder-vision .photo-frame {
-      aspect-ratio: 4 / 5;
+      aspect-ratio: auto;
+      width: 100%;
+      max-width: 500px;
+      margin-inline: auto;
+      background: #24111f;
     }
     .founder-vision .photo-frame img {
-      object-position: center 38%;
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain !important;
+      object-position: center center !important;
+      filter: contrast(1.08) saturate(1.04);
+      image-rendering: auto;
     }
     .founder-dark-photo {
       background: #050505;
@@ -51,10 +61,14 @@
         margin-top: 24px;
       }
       .founder-vision .photo-frame {
-        aspect-ratio: 3 / 4;
+        aspect-ratio: auto;
+        max-width: 340px;
       }
       .founder-vision .photo-frame img {
-        object-position: center 35%;
+        width: 100%;
+        height: auto;
+        object-fit: contain !important;
+        object-position: center center !important;
       }
     }
   </style>
