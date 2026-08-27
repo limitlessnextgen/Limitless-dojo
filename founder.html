@@ -9,67 +9,14 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <style>
-    .founder-intro-photo {
-      margin-top: 28px;
-      aspect-ratio: 1 / 1;
-      max-width: 520px;
-    }
-    .founder-intro-photo img {
-      object-position: center 42%;
-    }
-    .founder-vision {
-      display: grid;
-      grid-template-columns: .9fr 1fr 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-    .founder-vision .photo-frame {
-      aspect-ratio: auto;
-      width: 100%;
-      max-width: 500px;
-      margin-inline: auto;
-      background: #24111f;
-    }
-    .founder-vision .photo-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain !important;
-      object-position: center center !important;
-      filter: contrast(1.08) saturate(1.04);
-      image-rendering: auto;
-    }
-    .founder-dark-photo {
-      background: #050505;
-    }
-    .founder-dark-photo img {
-      object-fit: contain !important;
-      object-position: center center !important;
-      background: #050505;
-    }
+    .founder-intro-photo { margin-top: 28px; aspect-ratio: 1 / 1; max-width: 520px; }
+    .founder-intro-photo img { object-position: center 42%; }
+    .founder-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .founder-dark-photo { background: #050505; }
+    .founder-dark-photo img { object-fit: contain !important; object-position: center center !important; background: #050505; }
     @media (max-width: 900px) {
-      .founder-vision {
-        grid-template-columns: 1fr;
-      }
-      .founder-vision .photo-frame,
-      .founder-intro-photo {
-        max-width: 560px;
-        width: 100%;
-        margin-inline: auto;
-      }
-      .founder-intro-photo {
-        margin-top: 24px;
-      }
-      .founder-vision .photo-frame {
-        aspect-ratio: auto;
-        max-width: 340px;
-      }
-      .founder-vision .photo-frame img {
-        width: 100%;
-        height: auto;
-        object-fit: contain !important;
-        object-position: center center !important;
-      }
+      .founder-vision { grid-template-columns: 1fr; }
+      .founder-intro-photo { max-width: 560px; width: 100%; margin-inline: auto; margin-top: 24px; }
     }
   </style>
 </head>
@@ -173,13 +120,9 @@
         <div>
           <p class="eyebrow">The vision</p>
           <h2 class="display section-title">A first female led dojo with community at its core.</h2>
-        </div>
-        <figure class="photo-frame">
-          <img src="assets/founder-vision-dojo.avif" alt="Danielle Askari seated inside Limitless Dojo beside the pink punch bag and Limitless wall">
-          <figcaption>Founder · Coach · Community builder</figcaption>
-        </figure>
-        <div>
           <p class="lead">Go Limitless is building a home where martial arts, strength and grassroots opportunity sit under one name.</p>
+        </div>
+        <div>
           <p>The aim is not simply to run classes. It is to make training feel open, create visible pathways for emerging athletes and show what can be built from the ground up.</p>
           <div class="actions">
             <a class="btn light" href="coaches.html">Meet the coaches</a>
