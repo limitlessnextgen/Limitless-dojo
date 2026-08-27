@@ -6,7 +6,7 @@ import { assetUrl } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Limitless Next Gen",
   description:
-    "Limitless Next Gen creates free sport, education and development opportunities for youth, women and emerging athletes in Tamraght.",
+    "Limitless Next Gen is a grassroots non-profit initiative creating free sport, education and development opportunities in Tamraght.",
 };
 
 export default function NextGenPage() {
@@ -30,13 +30,16 @@ export default function NextGenPage() {
           </div>
           <div>
             <p className="lead">
-              Limitless Next Gen is the social-impact arm of Go Limitless. It uses free sport and
-              education to build confidence, discipline, leadership and belonging.
+              Limitless Next Gen is the non-profit, social-impact arm of Go Limitless. For two
+              years, the work has been rooted in Tamraght, creating access through free sport,
+              education and community experiences.
             </p>
             <p>
-              It began locally, with limited resources and a belief that access can change the
-              direction of a young person’s life. Programmes connect martial arts, movement,
-              education and community experiences without cost becoming the barrier.
+              It began with free calisthenics and fitness sessions, using movement to bring people
+              together and make training more accessible. That grassroots foundation paved the way
+              for the Limitless Youth Project and the Limitless beach wrestling and grappling
+              competitions, creating pathways for young people and emerging athletes to build
+              confidence, compete, be seen and discover new opportunities.
             </p>
             <div className="button-row">
               <a className="button button-dark" href="https://www.instagram.com/limitlessnextgen/">
@@ -50,7 +53,7 @@ export default function NextGenPage() {
       <section className="impact-band" aria-label="Limitless Next Gen impact so far">
         <div className="shell impact-grid">
           <div>
-            <strong>1 YEAR</strong>
+            <strong>2 YEARS</strong>
             <span>Of grassroots work</span>
           </div>
           <div>
