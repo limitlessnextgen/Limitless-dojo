@@ -1,3 +1,11 @@
+(() => {
+  const responsiveStylesheet = document.createElement('link');
+  responsiveStylesheet.rel = 'stylesheet';
+  responsiveStylesheet.href = 'responsive.css';
+  responsiveStylesheet.dataset.siteResponsive = 'true';
+  document.head.appendChild(responsiveStylesheet);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.nav-links');
