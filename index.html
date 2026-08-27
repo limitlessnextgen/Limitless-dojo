@@ -1,1 +1,25 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505"><title>Limitless | Enter the Dojo</title><style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#050505}body{display:grid;place-items:center;overflow:hidden}.stage{position:relative;width:min(100vw,calc(100vh * 1.5));aspect-ratio:3/2;background:#050505}.stage img{display:block;width:100%;height:100%;object-fit:contain}.enter{position:absolute;left:38.3%;top:77.6%;width:23.4%;height:7.8%;border:0;background:transparent;cursor:pointer}.enter:focus-visible{outline:3px solid #c62d24;outline-offset:4px}@media(max-aspect-ratio:3/2){.stage{width:100vw;height:auto}}</style></head><body><main class="stage"><img src="assets/entry-limitless.webp" alt="Limitless dojo entry page"><a class="enter" href="home.html" aria-label="Enter the Limitless website"></a></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Enter Limitless, the home of martial arts and strength in Tamraght, Morocco.">
+  <title>Limitless | Enter the Dojo</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;height:100%;background:#050505;overflow:hidden}
+    .landing{position:fixed;inset:0;display:block;background:#050505;cursor:pointer}
+    .landing img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center}
+    .landing:focus-visible{outline:3px solid #d8b16e;outline-offset:-6px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media (max-aspect-ratio: 4/5){.landing img{object-position:center center}}
+  </style>
+</head>
+<body>
+  <a class="landing" href="home.html" aria-label="Enter the Limitless website">
+    <img src="assets/limitless-landing.jpg" alt="Limitless dojo landing page with the original gold emblem, gothic Limitless wordmark and Enter Dojo button">
+    <span class="sr-only">Enter the dojo</span>
+  </a>
+</body>
+</html>
