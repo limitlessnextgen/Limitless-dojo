@@ -66,9 +66,14 @@ export default function FounderPage() {
               creating opportunities one session at a time.
             </p>
             <p>
-              She went on to organise four grassroots beach wrestling and grappling competitions,
-              build free youth and women’s opportunities, and connect local athletes with coaches,
-              sponsors and audiences who could help them be seen.
+              For the past two years, Danielle has also led the grassroots non-profit work behind
+              Limitless Next Gen in Tamraght. It began with free calisthenics and fitness sessions,
+              using movement to bring people together and make training more accessible.
+            </p>
+            <p>
+              That foundation paved the way for the Limitless Youth Project and four Limitless
+              beach wrestling and grappling competitions, creating pathways for young people and
+              emerging athletes to train, compete, be seen and discover new opportunities.
             </p>
             <p>
               The purpose reaches beyond one rooftop. Go Limitless brings training, coaching,
