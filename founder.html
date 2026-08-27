@@ -125,7 +125,7 @@
           <h2 class="display section-title">A first female led dojo with community at its core.</h2>
           <p class="lead">Go Limitless is building a home where martial arts, strength and grassroots opportunity sit under one name.</p>
           <figure class="founder-vision-photo">
-            <img id="founder-vision-image" alt="Danielle Askari seated inside Limitless Dojo" width="1170" height="1849">
+            <img src="assets/founder-vision-dojo.jpg" alt="Danielle Askari seated inside Limitless Dojo" width="240" height="379" loading="lazy" decoding="async">
           </figure>
         </div>
         <div>
@@ -165,20 +165,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    (async () => {
-      const image = document.getElementById('founder-vision-image');
-      if (!image) return;
-      try {
-        const response = await fetch('assets/founder-vision-dojo.b64', { cache: 'no-store' });
-        if (!response.ok) throw new Error('Founder photo could not be loaded.');
-        const data = (await response.text()).replace(/\s+/g, '');
-        image.src = `data:image/jpeg;base64,${data}`;
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  </script>
 </body>
 </html>
