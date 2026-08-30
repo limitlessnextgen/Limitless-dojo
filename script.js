@@ -5,56 +5,88 @@
   responsiveStylesheet.dataset.siteResponsive = 'true';
   document.head.appendChild(responsiveStylesheet);
 
-  const whatsappStyles = document.createElement('style');
-  whatsappStyles.textContent = `
-    .whatsapp-float {
+  const utilityStyles = document.createElement('style');
+  utilityStyles.textContent = `
+    .whatsapp-float,
+    .back-to-top {
       position: fixed;
-      right: max(18px, env(safe-area-inset-right));
-      bottom: max(18px, env(safe-area-inset-bottom));
       z-index: 220;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      min-height: 54px;
-      padding: 0 17px;
-      border: 1px solid rgba(255,255,255,.35);
+      justify-content: center;
       border-radius: 999px;
-      background: #25d366;
-      color: #07150c;
       box-shadow: 0 12px 34px rgba(0,0,0,.32);
       font: 900 .72rem/1 Inter, Arial, sans-serif;
       letter-spacing: .08em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease, visibility .2s ease;
+    }
+    .whatsapp-float {
+      right: max(18px, env(safe-area-inset-right));
+      bottom: max(18px, env(safe-area-inset-bottom));
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 17px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: #25d366;
+      color: #07150c;
+    }
+    .back-to-top {
+      left: max(18px, env(safe-area-inset-left));
+      bottom: max(18px, env(safe-area-inset-bottom));
+      gap: 8px;
+      min-height: 50px;
+      padding: 0 16px;
+      border: 1px solid rgba(212,183,123,.7);
+      background: rgba(16,14,15,.94);
+      color: #f1e7d5;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+    }
+    .back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
     .whatsapp-float:hover,
-    .whatsapp-float:focus-visible {
+    .whatsapp-float:focus-visible,
+    .back-to-top:hover,
+    .back-to-top:focus-visible {
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(0,0,0,.38);
       outline: none;
     }
-    .whatsapp-float svg {
+    .whatsapp-float svg,
+    .back-to-top svg {
       width: 24px;
       height: 24px;
       flex: 0 0 auto;
       fill: currentColor;
     }
+    .back-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
     @media (max-width: 560px) {
-      .whatsapp-float {
+      .whatsapp-float,
+      .back-to-top {
         width: 56px;
         height: 56px;
         min-height: 56px;
         padding: 0;
-        justify-content: center;
       }
-      .whatsapp-float span { display: none; }
+      .whatsapp-float span,
+      .back-to-top span { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .whatsapp-float { transition: none; }
+      .whatsapp-float,
+      .back-to-top { transition: none; }
     }
   `;
-  document.head.appendChild(whatsappStyles);
+  document.head.appendChild(utilityStyles);
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,6 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
     <span>WhatsApp us</span>
   `;
   document.body.appendChild(whatsappButton);
+
+  const backToTopButton = document.createElement('button');
+  backToTopButton.className = 'back-to-top';
+  backToTopButton.type = 'button';
+  backToTopButton.setAttribute('aria-label', 'Back to top');
+  backToTopButton.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 4.5 4.5 12l1.9 1.9 4.25-4.25V20h2.7V9.65l4.25 4.25 1.9-1.9z"/>
+    </svg>
+    <span>Back to top</span>
+  `;
+  document.body.appendChild(backToTopButton);
+
+  const updateBackToTopVisibility = () => {
+    backToTopButton.classList.toggle('is-visible', window.scrollY > 500);
+  };
+
+  window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+  updateBackToTopVisibility();
+
+  backToTopButton.addEventListener('click', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
 
   const form = document.getElementById('class-enquiry-form');
   if (form) {
