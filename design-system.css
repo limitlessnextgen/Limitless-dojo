@@ -76,6 +76,7 @@ body {
 
 .section.plum { background: var(--plum); }
 .section.paper-deep { background: var(--ivory-deep); }
+.cta.dark { background: var(--ink); color: var(--ivory); border-top: 1px solid var(--line); }
 .card-number,
 .reviewer span { color: var(--plum); }
 .stars { color: var(--gold); }
