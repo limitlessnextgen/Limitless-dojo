@@ -1,18 +1,4 @@
 (() => {
-  const stylesheets = [
-    ['responsive.css', 'siteResponsive'],
-    ['design-system.css', 'siteDesignSystem']
-  ];
-
-  stylesheets.forEach(([href, key]) => {
-    if (document.querySelector(`link[href="${href}"]`)) return;
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = href;
-    stylesheet.dataset[key] = 'true';
-    document.head.appendChild(stylesheet);
-  });
-
   const utilityStyles = document.createElement('style');
   utilityStyles.textContent = `
     .whatsapp-float,
@@ -86,6 +72,25 @@
       .whatsapp-float span,
       .back-to-top span { display: none; }
     }
+
+    @media (max-width: 560px) {
+      .whatsapp-float,
+      .back-to-top {
+        width: 46px;
+        height: 46px;
+        min-height: 46px;
+        padding: 0;
+        bottom: max(10px, env(safe-area-inset-bottom));
+      }
+      .whatsapp-float { right: max(9px, env(safe-area-inset-right)); }
+      .back-to-top { left: max(9px, env(safe-area-inset-left)); }
+      body.has-mobile-times .whatsapp-float,
+      body.has-mobile-times .back-to-top {
+        bottom: calc(68px + env(safe-area-inset-bottom));
+      }
+      .whatsapp-float svg { width: 21px; height: 21px; }
+      .back-to-top svg { width: 18px; height: 18px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .whatsapp-float,
       .back-to-top { transition: none; }
@@ -95,6 +100,8 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('.mobile-times')) document.body.classList.add('has-mobile-times');
+
   document.querySelectorAll('a[href="home.html"]').forEach((link) => {
     link.setAttribute('href', 'index.html');
   });
@@ -157,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(backToTopButton);
 
   const updateBackToTopVisibility = () => {
-    backToTopButton.classList.toggle('is-visible', window.scrollY > 500);
+    backToTopButton.classList.toggle('is-visible', window.scrollY > 700);
   };
   window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
   updateBackToTopVisibility();
