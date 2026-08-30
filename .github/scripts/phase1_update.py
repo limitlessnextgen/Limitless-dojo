@@ -174,7 +174,11 @@ for required in ('menu-toggle', 'class-enquiry-form', 'whatsapp-float', 'back-to
         errors.append(f'script.js lost required behaviour: {required}')
 
 for file_path in [*html_pages, ROOT / 'script.js', ROOT / 'styles.css', ROOT / 'responsive.css', ROOT / 'design-system.css']:
-    if 'http://' in file_path.read_text(encoding='utf-8', errors='ignore'):
+    content = file_path.read_text(encoding='utf-8', errors='ignore')
+    # The W3C SVG namespace is an identifier inside a data URI, not a network
+    # request, so it is safe and should not be treated as mixed content.
+    content = content.replace('http://www.w3.org/2000/svg', '')
+    if 'http://' in content:
         errors.append(f'{file_path}: insecure http:// resource found')
 
 if errors:
