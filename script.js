@@ -1,9 +1,17 @@
 (() => {
-  const responsiveStylesheet = document.createElement('link');
-  responsiveStylesheet.rel = 'stylesheet';
-  responsiveStylesheet.href = 'responsive.css';
-  responsiveStylesheet.dataset.siteResponsive = 'true';
-  document.head.appendChild(responsiveStylesheet);
+  const stylesheets = [
+    ['responsive.css', 'siteResponsive'],
+    ['design-system.css', 'siteDesignSystem']
+  ];
+
+  stylesheets.forEach(([href, key]) => {
+    if (document.querySelector(`link[href="${href}"]`)) return;
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = href;
+    stylesheet.dataset[key] = 'true';
+    document.head.appendChild(stylesheet);
+  });
 
   const utilityStyles = document.createElement('style');
   utilityStyles.textContent = `
@@ -16,7 +24,7 @@
       justify-content: center;
       border-radius: 999px;
       box-shadow: 0 12px 34px rgba(0,0,0,.32);
-      font: 900 .72rem/1 Inter, Arial, sans-serif;
+      font: 800 .72rem/1 "Manrope", Arial, sans-serif;
       letter-spacing: .08em;
       text-transform: uppercase;
       text-decoration: none;
@@ -38,8 +46,8 @@
       gap: 8px;
       min-height: 50px;
       padding: 0 16px;
-      border: 1px solid rgba(212,183,123,.7);
-      background: rgba(16,14,15,.94);
+      border: 1px solid rgba(211,183,126,.7);
+      background: rgba(13,11,12,.95);
       color: #f1e7d5;
       cursor: pointer;
       opacity: 0;
@@ -66,10 +74,7 @@
       flex: 0 0 auto;
       fill: currentColor;
     }
-    .back-to-top svg {
-      width: 20px;
-      height: 20px;
-    }
+    .back-to-top svg { width: 20px; height: 20px; }
     @media (max-width: 560px) {
       .whatsapp-float,
       .back-to-top {
@@ -90,17 +95,26 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href="home.html"]').forEach((link) => {
+    link.setAttribute('href', 'index.html');
+  });
+
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {
+    const closeMenu = () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
     toggle.addEventListener('click', () => {
       const open = links.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
     });
-    links.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
+    links.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
   }
 
   const whatsappButton = document.createElement('a');
@@ -123,9 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
   backToTopButton.type = 'button';
   backToTopButton.setAttribute('aria-label', 'Back to top');
   backToTopButton.innerHTML = `
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M12 4.5 4.5 12l1.9 1.9 4.25-4.25V20h2.7V9.65l4.25 4.25 1.9-1.9z"/>
-    </svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4.5 4.5 12l1.9 1.9 4.25-4.25V20h2.7V9.65l4.25 4.25 1.9-1.9z"/></svg>
     <span>Back to top</span>
   `;
   document.body.appendChild(backToTopButton);
@@ -133,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateBackToTopVisibility = () => {
     backToTopButton.classList.toggle('is-visible', window.scrollY > 500);
   };
-
   window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
   updateBackToTopVisibility();
 
