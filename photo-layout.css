@@ -1,0 +1,101 @@
+/* Equal photo rows across the Go Limitless website */
+.photo-pair,
+.photo-trio,
+.image-card-grid,
+.tile-gallery,
+.gallery {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.photo-pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.photo-trio {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.photo-pair > .photo-frame,
+.photo-trio > .photo-frame,
+.tile-gallery > figure,
+.gallery > figure {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+.photo-pair .photo-frame img,
+.photo-trio .photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-card {
+  display: grid;
+  grid-template-rows: 320px minmax(0, 1fr);
+  height: 100%;
+}
+
+.image-card > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tile-gallery > figure img,
+.gallery > figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  .photo-trio {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-trio > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(50%, 520px);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .photo-pair,
+  .photo-trio,
+  .image-card-grid,
+  .tile-gallery,
+  .gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .photo-trio > :last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .image-card {
+    grid-template-rows: 300px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 430px) {
+  .image-card {
+    grid-template-rows: 270px minmax(0, 1fr);
+  }
+}
