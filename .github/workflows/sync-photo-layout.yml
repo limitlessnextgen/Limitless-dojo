@@ -1,0 +1,53 @@
+name: Sync photo layout stylesheet
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - photo-layout.css
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Load photo layout stylesheet on every page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          marker = '<link rel="stylesheet" href="design-system.css">'
+          addition = marker + '<link rel="stylesheet" href="photo-layout.css">'
+          changed = []
+
+          for page in sorted(Path('.').glob('*.html')):
+              text = page.read_text(encoding='utf-8')
+              if 'photo-layout.css' in text:
+                  continue
+              if marker not in text:
+                  raise SystemExit(f'Missing design-system stylesheet marker in {page}')
+              page.write_text(text.replace(marker, addition, 1), encoding='utf-8')
+              changed.append(page.name)
+
+          print('Updated:', ', '.join(changed) if changed else 'no pages needed changes')
+          PY
+
+      - name: Commit page updates
+        run: |
+          if git diff --quiet; then
+            echo "No HTML changes needed"
+            exit 0
+          fi
+          git config user.name "Go Limitless Website Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add '*.html'
+          git commit -m "Load equal photo layout across all pages"
+          git push origin main
