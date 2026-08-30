@@ -27,7 +27,13 @@ jobs:
           python-version: '3.12'
 
       - name: Apply Phase 1 improvements
-        run: python .github/scripts/phase1_update.py
+        run: |
+          python .github/scripts/phase1_update.py
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('design-system.css')
+          path.write_text(path.read_text(encoding='utf-8').rstrip() + '\n', encoding='utf-8')
+          PY
 
       - name: Validate whitespace and changed files
         run: |
