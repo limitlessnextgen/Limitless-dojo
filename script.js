@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (repeatedReviewIntro) repeatedReviewIntro.remove();
 
     const reviewsButton = reviewsSection?.querySelector('.actions a');
-    if (reviewsButton && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) {
+    const isHomepage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html');
+    if (reviewsButton && isHomepage) {
       reviewsButton.textContent = 'Read all Google reviews';
       reviewsButton.setAttribute('href', 'community.html#reviews');
     }
