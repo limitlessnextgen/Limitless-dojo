@@ -99,6 +99,19 @@ document.addEventListener('DOMContentLoaded', () => {
     link.setAttribute('href', 'index.html');
   });
 
+  const reviewsTrack = document.querySelector('.reviews-track');
+  if (reviewsTrack) {
+    const reviewsSection = reviewsTrack.closest('section');
+    const repeatedReviewIntro = reviewsSection?.querySelector('.section-head > .lead');
+    if (repeatedReviewIntro) repeatedReviewIntro.remove();
+
+    const reviewsButton = reviewsSection?.querySelector('.actions a');
+    if (reviewsButton && window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) {
+      reviewsButton.textContent = 'Read all Google reviews';
+      reviewsButton.setAttribute('href', 'community.html#reviews');
+    }
+  }
+
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {
