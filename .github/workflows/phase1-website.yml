@@ -1,5 +1,6 @@
 name: Phase 1 website improvements
 
+# One-time validated website update
 on:
   push:
     branches:
