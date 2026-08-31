@@ -4,6 +4,33 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Join the free Go Limitless Discord community forum for local members, travellers, nomads, athletes and martial artists across Morocco."><meta name="theme-color" content="#100e0f">
   <title>Discord Community Forum | Go Limitless</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="responsive.css"><link rel="stylesheet" href="design-system.css"><link rel="stylesheet" href="photo-layout.css"><script src="script.js" defer></script>
+  <style>
+    #discord .intro-grid {
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+      gap: clamp(2.5rem, 5vw, 5.5rem);
+      align-items: start;
+    }
+    #discord .discord-section-title {
+      max-width: none;
+      font-size: clamp(2.55rem, 4vw, 4.65rem);
+      line-height: .92;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+    }
+    @media (max-width: 900px) {
+      #discord .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      #discord .discord-section-title {
+        max-width: 13ch;
+        font-size: clamp(2.35rem, 10vw, 4rem);
+      }
+    }
+  </style>
 </head>
 <body><a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><nav class="wrap nav-shell" aria-label="Main navigation"><a class="wordmark" href="home.html">Go <span>Limitless</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><div class="nav-links" id="site-nav"><a href="founder.html">Founder</a><a href="coaches.html">Coaches</a><a href="classes.html">Classes</a><a href="timetable.html">Timetable</a><a href="coaching.html">Coaching</a><a href="events.html">Events</a><a href="community.html" aria-current="page">Community</a><a href="nextgen.html">Next Gen</a></div></nav></header>
@@ -13,7 +40,7 @@
     <section class="section"><div class="wrap intro-grid"><div><p class="eyebrow">Fitness · Martial arts · Community across Morocco</p><h2 class="display section-title">More than a dojo. A movement.</h2><div class="rule"></div></div><div><p class="lead">Limitless Dojo is our training base in Tamraght. Go Limitless is the wider movement bringing people together wherever we can train, compete, learn or meet.</p><p>Sometimes it is a major beach wrestling competition. Sometimes it is sunset Muay Thai, sandboarding, a Tap Me Out challenge, a free open mat or a spontaneous session with a few roll mats and whoever is nearby.</p></div></div></section>
 
     <section class="section dark" id="discord">
-      <div class="wrap intro-grid"><div><p class="eyebrow">The online home of the movement</p><h2 class="display section-title">A community forum for members and travellers.</h2><div class="rule"></div></div><div><p class="lead">The Go Limitless Discord is where the wider community connects, discovers what is happening and helps create the next event.</p><p>It is free and open to local members, Moroccan athletes, coaches, nomads, visitors, international travellers and anyone interested in fitness or martial arts.</p><div class="actions"><a class="btn gold" href="https://discord.gg/ZdepHuTgnm" target="_blank" rel="noopener noreferrer">Join the Discord Forum ↗</a></div></div></div>
+      <div class="wrap intro-grid"><div><p class="eyebrow">The online home of the movement</p><h2 class="display section-title discord-section-title">A community forum for members and travellers.</h2><div class="rule"></div></div><div><p class="lead">The Go Limitless Discord is where the wider community connects, discovers what is happening and helps create the next event.</p><p>It is free and open to local members, Moroccan athletes, coaches, nomads, visitors, international travellers and anyone interested in fitness or martial arts.</p><div class="actions"><a class="btn gold" href="https://discord.gg/ZdepHuTgnm" target="_blank" rel="noopener noreferrer">Join the Discord Forum ↗</a></div></div></div>
       <div class="wrap card-grid two">
         <article class="card"><div class="card-number">01</div><h3>Go Limitless Events</h3><p>Find beach wrestling competitions, sunset Muay Thai, Tap Me Out challenges, free open mats, sandboarding and social meetups organised by Go Limitless.</p></article>
         <article class="card"><div class="card-number">02</div><h3>Pop Ups Across Morocco</h3><p>We post a location, bring a few roll mats, see who is around and create the energy together. The movement can happen anywhere.</p></article>
