@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pricingLink = createLink('pricing.html', 'Pricing');
     const teamLink = createLink('coaches.html', 'Meet the Team');
     const communityLink = createLink('community.html', 'Community');
-    const aboutLink = createLink('founder.html', 'About');
+    const aboutLink = createLink('founder.html', 'Our Story');
 
     if (path.endsWith('/classes.html') || path.endsWith('/timetable.html')) {
       trainLink.setAttribute('aria-current', 'page');
