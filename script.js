@@ -35,24 +35,6 @@
       background: #5865f2;
       color: #fff;
     }
-    .discord-nav-link {
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
-      padding: .68rem .95rem !important;
-      border: 1px solid rgba(255,255,255,.38) !important;
-      border-radius: 999px;
-      background: #5865f2;
-      color: #fff !important;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    .discord-nav-link:hover,
-    .discord-nav-link:focus-visible {
-      background: #6d78f6;
-      color: #fff !important;
-      outline: none;
-    }
     .back-to-top {
       left: max(18px, env(safe-area-inset-left));
       bottom: max(18px, env(safe-area-inset-bottom));
@@ -114,10 +96,6 @@
         font-size: .64rem;
       }
       .discord-float svg { width: 21px; height: 21px; }
-      .discord-nav-link {
-        width: 100%;
-        margin-top: .35rem;
-      }
 
       body.has-mobile-times .whatsapp-float,
       body.has-mobile-times .back-to-top {
@@ -154,29 +132,52 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.nav-links').forEach((nav) => {
-    let pricingLink = nav.querySelector('a[href="pricing.html"]');
-    if (!pricingLink) {
-      pricingLink = document.createElement('a');
-      pricingLink.href = 'pricing.html';
-      pricingLink.textContent = 'Pricing';
-      const coachingLink = nav.querySelector('a[href="coaching.html"]');
-      const navCta = nav.querySelector('.nav-cta');
-      nav.insertBefore(pricingLink, coachingLink || navCta || null);
+    nav.querySelectorAll('.discord-nav-link, a[href^="https://discord.gg/"]').forEach((link) => link.remove());
+    nav.querySelectorAll('a[href="coaches.html"]').forEach((link) => link.remove());
+
+    const ensureLink = (href, label, className = '') => {
+      let link = nav.querySelector(`a[href="${href}"]`);
+      if (!link) {
+        link = document.createElement('a');
+        link.href = href;
+        nav.appendChild(link);
+      }
+      link.textContent = label;
+      if (className) link.classList.add(className);
+      return link;
+    };
+
+    let tryClassLink = nav.querySelector('.nav-cta');
+    if (!tryClassLink) {
+      tryClassLink = document.createElement('a');
+      tryClassLink.className = 'nav-cta';
+      nav.appendChild(tryClassLink);
     }
+    tryClassLink.href = 'classes.html#enquire';
+    tryClassLink.textContent = 'Try a class';
+
+    const trainLink = ensureLink('classes.html', 'Train');
+    const timetableLink = ensureLink('timetable.html', 'Timetable');
+    const pricingLink = ensureLink('pricing.html', 'Pricing');
+    const coachingLink = ensureLink('coaching.html', 'Coaching');
+    const eventsLink = ensureLink('events.html', 'Events');
+    const communityLink = ensureLink('community.html', 'Community');
+    const nextGenLink = ensureLink('nextgen.html', 'Next Gen');
+    const founderLink = ensureLink('founder.html', 'Founder');
+
     if (isPricingPage) pricingLink.setAttribute('aria-current', 'page');
 
-    let discordNavLink = nav.querySelector(`a[href="${DISCORD_URL}"]`);
-    if (!discordNavLink) {
-      discordNavLink = document.createElement('a');
-      discordNavLink.href = DISCORD_URL;
-      discordNavLink.textContent = 'Discord Forum ↗';
-      discordNavLink.className = 'discord-nav-link';
-      discordNavLink.target = '_blank';
-      discordNavLink.rel = 'noopener noreferrer';
-      discordNavLink.setAttribute('aria-label', 'Open the Go Limitless Discord community forum in a new tab');
-      const nextGenLink = nav.querySelector('a[href="nextgen.html"]');
-      nav.insertBefore(discordNavLink, nextGenLink || null);
-    }
+    [
+      tryClassLink,
+      trainLink,
+      timetableLink,
+      pricingLink,
+      coachingLink,
+      eventsLink,
+      communityLink,
+      nextGenLink,
+      founderLink
+    ].forEach((link) => nav.appendChild(link));
   });
 
   document.querySelectorAll('.footer-links').forEach((footerLinks) => {
@@ -189,15 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
       footerLinks.insertBefore(pricingLink, firstExternalLink || null);
     }
 
-    if (!footerLinks.querySelector(`a[href="${DISCORD_URL}"]`)) {
-      const discordLink = document.createElement('a');
-      discordLink.href = DISCORD_URL;
-      discordLink.textContent = 'Discord Community Forum';
-      discordLink.target = '_blank';
-      discordLink.rel = 'noopener noreferrer';
-      discordLink.setAttribute('aria-label', 'Join the Go Limitless Discord community forum');
-      footerLinks.appendChild(discordLink);
-    }
+    footerLinks.querySelectorAll(`a[href="${DISCORD_URL}"]`).forEach((link) => link.remove());
   });
 
   if (isCommunityPage && !document.getElementById('discord')) {
