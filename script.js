@@ -132,52 +132,38 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.nav-links').forEach((nav) => {
-    nav.querySelectorAll('.discord-nav-link, a[href^="https://discord.gg/"]').forEach((link) => link.remove());
-    nav.querySelectorAll('a[href="coaches.html"]').forEach((link) => link.remove());
+    nav.innerHTML = '';
 
-    const ensureLink = (href, label, className = '') => {
-      let link = nav.querySelector(`a[href="${href}"]`);
-      if (!link) {
-        link = document.createElement('a');
-        link.href = href;
-        nav.appendChild(link);
-      }
+    const createLink = (href, label, className = '') => {
+      const link = document.createElement('a');
+      link.href = href;
       link.textContent = label;
-      if (className) link.classList.add(className);
+      if (className) link.className = className;
       return link;
     };
 
-    let tryClassLink = nav.querySelector('.nav-cta');
-    if (!tryClassLink) {
-      tryClassLink = document.createElement('a');
-      tryClassLink.className = 'nav-cta';
-      nav.appendChild(tryClassLink);
+    const trainLink = createLink('classes.html', 'Train', 'nav-cta');
+    const pricingLink = createLink('pricing.html', 'Pricing');
+    const teamLink = createLink('coaches.html', 'Meet the Team');
+    const communityLink = createLink('community.html', 'Community');
+    const aboutLink = createLink('founder.html', 'About');
+
+    if (path.endsWith('/classes.html') || path.endsWith('/timetable.html')) {
+      trainLink.setAttribute('aria-current', 'page');
     }
-    tryClassLink.href = 'classes.html#enquire';
-    tryClassLink.textContent = 'Try a class';
-
-    const trainLink = ensureLink('classes.html', 'Train');
-    const timetableLink = ensureLink('timetable.html', 'Timetable');
-    const pricingLink = ensureLink('pricing.html', 'Pricing');
-    const coachingLink = ensureLink('coaching.html', 'Coaching');
-    const eventsLink = ensureLink('events.html', 'Events');
-    const communityLink = ensureLink('community.html', 'Community');
-    const nextGenLink = ensureLink('nextgen.html', 'Next Gen');
-    const founderLink = ensureLink('founder.html', 'Founder');
-
     if (isPricingPage) pricingLink.setAttribute('aria-current', 'page');
+    if (path.endsWith('/coaches.html') || path.endsWith('/coaching.html')) {
+      teamLink.setAttribute('aria-current', 'page');
+    }
+    if (path.endsWith('/community.html') || path.endsWith('/events.html')) {
+      communityLink.setAttribute('aria-current', 'page');
+    }
+    if (path.endsWith('/founder.html') || path.endsWith('/nextgen.html')) {
+      aboutLink.setAttribute('aria-current', 'page');
+    }
 
-    [
-      tryClassLink,
-      trainLink,
-      timetableLink,
-      pricingLink,
-      coachingLink,
-      eventsLink,
-      communityLink,
-      nextGenLink,
-      founderLink
-    ].forEach((link) => nav.appendChild(link));
+    [trainLink, pricingLink, teamLink, communityLink, aboutLink]
+      .forEach((link) => nav.appendChild(link));
   });
 
   document.querySelectorAll('.footer-links').forEach((footerLinks) => {
@@ -192,6 +178,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     footerLinks.querySelectorAll(`a[href="${DISCORD_URL}"]`).forEach((link) => link.remove());
   });
+
+  if (isCommunityPage) {
+    const heroActions = document.querySelector('.page-hero .actions');
+    if (heroActions && !heroActions.querySelector('a[href="events.html"]')) {
+      const eventsLink = document.createElement('a');
+      eventsLink.className = 'btn light';
+      eventsLink.href = 'events.html';
+      eventsLink.textContent = 'Explore Limitless Events';
+      heroActions.appendChild(eventsLink);
+    }
+  }
 
   if (isCommunityPage && !document.getElementById('discord')) {
     const discordSection = document.createElement('section');
