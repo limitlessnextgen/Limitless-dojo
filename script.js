@@ -260,19 +260,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const discordButton = document.createElement('a');
-  discordButton.className = 'discord-float';
-  discordButton.href = DISCORD_URL;
-  discordButton.target = '_blank';
-  discordButton.rel = 'noopener noreferrer';
-  discordButton.setAttribute('aria-label', 'Open the Go Limitless Discord community forum');
-  discordButton.innerHTML = `
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M4 4h16v12H8l-4 4V4zm4 5v2h2V9H8zm3 0v2h2V9h-2zm3 0v2h2V9h-2z"/>
-    </svg>
-    <span>Discord Forum</span>
-  `;
-  document.body.appendChild(discordButton);
+  if (isCommunityPage) {
+    const discordButton = document.createElement('a');
+    discordButton.className = 'discord-float';
+    discordButton.href = DISCORD_URL;
+    discordButton.target = '_blank';
+    discordButton.rel = 'noopener noreferrer';
+    discordButton.setAttribute('aria-label', 'Open the Go Limitless Discord community forum');
+    discordButton.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 4h16v12H8l-4 4V4zm4 5v2h2V9H8zm3 0v2h2V9h-2zm3 0v2h2V9h-2z"/>
+      </svg>
+      <span>Discord Forum</span>
+    `;
+    document.body.appendChild(discordButton);
+  }
 
   const whatsappButton = document.createElement('a');
   whatsappButton.className = 'whatsapp-float';
