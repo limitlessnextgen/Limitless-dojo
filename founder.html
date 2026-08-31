@@ -12,11 +12,21 @@
     .founder-intro-photo { margin-top: 28px; aspect-ratio: 1 / 1; max-width: 520px; }
     .founder-intro-photo img { object-position: center 42%; }
     .founder-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
-    .founder-dark-photo { background: #050505; }
-    .founder-dark-photo img { object-fit: contain !important; object-position: center center !important; background: #050505; }
+    .founder-dark-photo {
+      aspect-ratio: 4 / 3 !important;
+      background: #050505;
+    }
+    .founder-dark-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover !important;
+      object-position: center 48% !important;
+      background: #050505;
+    }
     @media (max-width: 900px) {
       .founder-vision { grid-template-columns: 1fr; }
       .founder-intro-photo { max-width: 560px; width: 100%; margin-inline: auto; margin-top: 24px; }
+      .founder-dark-photo { aspect-ratio: 4 / 3 !important; }
     }
   </style>
 </head>
@@ -84,7 +94,7 @@
           <p>That movement needed a home. With 500 MAD of second hand mats laid across the roof of her home in Tamraght, a rooftop with no limits was born.</p>
           <p>What began as a small place to train grew into Limitless Dojo, women’s classes, open mats, athlete led events and Limitless Next Gen, creating access, visibility and belonging for young people and emerging athletes.</p>
         </div>
-        <figure class="photo-frame portrait-frame founder-dark-photo">
+        <figure class="photo-frame founder-dark-photo">
           <img src="assets/danielle-martial-arts.webp" alt="Danielle Askari at the Limitless dojo">
           <figcaption>Still learning · Still rebuilding</figcaption>
         </figure>
