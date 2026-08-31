@@ -145,12 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
     discordSection.innerHTML = `
       <div class="wrap intro-grid">
         <div>
-          <p class="eyebrow">Go Limitless online community</p>
-          <h2 class="display section-title">Stay connected beyond training.</h2>
+          <p class="eyebrow">Local roots · Global community</p>
+          <h2 class="display section-title">Stay connected wherever you are.</h2>
           <div class="rule"></div>
         </div>
         <div>
-          <p class="lead">Join our Discord to meet members, follow class and event updates, share your progress and stay connected with the Go Limitless community.</p>
+          <p class="lead">Join locals, Moroccan athletes, nomads, visitors and international members. Discover free community events and educational content, follow what is happening, join discussions, arrange meetups and find events across Morocco.</p>
           <div class="actions">
             <a class="btn gold" href="${DISCORD_URL}" target="_blank" rel="noopener noreferrer">Join our Discord</a>
           </div>
