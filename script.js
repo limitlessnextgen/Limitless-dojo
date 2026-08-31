@@ -64,18 +64,6 @@
     @media (max-width: 560px) {
       .whatsapp-float,
       .back-to-top {
-        width: 56px;
-        height: 56px;
-        min-height: 56px;
-        padding: 0;
-      }
-      .whatsapp-float span,
-      .back-to-top span { display: none; }
-    }
-
-    @media (max-width: 560px) {
-      .whatsapp-float,
-      .back-to-top {
         width: 46px;
         height: 46px;
         min-height: 46px;
@@ -88,6 +76,8 @@
       body.has-mobile-times .back-to-top {
         bottom: calc(68px + env(safe-area-inset-bottom));
       }
+      .whatsapp-float span,
+      .back-to-top span { display: none; }
       .whatsapp-float svg { width: 21px; height: 21px; }
       .back-to-top svg { width: 18px; height: 18px; }
     }
@@ -100,13 +90,19 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector('.mobile-times')) document.body.classList.add('has-mobile-times');
+  const DISCORD_URL = 'https://discord.gg/ZdepHuTgnm';
+  const path = window.location.pathname;
+  const isHomepage = path.endsWith('/') || path.endsWith('/index.html');
+  const isPricingPage = path.endsWith('/pricing.html');
+  const isCommunityPage = path.endsWith('/community.html');
+
+  if (document.querySelector('.mobile-times')) {
+    document.body.classList.add('has-mobile-times');
+  }
 
   document.querySelectorAll('a[href="home.html"]').forEach((link) => {
     link.setAttribute('href', 'index.html');
   });
-
-  const isPricingPage = window.location.pathname.endsWith('/pricing.html');
 
   document.querySelectorAll('.nav-links').forEach((nav) => {
     let pricingLink = nav.querySelector('a[href="pricing.html"]');
@@ -122,13 +118,54 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.footer-links').forEach((footerLinks) => {
-    if (footerLinks.querySelector('a[href="pricing.html"]')) return;
-    const pricingLink = document.createElement('a');
-    pricingLink.href = 'pricing.html';
-    pricingLink.textContent = 'Pricing';
-    const firstExternalLink = [...footerLinks.querySelectorAll('a')].find((link) => link.href.startsWith('http'));
-    footerLinks.insertBefore(pricingLink, firstExternalLink || null);
+    if (!footerLinks.querySelector('a[href="pricing.html"]')) {
+      const pricingLink = document.createElement('a');
+      pricingLink.href = 'pricing.html';
+      pricingLink.textContent = 'Pricing';
+      const firstExternalLink = [...footerLinks.querySelectorAll('a')]
+        .find((link) => link.href.startsWith('http'));
+      footerLinks.insertBefore(pricingLink, firstExternalLink || null);
+    }
+
+    if (!footerLinks.querySelector(`a[href="${DISCORD_URL}"]`)) {
+      const discordLink = document.createElement('a');
+      discordLink.href = DISCORD_URL;
+      discordLink.textContent = 'Discord';
+      discordLink.target = '_blank';
+      discordLink.rel = 'noopener noreferrer';
+      discordLink.setAttribute('aria-label', 'Join the Go Limitless community on Discord');
+      footerLinks.appendChild(discordLink);
+    }
   });
+
+  if (isCommunityPage && !document.getElementById('discord')) {
+    const discordSection = document.createElement('section');
+    discordSection.className = 'section dark';
+    discordSection.id = 'discord';
+    discordSection.innerHTML = `
+      <div class="wrap intro-grid">
+        <div>
+          <p class="eyebrow">Go Limitless online community</p>
+          <h2 class="display section-title">Stay connected beyond training.</h2>
+          <div class="rule"></div>
+        </div>
+        <div>
+          <p class="lead">Join our Discord to meet members, follow class and event updates, share your progress and stay connected with the Go Limitless community.</p>
+          <div class="actions">
+            <a class="btn gold" href="${DISCORD_URL}" target="_blank" rel="noopener noreferrer">Join our Discord</a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const hero = document.querySelector('.page-hero');
+    const introSection = hero?.nextElementSibling;
+    if (introSection) {
+      introSection.insertAdjacentElement('afterend', discordSection);
+    } else {
+      document.querySelector('main')?.appendChild(discordSection);
+    }
+  }
 
   const reviewsTrack = document.querySelector('.reviews-track');
   if (reviewsTrack) {
@@ -137,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (repeatedReviewIntro) repeatedReviewIntro.remove();
 
     const reviewsButton = reviewsSection?.querySelector('.actions a');
-    const isHomepage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html');
     if (reviewsButton && isHomepage) {
       reviewsButton.textContent = 'Read all Google reviews';
       reviewsButton.setAttribute('href', 'community.html#reviews');
