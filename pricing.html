@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="View Limitless Dojo, rooftop strength, women’s strength and private coaching prices in Tamraght, Morocco.">
+  <meta name="description" content="View Limitless Dojo, combined strength membership and private coaching prices in Tamraght, Morocco.">
   <meta name="theme-color" content="#100e0f">
   <title>Pricing | Go Limitless</title>
   <link rel="stylesheet" href="styles.css">
@@ -13,15 +13,15 @@
   <style>
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
       align-items: stretch;
     }
     .price-card {
       display: flex;
       flex-direction: column;
       min-height: 100%;
-      padding: clamp(26px, 3.5vw, 44px);
+      padding: clamp(28px, 4vw, 50px);
       border: 1px solid var(--line);
       background: rgba(255,255,255,.28);
       box-shadow: var(--shadow);
@@ -35,29 +35,43 @@
     .price-card h2 {
       margin: 0 0 14px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 3.3rem);
       line-height: .96;
       text-transform: uppercase;
     }
     .price-card > p { margin-top: 0; }
+    .included-list {
+      margin: 18px 0 0;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      background: rgba(174,134,80,.08);
+    }
+    .included-list strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .included-list p { margin: 0; }
     .price-list {
       margin: 24px 0 0;
       border-top: 1px solid var(--line);
     }
     .price-row {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
       align-items: start;
-      padding: 20px 0;
+      padding: 22px 0;
       border-bottom: 1px solid var(--line);
     }
     .price-row h3 { margin: 0 0 5px; font-size: 1rem; }
     .price-row p { margin: 0; font-size: .9rem; opacity: .78; }
     .price {
-      text-align: left;
+      text-align: right;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      font-size: clamp(1.8rem, 3vw, 2.55rem);
       font-weight: 700;
       line-height: .95;
       white-space: nowrap;
@@ -73,13 +87,14 @@
     }
     .local-rate {
       margin-top: 22px;
-      padding: 20px;
+      padding: 22px;
       border: 1px solid var(--line);
       background: var(--ivory-deep);
+      color: var(--ink);
     }
     .local-rate h3 { margin: 0 0 8px; }
     .local-rate p { margin: 0 0 14px; }
-    .price-card .actions { margin-top: auto; padding-top: 26px; }
+    .price-card .actions { margin-top: auto; padding-top: 28px; }
     .membership-note {
       padding: clamp(24px, 4vw, 38px);
       border-left: 4px solid var(--gold);
@@ -92,14 +107,11 @@
       gap: clamp(34px, 7vw, 80px);
       align-items: center;
     }
-    @media (max-width: 1040px) {
-      .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .price-card.women-card { grid-column: 1 / -1; }
-    }
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
       .pricing-grid,
       .private-grid { grid-template-columns: 1fr; }
-      .price-card.women-card { grid-column: auto; }
+      .price-row { grid-template-columns: 1fr; }
+      .price { text-align: left; }
     }
   </style>
   <script src="script.js" defer></script>
@@ -130,23 +142,23 @@
       <div class="wrap page-hero-content">
         <p class="eyebrow">Simple options · Clear memberships</p>
         <h1 class="display">Training prices.</h1>
-        <p class="hero-lead">Choose dojo martial arts, rooftop strength, women’s strength or private coaching. Each service is a separate membership.</p>
+        <p class="hero-lead">Choose the Limitless Dojo membership or the combined Strength membership. Private coaching is booked separately.</p>
         <div class="actions">
-          <a class="btn gold" href="#passes">View passes</a>
+          <a class="btn gold" href="#passes">View memberships</a>
           <a class="btn light" href="timetable.html">View timetable</a>
         </div>
       </div>
     </section>
 
-    <div class="ticker">Dojo · Rooftop strength · Women’s strength · Separate memberships</div>
+    <div class="ticker">Two memberships · Limitless Dojo · Combined Strength Classes</div>
 
     <section class="section" id="passes">
       <div class="wrap section-head">
         <div>
           <p class="eyebrow">International Nomad Pass</p>
-          <h2 class="display section-title">Choose where you train.</h2>
+          <h2 class="display section-title">Choose your membership.</h2>
         </div>
-        <p class="lead">The same international visitor rates apply to the dojo, rooftop strength and women’s strength classes.</p>
+        <p class="lead">The dojo is one membership. Women’s strength and rooftop strength are combined in one strength membership.</p>
       </div>
 
       <div class="wrap pricing-grid">
@@ -172,51 +184,34 @@
         </article>
 
         <article class="price-card">
-          <p class="eyebrow">International Nomad Pass</p>
-          <h2>Rooftop Strength</h2>
-          <p>For scheduled rooftop strength and conditioning group sessions in Tamraght.</p>
-          <div class="price-list">
-            <div class="price-row">
-              <div><h3>Monthly Unlimited</h3><p>Unlimited scheduled rooftop strength sessions for one month.</p></div>
-              <div class="price">500 MAD<small>Per month</small></div>
-            </div>
-            <div class="price-row">
-              <div><h3>4 Class Multi Pack</h3><p>Four rooftop strength sessions. Valid for 14 days.</p></div>
-              <div class="price">320 MAD<small>4 classes</small></div>
-            </div>
-            <div class="price-row">
-              <div><h3>Pay As You Go Drop In</h3><p>One scheduled rooftop strength session.</p></div>
-              <div class="price">100 MAD<small>Per class</small></div>
-            </div>
-          </div>
-          <div class="actions"><a class="btn primary" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20to%20book%20a%20rooftop%20strength%20session.">Book rooftop strength</a></div>
-        </article>
-
-        <article class="price-card women-card">
           <p class="eyebrow">International and Local Options</p>
-          <h2>Women’s Strength Classes</h2>
-          <p>Individualised strength coaching in a supportive group setting at Nassim Gym, Tamraght.</p>
+          <h2>Strength Membership</h2>
+          <p>One combined membership covering women’s strength classes at Nassim Gym and scheduled rooftop strength and conditioning classes.</p>
+          <div class="included-list">
+            <strong>Included in one membership</strong>
+            <p>Women’s Strength Classes + Rooftop Strength Classes</p>
+          </div>
           <div class="price-list">
             <div class="price-row">
-              <div><h3>Nomad Monthly Unlimited</h3><p>Unlimited scheduled women’s strength sessions for one month.</p></div>
+              <div><h3>Nomad Monthly Unlimited</h3><p>Unlimited scheduled women’s strength and rooftop strength classes for one month.</p></div>
               <div class="price">500 MAD<small>Per month</small></div>
             </div>
             <div class="price-row">
-              <div><h3>Nomad 4 Class Multi Pack</h3><p>Four women’s strength sessions. Valid for 14 days.</p></div>
+              <div><h3>Nomad 4 Class Multi Pack</h3><p>Use four classes across women’s strength or rooftop strength. Valid for 14 days.</p></div>
               <div class="price">320 MAD<small>4 classes</small></div>
             </div>
             <div class="price-row">
-              <div><h3>Nomad Pay As You Go</h3><p>One scheduled women’s strength session.</p></div>
+              <div><h3>Nomad Pay As You Go</h3><p>One scheduled women’s strength or rooftop strength class.</p></div>
               <div class="price">100 MAD<small>Per class</small></div>
             </div>
           </div>
           <div class="local-rate">
             <p class="eyebrow">Local Moroccan Community</p>
             <h3>Local Women’s Monthly</h3>
-            <p>Unlimited scheduled women’s strength sessions. Moroccan identification is required.</p>
+            <p>Unlimited scheduled women’s strength and rooftop strength classes. Moroccan identification is required.</p>
             <div class="price">200 MAD<small>Per month</small></div>
           </div>
-          <div class="actions"><a class="btn primary" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20to%20join%20the%20women%E2%80%99s%20strength%20classes.">Enquire about women’s strength</a></div>
+          <div class="actions"><a class="btn primary" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20to%20join%20the%20combined%20strength%20membership.">Enquire about strength membership</a></div>
         </article>
       </div>
     </section>
@@ -224,8 +219,8 @@
     <section class="section paper-deep">
       <div class="wrap membership-note">
         <p class="eyebrow">Important membership information</p>
-        <h3>All three memberships are separate.</h3>
-        <p>A dojo membership covers dojo martial arts sessions only. A rooftop strength membership covers rooftop strength sessions only. A women’s strength membership covers the scheduled women’s classes at Nassim Gym only. The international prices are the same, but access is not combined. Private coaching is also priced separately.</p>
+        <h3>The dojo and strength memberships are separate.</h3>
+        <p>The Limitless Dojo membership covers scheduled martial arts classes. The Strength membership combines women’s strength classes and rooftop strength classes under one membership. Private coaching is also priced separately.</p>
       </div>
     </section>
 
