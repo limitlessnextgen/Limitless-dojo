@@ -74,6 +74,140 @@
     }
     .back-to-top svg { width: 20px; height: 20px; }
 
+    .nav-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .nav-group-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 40px;
+      padding: 8px 2px;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      color: inherit;
+      font: 900 .67rem/1.2 "Manrope", Arial, sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .nav-group-toggle::after {
+      content: "⌄";
+      display: inline-block;
+      color: #d3b77e;
+      font-size: .9rem;
+      line-height: 1;
+      transform: translateY(-1px);
+      transition: transform .2s ease;
+    }
+    .nav-group.open .nav-group-toggle::after {
+      transform: rotate(180deg) translateY(1px);
+    }
+    .nav-group-toggle:hover,
+    .nav-group-toggle:focus-visible,
+    .nav-group-toggle.is-active {
+      color: #d3b77e;
+      border-color: currentColor;
+      outline: none;
+    }
+    .nav-group-primary .nav-group-toggle {
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid #b08a52;
+      background: #b08a52;
+      color: #0d0b0c;
+    }
+    .nav-group-primary .nav-group-toggle::after {
+      color: #0d0b0c;
+    }
+    .nav-submenu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      z-index: 260;
+      display: none;
+      width: max-content;
+      min-width: 230px;
+      padding: 9px;
+      border: 1px solid rgba(176,138,82,.48);
+      background: rgba(13,11,12,.99);
+      box-shadow: 0 18px 48px rgba(0,0,0,.42);
+    }
+    .nav-group:hover .nav-submenu,
+    .nav-group:focus-within .nav-submenu,
+    .nav-group.open .nav-submenu {
+      display: block;
+    }
+    .nav-submenu a {
+      display: block !important;
+      width: 100% !important;
+      padding: 11px 12px !important;
+      border: 0 !important;
+      border-bottom: 1px solid rgba(241,231,213,.12) !important;
+      color: #f1e7d5 !important;
+      font-size: .65rem !important;
+      line-height: 1.35;
+      text-align: left;
+      white-space: normal;
+    }
+    .nav-submenu a:last-child {
+      border-bottom: 0 !important;
+    }
+    .nav-submenu a:hover,
+    .nav-submenu a:focus-visible,
+    .nav-submenu a[aria-current="page"] {
+      background: rgba(176,138,82,.16);
+      color: #d3b77e !important;
+      outline: none;
+    }
+
+    @media (max-width: 1040px) {
+      .nav-group {
+        display: block;
+        width: 100%;
+      }
+      .nav-group-toggle,
+      .nav-group-primary .nav-group-toggle {
+        width: 100%;
+        min-height: 48px;
+        justify-content: space-between;
+        padding: 13px 6px;
+        border: 0;
+        border-bottom: 1px solid rgba(241,231,213,.15);
+        background: transparent;
+        color: #f1e7d5;
+        text-align: left;
+      }
+      .nav-group-primary .nav-group-toggle::after {
+        color: #d3b77e;
+      }
+      .nav-group .nav-submenu {
+        position: static;
+        display: none !important;
+        width: 100%;
+        min-width: 0;
+        padding: 2px 0 8px 14px;
+        border: 0;
+        background: #171316;
+        box-shadow: none;
+      }
+      .nav-group.open .nav-submenu {
+        display: block !important;
+      }
+      .nav-submenu a {
+        min-height: 44px;
+        display: flex !important;
+        align-items: center;
+        padding: 10px 12px !important;
+        font-size: .68rem !important;
+      }
+    }
+
     @media (max-width: 560px) {
       .whatsapp-float,
       .back-to-top {
@@ -110,7 +244,8 @@
     @media (prefers-reduced-motion: reduce) {
       .whatsapp-float,
       .discord-float,
-      .back-to-top { transition: none; }
+      .back-to-top,
+      .nav-group-toggle::after { transition: none; }
     }
   `;
   document.head.appendChild(utilityStyles);
@@ -134,36 +269,95 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.nav-links').forEach((nav) => {
     nav.innerHTML = '';
 
-    const createLink = (href, label, className = '') => {
+    const createLink = (href, label, options = {}) => {
       const link = document.createElement('a');
       link.href = href;
       link.textContent = label;
-      if (className) link.className = className;
+      if (options.external) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
+      if (options.current) link.setAttribute('aria-current', 'page');
       return link;
     };
 
-    const trainLink = createLink('classes.html', 'Train', 'nav-cta');
-    const pricingLink = createLink('pricing.html', 'Pricing');
-    const teamLink = createLink('coaches.html', 'Meet the Team');
-    const communityLink = createLink('community.html', 'Community');
-    const aboutLink = createLink('founder.html', 'Our Story');
+    const closeGroups = (except = null) => {
+      nav.querySelectorAll('.nav-group.open').forEach((group) => {
+        if (group === except) return;
+        group.classList.remove('open');
+        group.querySelector('.nav-group-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+    };
 
-    if (path.endsWith('/classes.html') || path.endsWith('/timetable.html')) {
-      trainLink.setAttribute('aria-current', 'page');
-    }
-    if (isPricingPage) pricingLink.setAttribute('aria-current', 'page');
-    if (path.endsWith('/coaches.html') || path.endsWith('/coaching.html')) {
-      teamLink.setAttribute('aria-current', 'page');
-    }
-    if (path.endsWith('/community.html') || path.endsWith('/events.html')) {
-      communityLink.setAttribute('aria-current', 'page');
-    }
-    if (path.endsWith('/founder.html') || path.endsWith('/nextgen.html')) {
-      aboutLink.setAttribute('aria-current', 'page');
-    }
+    const createGroup = (label, items, activePaths = [], primary = false) => {
+      const group = document.createElement('div');
+      group.className = `nav-group${primary ? ' nav-group-primary' : ''}`;
 
-    [trainLink, pricingLink, teamLink, communityLink, aboutLink]
-      .forEach((link) => nav.appendChild(link));
+      const safeId = label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const submenuId = `submenu-${safeId}`;
+      const active = activePaths.some((itemPath) => path.endsWith(itemPath));
+
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = `nav-group-toggle${active ? ' is-active' : ''}`;
+      toggle.textContent = label;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-controls', submenuId);
+
+      const submenu = document.createElement('div');
+      submenu.className = 'nav-submenu';
+      submenu.id = submenuId;
+
+      items.forEach((item) => {
+        const current = item.paths?.some((itemPath) => path.endsWith(itemPath)) || false;
+        submenu.appendChild(createLink(item.href, item.label, {
+          external: item.external,
+          current
+        }));
+      });
+
+      toggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const willOpen = !group.classList.contains('open');
+        closeGroups(group);
+        group.classList.toggle('open', willOpen);
+        toggle.setAttribute('aria-expanded', String(willOpen));
+      });
+
+      group.append(toggle, submenu);
+      return group;
+    };
+
+    const trainGroup = createGroup('Train', [
+      { href: 'classes.html#enquire', label: 'Try a Class' },
+      { href: 'classes.html', label: 'Classes', paths: ['/classes.html'] },
+      { href: 'timetable.html', label: 'Timetable', paths: ['/timetable.html'] }
+    ], ['/classes.html', '/timetable.html'], true);
+
+    const pricingLink = createLink('pricing.html', 'Pricing', { current: isPricingPage });
+
+    const teamGroup = createGroup('Meet the Team', [
+      { href: 'coaches.html', label: 'Meet the Team', paths: ['/coaches.html'] },
+      { href: 'coaching.html', label: 'Coaching', paths: ['/coaching.html'] }
+    ], ['/coaches.html', '/coaching.html']);
+
+    const communityGroup = createGroup('Community', [
+      { href: 'community.html', label: 'Community', paths: ['/community.html'] },
+      { href: 'events.html', label: 'Events', paths: ['/events.html'] },
+      { href: DISCORD_URL, label: 'Discord Forum ↗', external: true }
+    ], ['/community.html', '/events.html']);
+
+    const storyGroup = createGroup('Our Story', [
+      { href: 'founder.html', label: 'Founder', paths: ['/founder.html'] },
+      { href: 'nextgen.html', label: 'Limitless Next Gen · Nonprofit', paths: ['/nextgen.html'] }
+    ], ['/founder.html', '/nextgen.html']);
+
+    [trainGroup, pricingLink, teamGroup, communityGroup, storyGroup]
+      .forEach((item) => nav.appendChild(item));
+
+    document.addEventListener('click', (event) => {
+      if (!nav.contains(event.target)) closeGroups();
+    });
   });
 
   document.querySelectorAll('.footer-links').forEach((footerLinks) => {
@@ -238,6 +432,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => {
       links.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+      links.querySelectorAll('.nav-group.open').forEach((group) => {
+        group.classList.remove('open');
+        group.querySelector('.nav-group-toggle')?.setAttribute('aria-expanded', 'false');
+      });
     };
 
     toggle.addEventListener('click', () => {
