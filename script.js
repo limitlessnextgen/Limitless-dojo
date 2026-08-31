@@ -2,6 +2,7 @@
   const utilityStyles = document.createElement('style');
   utilityStyles.textContent = `
     .whatsapp-float,
+    .discord-float,
     .back-to-top {
       position: fixed;
       z-index: 220;
@@ -16,15 +17,23 @@
       text-decoration: none;
       transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease, visibility .2s ease;
     }
-    .whatsapp-float {
+    .whatsapp-float,
+    .discord-float {
       right: max(18px, env(safe-area-inset-right));
-      bottom: max(18px, env(safe-area-inset-bottom));
       gap: 10px;
       min-height: 54px;
       padding: 0 17px;
       border: 1px solid rgba(255,255,255,.35);
+    }
+    .whatsapp-float {
+      bottom: max(18px, env(safe-area-inset-bottom));
       background: #25d366;
       color: #07150c;
+    }
+    .discord-float {
+      bottom: calc(82px + env(safe-area-inset-bottom));
+      background: #5865f2;
+      color: #fff;
     }
     .back-to-top {
       left: max(18px, env(safe-area-inset-left));
@@ -47,6 +56,8 @@
     }
     .whatsapp-float:hover,
     .whatsapp-float:focus-visible,
+    .discord-float:hover,
+    .discord-float:focus-visible,
     .back-to-top:hover,
     .back-to-top:focus-visible {
       transform: translateY(-3px);
@@ -54,6 +65,7 @@
       outline: none;
     }
     .whatsapp-float svg,
+    .discord-float svg,
     .back-to-top svg {
       width: 24px;
       height: 24px;
@@ -61,6 +73,7 @@
       fill: currentColor;
     }
     .back-to-top svg { width: 20px; height: 20px; }
+
     @media (max-width: 560px) {
       .whatsapp-float,
       .back-to-top {
@@ -72,17 +85,31 @@
       }
       .whatsapp-float { right: max(9px, env(safe-area-inset-right)); }
       .back-to-top { left: max(9px, env(safe-area-inset-left)); }
+      .whatsapp-float span,
+      .back-to-top span { display: none; }
+
+      .discord-float {
+        right: max(9px, env(safe-area-inset-right));
+        bottom: calc(64px + env(safe-area-inset-bottom));
+        min-height: 46px;
+        padding: 0 13px;
+        font-size: .64rem;
+      }
+      .discord-float svg { width: 21px; height: 21px; }
+
       body.has-mobile-times .whatsapp-float,
       body.has-mobile-times .back-to-top {
         bottom: calc(68px + env(safe-area-inset-bottom));
       }
-      .whatsapp-float span,
-      .back-to-top span { display: none; }
+      body.has-mobile-times .discord-float {
+        bottom: calc(122px + env(safe-area-inset-bottom));
+      }
       .whatsapp-float svg { width: 21px; height: 21px; }
       .back-to-top svg { width: 18px; height: 18px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .whatsapp-float,
+      .discord-float,
       .back-to-top { transition: none; }
     }
   `;
@@ -130,10 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!footerLinks.querySelector(`a[href="${DISCORD_URL}"]`)) {
       const discordLink = document.createElement('a');
       discordLink.href = DISCORD_URL;
-      discordLink.textContent = 'Discord';
+      discordLink.textContent = 'Discord Community Forum';
       discordLink.target = '_blank';
       discordLink.rel = 'noopener noreferrer';
-      discordLink.setAttribute('aria-label', 'Join the Go Limitless community on Discord');
+      discordLink.setAttribute('aria-label', 'Join the Go Limitless Discord community forum');
       footerLinks.appendChild(discordLink);
     }
   });
@@ -145,14 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
     discordSection.innerHTML = `
       <div class="wrap intro-grid">
         <div>
-          <p class="eyebrow">Local roots · Global community</p>
-          <h2 class="display section-title">Stay connected wherever you are.</h2>
+          <p class="eyebrow">Free Discord community forum · Morocco</p>
+          <h2 class="display section-title">The online home of the movement.</h2>
           <div class="rule"></div>
         </div>
         <div>
-          <p class="lead">Join locals, Moroccan athletes, nomads, visitors and international members. Discover free community events and educational content, follow what is happening, join discussions, arrange meetups and find events across Morocco.</p>
+          <p class="lead">A meeting point for local members, travellers, nomads, coaches and athletes to discover Go Limitless events, join discussions, arrange meetups and stay connected across Morocco.</p>
           <div class="actions">
-            <a class="btn gold" href="${DISCORD_URL}" target="_blank" rel="noopener noreferrer">Join our Discord</a>
+            <a class="btn gold" href="${DISCORD_URL}" target="_blank" rel="noopener noreferrer">Open Discord Community Forum ↗</a>
           </div>
         </div>
       </div>
@@ -197,6 +224,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key === 'Escape') closeMenu();
     });
   }
+
+  const discordButton = document.createElement('a');
+  discordButton.className = 'discord-float';
+  discordButton.href = DISCORD_URL;
+  discordButton.target = '_blank';
+  discordButton.rel = 'noopener noreferrer';
+  discordButton.setAttribute('aria-label', 'Open the Go Limitless Discord community forum');
+  discordButton.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M4 4h16v12H8l-4 4V4zm4 5v2h2V9H8zm3 0v2h2V9h-2zm3 0v2h2V9h-2z"/>
+    </svg>
+    <span>Discord Forum</span>
+  `;
+  document.body.appendChild(discordButton);
 
   const whatsappButton = document.createElement('a');
   whatsappButton.className = 'whatsapp-float';
