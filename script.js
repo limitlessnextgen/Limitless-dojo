@@ -106,6 +106,30 @@ document.addEventListener('DOMContentLoaded', () => {
     link.setAttribute('href', 'index.html');
   });
 
+  const isPricingPage = window.location.pathname.endsWith('/pricing.html');
+
+  document.querySelectorAll('.nav-links').forEach((nav) => {
+    let pricingLink = nav.querySelector('a[href="pricing.html"]');
+    if (!pricingLink) {
+      pricingLink = document.createElement('a');
+      pricingLink.href = 'pricing.html';
+      pricingLink.textContent = 'Pricing';
+      const coachingLink = nav.querySelector('a[href="coaching.html"]');
+      const navCta = nav.querySelector('.nav-cta');
+      nav.insertBefore(pricingLink, coachingLink || navCta || null);
+    }
+    if (isPricingPage) pricingLink.setAttribute('aria-current', 'page');
+  });
+
+  document.querySelectorAll('.footer-links').forEach((footerLinks) => {
+    if (footerLinks.querySelector('a[href="pricing.html"]')) return;
+    const pricingLink = document.createElement('a');
+    pricingLink.href = 'pricing.html';
+    pricingLink.textContent = 'Pricing';
+    const firstExternalLink = [...footerLinks.querySelectorAll('a')].find((link) => link.href.startsWith('http'));
+    footerLinks.insertBefore(pricingLink, firstExternalLink || null);
+  });
+
   const reviewsTrack = document.querySelector('.reviews-track');
   if (reviewsTrack) {
     const reviewsSection = reviewsTrack.closest('section');
