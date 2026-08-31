@@ -35,6 +35,24 @@
       background: #5865f2;
       color: #fff;
     }
+    .discord-nav-link {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      padding: .68rem .95rem !important;
+      border: 1px solid rgba(255,255,255,.38) !important;
+      border-radius: 999px;
+      background: #5865f2;
+      color: #fff !important;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .discord-nav-link:hover,
+    .discord-nav-link:focus-visible {
+      background: #6d78f6;
+      color: #fff !important;
+      outline: none;
+    }
     .back-to-top {
       left: max(18px, env(safe-area-inset-left));
       bottom: max(18px, env(safe-area-inset-bottom));
@@ -96,6 +114,10 @@
         font-size: .64rem;
       }
       .discord-float svg { width: 21px; height: 21px; }
+      .discord-nav-link {
+        width: 100%;
+        margin-top: .35rem;
+      }
 
       body.has-mobile-times .whatsapp-float,
       body.has-mobile-times .back-to-top {
@@ -142,6 +164,19 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.insertBefore(pricingLink, coachingLink || navCta || null);
     }
     if (isPricingPage) pricingLink.setAttribute('aria-current', 'page');
+
+    let discordNavLink = nav.querySelector(`a[href="${DISCORD_URL}"]`);
+    if (!discordNavLink) {
+      discordNavLink = document.createElement('a');
+      discordNavLink.href = DISCORD_URL;
+      discordNavLink.textContent = 'Discord Forum ↗';
+      discordNavLink.className = 'discord-nav-link';
+      discordNavLink.target = '_blank';
+      discordNavLink.rel = 'noopener noreferrer';
+      discordNavLink.setAttribute('aria-label', 'Open the Go Limitless Discord community forum in a new tab');
+      const nextGenLink = nav.querySelector('a[href="nextgen.html"]');
+      nav.insertBefore(discordNavLink, nextGenLink || null);
+    }
   });
 
   document.querySelectorAll('.footer-links').forEach((footerLinks) => {
