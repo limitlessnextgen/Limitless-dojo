@@ -153,3 +153,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 0);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.setTimeout(() => {
+    const path = window.location.pathname;
+    const YOUTUBE_URL = 'https://www.youtube.com/@limitless_dojo';
+
+    const addYouTubeButton = (container, className = 'btn light') => {
+      if (!container || container.querySelector(`a[href="${YOUTUBE_URL}"]`)) return;
+      const link = document.createElement('a');
+      link.className = className;
+      link.href = YOUTUBE_URL;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Watch I Am Limitless ↗';
+      link.setAttribute('aria-label', 'Watch I Am Limitless on YouTube');
+      container.appendChild(link);
+    };
+
+    document.querySelectorAll('.footer-links').forEach((footer) => {
+      if (footer.querySelector(`a[href="${YOUTUBE_URL}"]`)) return;
+      const link = document.createElement('a');
+      link.href = YOUTUBE_URL;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'YouTube ↗';
+      link.setAttribute('aria-label', 'Watch I Am Limitless on YouTube');
+      footer.appendChild(link);
+    });
+
+    if (path.endsWith('/movement.html')) {
+      addYouTubeButton(document.querySelector('.page-hero .actions'));
+    }
+
+    if (path.endsWith('/media-partnerships.html')) {
+      addYouTubeButton(document.querySelector('#media .actions'), 'btn');
+    }
+
+    if (path.endsWith('/press-kit.html')) {
+      addYouTubeButton(document.querySelector('.page-hero .actions'));
+    }
+  }, 0);
+});
