@@ -97,21 +97,127 @@
       border-left:4px solid var(--gold);
       background:var(--ivory-deep);
     }
+    .enquiry-panel{
+      max-width:1040px;
+    }
+    .enquiry-panel .enquiry-title{
+      max-width:13ch;
+      margin-bottom:16px;
+      font-size:clamp(2.2rem,4vw,3.65rem);
+      line-height:.98;
+    }
+    .enquiry-panel>.lead{
+      max-width:660px;
+      margin-bottom:30px;
+      font-size:1.05rem;
+      line-height:1.6;
+    }
     .simple-enquiry{
       grid-template-columns:repeat(2,minmax(0,1fr));
-      max-width:860px;
+      max-width:900px;
+      gap:22px;
     }
+    .simple-enquiry .field.full,
     .simple-enquiry .form-submit{
       grid-column:1 / -1;
     }
+    .availability-fieldset{
+      margin:0;
+      padding:0;
+      border:0;
+    }
+    .availability-fieldset legend{
+      margin-bottom:12px;
+      color:var(--gold-light);
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .availability-help{
+      margin:0 0 15px;
+      color:rgba(241,231,213,.75);
+      font-size:.9rem;
+      line-height:1.5;
+    }
+    .availability-options{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+    }
+    .availability-option{
+      position:relative;
+      display:block;
+      cursor:pointer;
+    }
+    .availability-option input{
+      position:absolute;
+      width:1px;
+      height:1px;
+      opacity:0;
+      pointer-events:none;
+    }
+    .availability-option span{
+      display:flex;
+      min-height:58px;
+      align-items:center;
+      justify-content:center;
+      padding:12px 10px;
+      border:1px solid rgba(241,231,213,.46);
+      background:rgba(255,255,255,.035);
+      color:var(--ivory);
+      font-size:.74rem;
+      font-weight:850;
+      letter-spacing:.05em;
+      line-height:1.25;
+      text-align:center;
+      transition:border-color .2s ease,background .2s ease,color .2s ease,transform .2s ease;
+    }
+    .availability-option:hover span{
+      border-color:var(--gold-light);
+      transform:translateY(-2px);
+    }
+    .availability-option input:focus-visible+span{
+      outline:2px solid var(--gold-light);
+      outline-offset:3px;
+    }
+    .availability-option input:checked+span{
+      border-color:var(--gold);
+      background:var(--gold);
+      color:var(--ink);
+    }
+    .simple-enquiry .form-submit{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-top:4px;
+    }
+    .simple-enquiry .form-submit .btn{
+      min-width:290px;
+      min-height:58px;
+    }
+    .simple-enquiry .form-help{
+      max-width:360px;
+      margin:0;
+    }
     @media(max-width:980px){
       .class-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .availability-options{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
     @media(max-width:680px){
       .class-options{grid-template-columns:1fr;gap:16px}
       .class-options .class-option-card{grid-template-rows:195px minmax(0,1fr)}
       .class-options .image-card-body{padding:21px}
-      .simple-enquiry{grid-template-columns:1fr}
+      .enquiry-panel .enquiry-title{font-size:clamp(2rem,10vw,2.7rem)}
+      .simple-enquiry{grid-template-columns:1fr;gap:18px}
+      .availability-options{grid-template-columns:1fr 1fr}
+      .availability-option:last-child{grid-column:1 / -1}
+      .simple-enquiry .form-submit{display:grid;gap:12px}
+      .simple-enquiry .form-submit .btn{width:100%;min-width:0}
+    }
+    @media(max-width:390px){
+      .availability-options{grid-template-columns:1fr}
+      .availability-option:last-child{grid-column:auto}
     }
   </style>
   <script src="script.js" defer></script>
@@ -227,8 +333,8 @@
     <section class="section" id="enquire">
       <div class="wrap enquiry-panel">
         <p class="eyebrow">Your first session</p>
-        <h2 class="display">Ready to try a class?</h2>
-        <p class="lead">Tell us your name and what you would like to try. We’ll continue the conversation on WhatsApp.</p>
+        <h2 class="display enquiry-title">Ready to train?</h2>
+        <p class="lead">Choose the class that interests you and when you would like to start. We’ll confirm the best session with you on WhatsApp.</p>
         <form class="form-grid simple-enquiry" id="class-enquiry-form">
           <div class="field">
             <label for="enquiry-name">Your name</label>
@@ -247,13 +353,20 @@
               <option>Not sure yet</option>
             </select>
           </div>
-          <div class="field full">
-            <label for="enquiry-time">Preferred day and time <span>(optional)</span></label>
-            <input id="enquiry-time" name="preferredTime" type="text" placeholder="For example: Thursday evening">
-          </div>
+          <fieldset class="field full availability-fieldset">
+            <legend>When would you like to start?</legend>
+            <p class="availability-help">You do not need to know the timetable. Choose what suits you and we will confirm the best session.</p>
+            <div class="availability-options">
+              <label class="availability-option"><input type="radio" name="availability" value="As soon as possible" required><span>As soon as possible</span></label>
+              <label class="availability-option"><input type="radio" name="availability" value="This week"><span>This week</span></label>
+              <label class="availability-option"><input type="radio" name="availability" value="This weekend"><span>This weekend</span></label>
+              <label class="availability-option"><input type="radio" name="availability" value="Next week"><span>Next week</span></label>
+              <label class="availability-option"><input type="radio" name="availability" value="I need help choosing"><span>Help me choose</span></label>
+            </div>
+          </fieldset>
           <div class="form-submit">
-            <button class="btn gold" type="submit">Continue on WhatsApp ↗</button>
-            <p class="form-help">WhatsApp will open with a short message ready to send.</p>
+            <button class="btn gold" type="submit">Find my class time on WhatsApp ↗</button>
+            <p class="form-help">A short message will open. Send it and we’ll recommend the best session.</p>
           </div>
         </form>
       </div>
@@ -283,14 +396,14 @@
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim();
       const className = String(data.get('class') || '').trim();
-      const preferredTime = String(data.get('preferredTime') || '').trim();
+      const availability = String(data.get('availability') || '').trim();
       const lines = [
         `Hi, my name is ${name}.`,
-        `I’m interested in ${className}.`
+        `I’m interested in ${className}.`,
+        `I would like to start: ${availability}.`,
+        '',
+        'Could you recommend the best session for me?'
       ];
-
-      if (preferredTime) lines.push(`My preferred day/time is ${preferredTime}.`);
-      lines.push('', 'Could you tell me the best session to join?');
 
       window.location.href = `https://wa.me/212666664225?text=${encodeURIComponent(lines.join('\n'))}`;
     }, true);
