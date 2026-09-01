@@ -54,99 +54,59 @@
       font-size:.88rem;
     }
 
-    /* Timetable hero: keep the whole team visible and let the photo breathe. */
+    /* Restore the original full-background hero, but move the crop upward so faces and bodies are visible. */
     .timetable-hero{
-      min-height:clamp(520px,52vw,670px)!important;
+      min-height:clamp(500px,52vw,640px)!important;
       overflow:hidden;
-      isolation:isolate;
       background:#0d0b0c;
     }
     .timetable-hero > img{
-      top:0!important;
-      right:0!important;
-      bottom:0!important;
-      left:auto!important;
-      width:62%!important;
+      inset:0!important;
+      width:100%!important;
       height:100%!important;
-      object-fit:contain!important;
-      object-position:right center!important;
-      opacity:1!important;
-      filter:saturate(1.02) contrast(1.04) brightness(1.18)!important;
+      object-fit:cover!important;
+      object-position:center 25%!important;
+      opacity:.74!important;
+      filter:saturate(.96) contrast(1.03) brightness(1.05)!important;
     }
     .timetable-hero::before{
       background:
-        linear-gradient(90deg,rgba(13,11,12,.99) 0%,rgba(13,11,12,.96) 30%,rgba(13,11,12,.74) 48%,rgba(13,11,12,.22) 68%,rgba(13,11,12,.03) 100%),
-        linear-gradient(0deg,rgba(13,11,12,.48),transparent 58%)!important;
+        linear-gradient(90deg,rgba(13,11,12,.92) 0%,rgba(13,11,12,.76) 42%,rgba(13,11,12,.28) 74%,rgba(13,11,12,.14) 100%),
+        linear-gradient(0deg,rgba(13,11,12,.62),transparent 60%)!important;
     }
     .timetable-hero .page-hero-content{
-      max-width:650px!important;
-      padding:clamp(62px,7vw,88px) 0 clamp(54px,6vw,76px)!important;
+      max-width:720px!important;
+      padding:clamp(64px,8vw,92px) 0 clamp(48px,6vw,68px)!important;
     }
-    .timetable-hero .display{
-      max-width:12ch;
-      text-shadow:0 3px 20px rgba(0,0,0,.46);
-    }
+    .timetable-hero .display,
     .timetable-hero .hero-lead{
-      max-width:570px;
-      text-shadow:0 2px 14px rgba(0,0,0,.46);
+      text-shadow:0 3px 20px rgba(0,0,0,.48);
     }
 
-    @media(max-width:1100px){
-      .timetable-hero > img{
-        width:58%!important;
-        filter:saturate(1.02) contrast(1.04) brightness(1.14)!important;
-      }
-      .timetable-hero::before{
-        background:
-          linear-gradient(90deg,rgba(13,11,12,.99) 0%,rgba(13,11,12,.94) 34%,rgba(13,11,12,.72) 52%,rgba(13,11,12,.18) 76%,rgba(13,11,12,.03) 100%),
-          linear-gradient(0deg,rgba(13,11,12,.5),transparent 58%)!important;
-      }
-    }
     @media(max-width:900px){
       .schedule-grid{grid-template-columns:1fr}
       .schedule-card:last-child{grid-column:auto}
       .timetable-hero{
-        min-height:620px!important;
+        min-height:560px!important;
       }
       .timetable-hero > img{
-        width:64%!important;
+        object-position:center 22%!important;
       }
     }
     @media(max-width:760px){
       .timetable-hero{
-        min-height:620px!important;
-        align-items:end;
+        min-height:540px!important;
       }
       .timetable-hero > img{
-        top:0!important;
-        right:0!important;
-        bottom:auto!important;
-        left:0!important;
-        width:100%!important;
-        height:52%!important;
-        object-fit:contain!important;
-        object-position:center top!important;
-        opacity:1!important;
-        filter:saturate(1.02) contrast(1.03) brightness(1.13)!important;
+        object-position:center 20%!important;
+        opacity:.7!important;
       }
       .timetable-hero::before{
         background:
-          linear-gradient(0deg,rgba(13,11,12,.99) 0%,rgba(13,11,12,.94) 42%,rgba(13,11,12,.48) 66%,rgba(13,11,12,.06) 100%)!important;
+          linear-gradient(0deg,rgba(13,11,12,.9) 0%,rgba(13,11,12,.62) 58%,rgba(13,11,12,.2) 100%)!important;
       }
       .timetable-hero .page-hero-content{
-        max-width:100%!important;
-        padding:300px 0 42px!important;
-      }
-    }
-    @media(max-width:430px){
-      .timetable-hero{
-        min-height:590px!important;
-      }
-      .timetable-hero > img{
-        height:49%!important;
-      }
-      .timetable-hero .page-hero-content{
-        padding-top:265px!important;
+        padding:72px 0 46px!important;
       }
     }
   </style>
@@ -164,7 +124,7 @@
 
   <main id="main">
     <section class="page-hero compact timetable-hero">
-      <img src="assets/class-strength-team.jpg" alt="The Go Limitless strength community training together in Tamraght">
+      <img src="assets/class-strength-team.jpg" alt="Go Limitless members training together">
       <div class="wrap page-hero-content">
         <p class="eyebrow">Weekly schedule · Tamraght</p>
         <h1 class="display">Class timetable.</h1>
