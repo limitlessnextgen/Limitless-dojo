@@ -4,11 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const isHome = path === '/' || path.endsWith('/index.html');
     const YOUTUBE_URL = 'https://www.youtube.com/@limitless_dojo';
 
+    const primaryLinks = [
+      ['classes.html', 'Train'],
+      ['movement.html', 'Story'],
+      ['nextgen.html', 'Community']
+    ];
+
     const storyItems = [
       { href: 'movement.html', label: 'I Am Limitless Story', path: '/movement.html' },
       { href: 'founder.html', label: 'Founder · Danielle Askari', path: '/founder.html' },
-      { href: 'nextgen.html', label: 'Limitless Next Gen · Impact', path: '/nextgen.html' },
-      { href: 'media-partnerships.html', label: 'Media & Partnerships', path: '/media-partnerships.html' }
+      { href: 'nextgen.html', label: 'Community Impact', path: '/nextgen.html' }
     ];
 
     const makeLink = (item) => {
@@ -21,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.nav-links').forEach((nav) => {
       const storyMenu = nav.querySelector('#submenu-our-story');
-
       if (storyMenu) {
         storyMenu.innerHTML = '';
         storyItems.forEach((item) => storyMenu.appendChild(makeLink(item)));
@@ -33,40 +37,34 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (isHome) {
-        nav.innerHTML = `
-          <a href="classes.html">Train</a>
-          <a href="movement.html">Story</a>
-          <a href="media-partnerships.html">Partner</a>
-        `;
-      }
+      nav.innerHTML = primaryLinks.map(([href, label]) => {
+        const current = path.endsWith(`/${href}`) || (label === 'Story' && path.endsWith('/founder.html'));
+        return `<a href="${href}"${current ? ' aria-current="page"' : ''}>${label}</a>`;
+      }).join('');
     });
 
     document.querySelectorAll('.footer-links').forEach((footer) => {
+      footer.innerHTML = '';
       [
         ['classes.html', 'Train'],
         ['movement.html', 'Story'],
-        ['nextgen.html', 'Impact'],
-        ['media-partnerships.html', 'Partner'],
-        ['programme-2027.html', '2027 Programme'],
-        ['press-kit.html', 'Press Kit']
+        ['nextgen.html', 'Community'],
+        ['events.html', 'Events'],
+        ['media-partnerships.html', 'Support & Contact']
       ].forEach(([href, label]) => {
-        if (footer.querySelector(`a[href="${href}"]`)) return;
         const link = document.createElement('a');
         link.href = href;
         link.textContent = label;
         footer.appendChild(link);
       });
 
-      if (!footer.querySelector(`a[href="${YOUTUBE_URL}"]`)) {
-        const youtube = document.createElement('a');
-        youtube.href = YOUTUBE_URL;
-        youtube.target = '_blank';
-        youtube.rel = 'noopener noreferrer';
-        youtube.textContent = 'YouTube ↗';
-        youtube.setAttribute('aria-label', 'Watch I Am Limitless on YouTube');
-        footer.appendChild(youtube);
-      }
+      const youtube = document.createElement('a');
+      youtube.href = YOUTUBE_URL;
+      youtube.target = '_blank';
+      youtube.rel = 'noopener noreferrer';
+      youtube.textContent = 'YouTube ↗';
+      youtube.setAttribute('aria-label', 'Watch Go Limitless on YouTube');
+      footer.appendChild(youtube);
     });
 
     if (isHome) {
@@ -76,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (heading) {
         heading.innerHTML = `
-          <div><p class="eyebrow">Start here</p><h2 class="display section-title">Three clear ways into Go Limitless.</h2></div>
-          <p class="lead">Train with us, understand the story or explore a serious partnership.</p>
+          <div><p class="eyebrow">Start here</p><h2 class="display section-title">Three simple ways into Go Limitless.</h2></div>
+          <p class="lead">Train with us, understand the story or see the community work.</p>
         `;
       }
 
@@ -89,62 +87,90 @@ document.addEventListener('DOMContentLoaded', () => {
           </article>
           <article class="pathway-card">
             <img loading="lazy" decoding="async" src="assets/founder-danielle-askari.jpg" alt="Danielle Askari, founder of Go Limitless">
-            <div class="pathway-card-body"><span class="tag">Story</span><h3>Discover I Am Limitless</h3><p>Read how a personal message and a rooftop became a growing sport and community platform.</p><a class="card-link" href="movement.html">Read the story</a></div>
+            <div class="pathway-card-body"><span class="tag">Story</span><h3>Discover I Am Limitless</h3><p>See how a personal reminder and a rooftop became a locally built sport community in Tamraght.</p><a class="card-link" href="movement.html">Read the story</a></div>
           </article>
           <article class="pathway-card">
-            <img loading="lazy" decoding="async" src="assets/event-beach-wrestling.jpg" alt="A Go Limitless beach wrestling event">
-            <div class="pathway-card-body"><span class="tag">Partner</span><h3>Help create opportunity</h3><p>Support practical access, athlete visibility, events or responsible organisational growth.</p><a class="card-link" href="media-partnerships.html">Explore partnerships</a></div>
+            <img loading="lazy" decoding="async" src="assets/youth-outdoor-movement.webp" alt="Community movement through Limitless Next Gen">
+            <div class="pathway-card-body"><span class="tag">Community</span><h3>See the local impact</h3><p>Youth access, women’s opportunity, athlete support and community events rooted in Morocco.</p><a class="card-link" href="nextgen.html">Explore the community work</a></div>
           </article>
         `;
       }
 
       const sections = Array.from(document.querySelectorAll('main .section'));
       const movementSection = sections.find((section) =>
-        section.querySelector('.eyebrow')?.textContent.trim() === 'The movement in action'
+        ['The movement in action', 'How it works'].includes(section.querySelector('.eyebrow')?.textContent.trim())
       );
       const movementHead = movementSection?.querySelector('.section-head');
       const pillarGrid = movementSection?.querySelector('.pillar-grid');
 
       if (movementHead) {
         movementHead.innerHTML = `
-          <div><p class="eyebrow">How it works</p><h2 class="display section-title">Training supports impact. Partnerships extend it.</h2></div>
-          <p class="lead">A simple model connecting sustainable services with carefully developed community opportunity.</p>
+          <div><p class="eyebrow">Built locally</p><h2 class="display section-title">Training, community and opportunity.</h2></div>
+          <p class="lead">Go Limitless grows through real work in Tamraght: people training, communities connecting and athletes being given a stage.</p>
         `;
       }
 
       if (pillarGrid) {
         pillarGrid.innerHTML = `
-          <article class="pillar"><div class="pillar-number">01</div><h3>Train</h3><p>Martial arts, strength and coaching create the commercial base and daily community.</p><a class="card-link" href="classes.html">Explore training</a></article>
-          <article class="pillar"><div class="pillar-number">02</div><h3>Create Access</h3><p>Limitless Next Gen develops grassroots opportunities for women, young people and emerging athletes.</p><a class="card-link" href="nextgen.html">See the impact work</a></article>
-          <article class="pillar"><div class="pillar-number">03</div><h3>Build Opportunity</h3><p>Events, athlete support, media and partners help real work reach further.</p><a class="card-link" href="media-partnerships.html">Partner with us</a></article>
+          <article class="pillar"><div class="pillar-number">01</div><h3>Train</h3><p>Martial arts, strength and coaching create the daily community and commercial base.</p><a class="card-link" href="classes.html">Explore training</a></article>
+          <article class="pillar"><div class="pillar-number">02</div><h3>Build Community</h3><p>Grassroots opportunities support women, young people and local participation.</p><a class="card-link" href="nextgen.html">See the community work</a></article>
+          <article class="pillar"><div class="pillar-number">03</div><h3>Create Opportunity</h3><p>Events and athlete support help local effort become visible across Morocco.</p><a class="card-link" href="events.html">Explore events</a></article>
+        `;
+      }
+
+      const closingBand = document.querySelector('main .partnership-band:last-of-type');
+      if (closingBand) {
+        closingBand.innerHTML = `
+          <div class="wrap next-grid">
+            <div><p class="eyebrow">Built locally in Tamraght</p><h2 class="display section-title">Train with us. Follow the story. Support the community.</h2></div>
+            <div><p class="lead">Go Limitless is growing carefully through training, events and community work in Morocco.</p><div class="actions"><a class="btn gold" href="timetable.html">Start training</a><a class="btn light" href="nextgen.html">See the community work</a></div></div>
+          </div>
         `;
       }
     }
 
     if (path.endsWith('/nextgen.html')) {
       const heroActions = document.querySelector('.page-hero .actions');
-      const fundingLink = heroActions?.querySelector('a[href="media-partnerships.html#opportunities"]');
-      if (fundingLink) {
-        fundingLink.href = 'programme-2027.html';
-        fundingLink.textContent = 'View the proposed 2027 programme';
+      const secondAction = heroActions?.querySelector('a:nth-child(2)');
+      if (secondAction) {
+        secondAction.href = '#programmes';
+        secondAction.textContent = 'See the community work';
       }
 
-      if (!document.getElementById('flagship-programme')) {
-        const impactBand = document.querySelector('.impact-band');
-        const flagship = document.createElement('section');
-        flagship.className = 'section paper-deep';
-        flagship.id = 'flagship-programme';
-        flagship.innerHTML = `
+      document.getElementById('flagship-programme')?.remove();
+
+      const closingBand = document.querySelector('main .partnership-band:last-of-type');
+      if (closingBand) {
+        closingBand.innerHTML = `
           <div class="wrap next-grid">
-            <div><p class="eyebrow">The proposed 2027 priority</p><h2 class="display section-title">One structured programme to develop with the right partner.</h2></div>
-            <div>
-              <p class="lead">The I Am Limitless Access Programme brings women’s access, youth development and athlete opportunity into one proposed delivery and reporting framework.</p>
-              <p>It remains a proposal until funding, targets, budget, dates and responsibilities are formally agreed.</p>
-              <div class="actions"><a class="btn primary" href="programme-2027.html">View the programme</a><a class="btn" href="media-partnerships.html">Explore partnership routes</a></div>
-            </div>
+            <div><p class="eyebrow">Help the work grow carefully</p><h2 class="display section-title">Local impact first.</h2></div>
+            <div><p class="lead">We welcome practical support, collaboration and introductions that help strengthen real community work in Tamraght and across Morocco.</p><div class="actions"><a class="btn gold" href="media-partnerships.html">Support or collaborate</a><a class="btn light" href="https://www.youtube.com/@limitless_dojo" target="_blank" rel="noopener noreferrer">Watch the work ↗</a></div></div>
           </div>
         `;
-        if (impactBand?.parentNode) impactBand.parentNode.insertBefore(flagship, impactBand.nextSibling);
+      }
+    }
+
+    if (path.endsWith('/founder.html')) {
+      document.querySelector('.impact-band')?.remove();
+
+      const speaking = document.querySelector('#speaking');
+      if (speaking) {
+        speaking.innerHTML = `
+          <div class="wrap next-grid">
+            <div><p class="eyebrow">Selected interviews and speaking</p><h2 class="display section-title">Available when the fit is right.</h2></div>
+            <div><p class="lead">Danielle is open to thoughtful opportunities connected to sport, women, injury, community building and Morocco.</p><div class="actions"><a class="btn gold" href="media-partnerships.html#media">Media contact</a></div></div>
+          </div>
+        `;
+      }
+
+      const closingBand = document.querySelector('main .partnership-band:last-of-type');
+      if (closingBand) {
+        closingBand.innerHTML = `
+          <div class="wrap next-grid">
+            <div><p class="eyebrow">Built locally</p><h2 class="display section-title">Rooted in Tamraght. Growing through real work.</h2></div>
+            <div><p class="lead">Danielle’s focus is to strengthen Go Limitless in Morocco through training, community, events and carefully chosen collaborations.</p><div class="actions"><a class="btn gold" href="movement.html">Read the story</a><a class="btn light" href="coaching.html">Work with Danielle</a></div></div>
+          </div>
+        `;
       }
     }
 
@@ -155,20 +181,12 @@ document.addEventListener('DOMContentLoaded', () => {
       link.href = YOUTUBE_URL;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.textContent = 'Watch I Am Limitless ↗';
-      link.setAttribute('aria-label', 'Watch I Am Limitless on YouTube');
+      link.textContent = 'Watch the movement ↗';
+      link.setAttribute('aria-label', 'Watch Go Limitless on YouTube');
       container.appendChild(link);
     };
 
     if (path.endsWith('/movement.html')) {
-      addYouTubeButton(document.querySelector('.page-hero .actions'));
-    }
-
-    if (path.endsWith('/media-partnerships.html')) {
-      addYouTubeButton(document.querySelector('#media .actions'), 'btn');
-    }
-
-    if (path.endsWith('/press-kit.html')) {
       addYouTubeButton(document.querySelector('.page-hero .actions'));
     }
   }, 0);
