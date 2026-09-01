@@ -28,6 +28,19 @@
     "address":{"@type":"PostalAddress","addressLocality":"Tamraght","addressRegion":"Agadir","addressCountry":"MA"}
   }
   </script>
+  <script>
+    (() => {
+      const originalSetTimeout = window.setTimeout.bind(window);
+      window.setTimeout = (callback, delay, ...args) => {
+        const isWhatsAppGreeting = delay === 1100 && String(callback).includes('setGreetingOpen');
+        if (isWhatsAppGreeting) {
+          window.setTimeout = originalSetTimeout;
+          return originalSetTimeout(callback, 8000, ...args);
+        }
+        return originalSetTimeout(callback, delay, ...args);
+      };
+    })();
+  </script>
   <script src="script.js" defer></script>
 </head>
 <body class="sales-home landing-home">
