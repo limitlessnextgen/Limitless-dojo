@@ -16,6 +16,11 @@
   min-height: calc(100svh - 76px);
 }
 
+.landing-home .nav-links a {
+  font-size: .74rem;
+  letter-spacing: .12em;
+}
+
 .landing-home .home-hero {
   height: calc(100svh - 76px);
   min-height: 560px;
@@ -30,14 +35,14 @@
   height: 100%;
   object-fit: cover;
   object-position: center 44%;
-  opacity: .58;
+  opacity: .66;
   filter: none;
 }
 
 .landing-home .home-hero::before {
   background:
-    linear-gradient(90deg, rgba(10,8,9,.96) 0%, rgba(10,8,9,.76) 50%, rgba(10,8,9,.22) 100%),
-    linear-gradient(0deg, rgba(10,8,9,.86), transparent 58%);
+    linear-gradient(90deg, rgba(10,8,9,.94) 0%, rgba(10,8,9,.68) 50%, rgba(10,8,9,.10) 100%),
+    linear-gradient(0deg, rgba(10,8,9,.78), transparent 58%);
 }
 
 .landing-home .home-hero .page-hero-content {
@@ -65,9 +70,9 @@
 
 .landing-home .home-hero .display {
   width: max-content;
-  max-width: none;
+  max-width: calc(100vw - 42px);
   white-space: nowrap;
-  font-size: clamp(2.25rem, 4.15vw, 3.95rem);
+  font-size: clamp(2.15rem, 3.8vw, 3.65rem);
   line-height: .98;
   letter-spacing: -.035em;
 }
@@ -133,13 +138,31 @@
 
   .landing-home .home-hero .display {
     width: max-content;
-    max-width: none;
+    max-width: calc(100vw - 42px);
     white-space: nowrap;
-    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-size: clamp(1.95rem, 4vw, 2.65rem);
   }
 
   .home-hero-panel {
     width: min(680px, 100%);
+  }
+}
+
+@media (max-height: 720px) and (min-width: 761px) {
+  .landing-home .home-hero .page-hero-content {
+    padding: 30px 0;
+  }
+
+  .landing-home .home-hero .display {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+  }
+
+  .landing-home .home-hero .hero-lead {
+    margin-top: 14px;
+  }
+
+  .landing-home .home-hero .actions {
+    margin-top: 16px;
   }
 }
 
@@ -156,13 +179,13 @@
 
   .landing-home .home-hero > img {
     object-position: 62% center;
-    opacity: .5;
+    opacity: .58;
   }
 
   .landing-home .home-hero::before {
     background:
-      linear-gradient(90deg, rgba(10,8,9,.91), rgba(10,8,9,.48)),
-      linear-gradient(0deg, rgba(10,8,9,.9) 0%, rgba(10,8,9,.58) 52%, rgba(10,8,9,.2) 100%);
+      linear-gradient(90deg, rgba(10,8,9,.88), rgba(10,8,9,.40)),
+      linear-gradient(0deg, rgba(10,8,9,.86) 0%, rgba(10,8,9,.52) 52%, rgba(10,8,9,.16) 100%);
   }
 
   .landing-home .home-hero .page-hero-content {
@@ -182,7 +205,7 @@
 
   .landing-home .home-hero .display {
     width: auto;
-    max-width: none;
+    max-width: 100%;
     white-space: normal;
     font-size: clamp(1.9rem, 7.8vw, 2.4rem);
     line-height: .98;
