@@ -186,6 +186,34 @@
     linear-gradient(0deg,rgba(10,8,9,.72),transparent 58%);
 }
 
+/* Events sponsorship section: keep the winner photo supportive rather than dominant. */
+.paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]){
+  grid-template-columns:minmax(0,1fr) minmax(260px,360px);
+  gap:clamp(30px,4vw,56px);
+  align-items:center;
+}
+.paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]) > div{
+  max-width:680px;
+}
+.paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]) .portrait-frame{
+  width:100%;
+  max-width:360px;
+  aspect-ratio:4 / 5;
+  justify-self:end;
+  align-self:center;
+  overflow:hidden;
+}
+.paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]) .portrait-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+}
+.paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]) .actions{
+  gap:10px;
+  flex-wrap:wrap;
+}
+
 @media(max-width:920px){
   .manifesto{
     grid-template-columns:1fr;
@@ -214,6 +242,14 @@
     max-width:290px;
     justify-self:start;
   }
+  .paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]){
+    grid-template-columns:minmax(0,1fr) minmax(230px,300px);
+    gap:30px;
+    align-items:start;
+  }
+  .paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]) .portrait-frame{
+    max-width:300px;
+  }
   .press-facts{grid-template-columns:repeat(2,1fr)}
 }
 
@@ -232,6 +268,13 @@
   }
   #manifesto + .section .portrait-frame{
     max-width:270px;
+    justify-self:center;
+  }
+  .paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]){
+    grid-template-columns:1fr;
+  }
+  .paper-deep .founder-authority:has(.portrait-frame img[src$="event-winner.jpg"]) .portrait-frame{
+    max-width:290px;
     justify-self:center;
   }
   .pillar h3,.partner-card h3,.media-card h3{font-size:clamp(1.3rem,6vw,1.7rem)}
