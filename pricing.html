@@ -154,12 +154,20 @@
       min-height:54px;
       text-align:center;
     }
+    #passes{
+      padding-bottom:clamp(30px,3.5vw,46px);
+    }
+    #passes + .section.paper-deep{
+      padding:clamp(26px,3.2vw,40px) 0;
+    }
     .membership-note{
-      padding:clamp(24px,4vw,38px);
+      padding:clamp(20px,2.5vw,30px);
       border-left:4px solid var(--gold);
       background:var(--ivory-deep);
     }
-    .membership-note h3{margin-top:0}
+    .membership-note .eyebrow{margin-bottom:8px}
+    .membership-note h3{margin:0 0 10px}
+    .membership-note p:last-child{margin-bottom:0}
     .private-grid{
       display:grid;
       grid-template-columns:1.05fr .95fr;
@@ -173,6 +181,9 @@
       .private-grid{grid-template-columns:1fr}
       .price-card{padding:24px 20px}
       .price-row{padding:16px}
+      #passes{padding-bottom:28px}
+      #passes + .section.paper-deep{padding:24px 0}
+      .membership-note{padding:20px}
     }
     @media(max-width:520px){
       .price-row{
