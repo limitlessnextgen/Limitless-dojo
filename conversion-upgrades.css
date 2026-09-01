@@ -1,0 +1,19 @@
+/* Go Limitless conversion and performance upgrades */
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px;padding:0;list-style:none}
+.hero-proof li{padding:8px 11px;border:1px solid rgba(241,231,213,.35);background:rgba(13,11,12,.5);font-size:.68rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.location-panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,7vw,80px);align-items:center}
+.location-card{padding:clamp(26px,4vw,42px);border:1px solid var(--line);background:var(--ivory-deep);box-shadow:var(--shadow)}
+.location-card h3{margin:0 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3vw,2.7rem);line-height:1}
+.location-list{display:grid;gap:14px;margin:24px 0;padding:0;list-style:none}
+.location-list li{padding-bottom:14px;border-bottom:1px solid rgba(16,14,15,.16)}
+.location-list strong{display:block;font-size:.69rem;letter-spacing:.13em;text-transform:uppercase}
+.mobile-sales-bar{display:none}
+@media(max-width:780px){
+  body{padding-bottom:68px}
+  .location-panel{grid-template-columns:1fr}
+  .mobile-sales-bar{position:fixed;left:0;right:0;bottom:0;z-index:240;display:grid;grid-template-columns:repeat(3,1fr);min-height:58px;border-top:1px solid var(--gold);background:rgba(13,11,12,.98);color:var(--ivory);box-shadow:0 -12px 34px rgba(0,0,0,.28)}
+  .mobile-sales-bar a{display:flex;align-items:center;justify-content:center;padding:9px 6px;border-right:1px solid rgba(241,231,213,.14);font-size:.64rem;font-weight:900;letter-spacing:.08em;text-align:center;text-transform:uppercase}
+  .mobile-sales-bar a:last-child{border-right:0;background:var(--gold);color:var(--ink)}
+  .whatsapp-float,.back-to-top{display:none!important}
+  .whatsapp-greeting{bottom:76px!important}
+}
