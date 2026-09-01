@@ -97,9 +97,7 @@
       border-left:4px solid var(--gold);
       background:var(--ivory-deep);
     }
-    .enquiry-panel{
-      max-width:1040px;
-    }
+    .enquiry-panel{max-width:1040px}
     .enquiry-panel .enquiry-title{
       max-width:13ch;
       margin-bottom:16px;
@@ -107,81 +105,103 @@
       line-height:.98;
     }
     .enquiry-panel>.lead{
-      max-width:660px;
+      max-width:680px;
       margin-bottom:30px;
       font-size:1.05rem;
       line-height:1.6;
     }
     .simple-enquiry{
       grid-template-columns:repeat(2,minmax(0,1fr));
-      max-width:900px;
+      max-width:920px;
       gap:22px;
     }
     .simple-enquiry .field.full,
-    .simple-enquiry .form-submit{
-      grid-column:1 / -1;
-    }
-    .availability-fieldset{
+    .simple-enquiry .form-submit{grid-column:1 / -1}
+    .schedule-fieldset{
       margin:0;
       padding:0;
       border:0;
     }
-    .availability-fieldset legend{
-      margin-bottom:12px;
+    .schedule-fieldset legend{
+      margin-bottom:10px;
       color:var(--gold-light);
       font-size:.72rem;
       font-weight:900;
       letter-spacing:.13em;
       text-transform:uppercase;
     }
-    .availability-help{
+    .schedule-help{
       margin:0 0 15px;
-      color:rgba(241,231,213,.75);
+      color:rgba(241,231,213,.78);
       font-size:.9rem;
       line-height:1.5;
     }
-    .availability-options{
+    .schedule-panel{
+      min-height:86px;
+      padding:16px;
+      border:1px solid rgba(241,231,213,.24);
+      background:rgba(255,255,255,.025);
+    }
+    .schedule-panel.is-ready{
+      border-color:rgba(211,183,126,.55);
+      background:rgba(211,183,126,.055);
+    }
+    .schedule-placeholder{
+      display:flex;
+      min-height:52px;
+      align-items:center;
+      color:rgba(241,231,213,.62);
+      font-size:.92rem;
+    }
+    .schedule-options{
       display:grid;
-      grid-template-columns:repeat(5,minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:10px;
     }
-    .availability-option{
+    .schedule-option{
       position:relative;
       display:block;
       cursor:pointer;
     }
-    .availability-option input{
+    .schedule-option input{
       position:absolute;
       width:1px;
       height:1px;
       opacity:0;
       pointer-events:none;
     }
-    .availability-option span{
+    .schedule-option span{
       display:flex;
-      min-height:58px;
-      align-items:center;
+      min-height:64px;
+      flex-direction:column;
+      align-items:flex-start;
       justify-content:center;
-      padding:12px 10px;
-      border:1px solid rgba(241,231,213,.46);
+      gap:4px;
+      padding:11px 13px;
+      border:1px solid rgba(241,231,213,.42);
       background:rgba(255,255,255,.035);
       color:var(--ivory);
-      font-size:.74rem;
-      font-weight:850;
-      letter-spacing:.05em;
-      line-height:1.25;
-      text-align:center;
+      line-height:1.2;
       transition:border-color .2s ease,background .2s ease,color .2s ease,transform .2s ease;
     }
-    .availability-option:hover span{
+    .schedule-option strong{
+      font-size:.8rem;
+      letter-spacing:.04em;
+    }
+    .schedule-option small{
+      color:inherit;
+      font-size:.7rem;
+      opacity:.76;
+    }
+    .schedule-option:hover span{
       border-color:var(--gold-light);
       transform:translateY(-2px);
     }
-    .availability-option input:focus-visible+span{
+    .schedule-option input:focus-visible+span{
       outline:2px solid var(--gold-light);
       outline-offset:3px;
     }
-    .availability-option input:checked+span{
+    .schedule-option input:checked+span{
       border-color:var(--gold);
       background:var(--gold);
       color:var(--ink);
@@ -196,13 +216,18 @@
       min-width:290px;
       min-height:58px;
     }
+    .simple-enquiry .form-submit .btn:disabled{
+      cursor:not-allowed;
+      filter:grayscale(.35);
+      opacity:.52;
+    }
     .simple-enquiry .form-help{
-      max-width:360px;
+      max-width:380px;
       margin:0;
     }
     @media(max-width:980px){
       .class-options{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .availability-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .schedule-options{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media(max-width:680px){
       .class-options{grid-template-columns:1fr;gap:16px}
@@ -210,14 +235,12 @@
       .class-options .image-card-body{padding:21px}
       .enquiry-panel .enquiry-title{font-size:clamp(2rem,10vw,2.7rem)}
       .simple-enquiry{grid-template-columns:1fr;gap:18px}
-      .availability-options{grid-template-columns:1fr 1fr}
-      .availability-option:last-child{grid-column:1 / -1}
+      .schedule-options{grid-template-columns:1fr 1fr}
       .simple-enquiry .form-submit{display:grid;gap:12px}
       .simple-enquiry .form-submit .btn{width:100%;min-width:0}
     }
-    @media(max-width:390px){
-      .availability-options{grid-template-columns:1fr}
-      .availability-option:last-child{grid-column:auto}
+    @media(max-width:420px){
+      .schedule-options{grid-template-columns:1fr}
     }
   </style>
   <script src="script.js" defer></script>
@@ -334,7 +357,7 @@
       <div class="wrap enquiry-panel">
         <p class="eyebrow">Your first session</p>
         <h2 class="display enquiry-title">Ready to train?</h2>
-        <p class="lead">Choose the class that interests you and when you would like to start. We’ll confirm the best session with you on WhatsApp.</p>
+        <p class="lead">Choose a class to see its current days and times, then select the session that suits you. We’ll continue on WhatsApp.</p>
         <form class="form-grid simple-enquiry" id="class-enquiry-form">
           <div class="field">
             <label for="enquiry-name">Your name</label>
@@ -353,20 +376,16 @@
               <option>Not sure yet</option>
             </select>
           </div>
-          <fieldset class="field full availability-fieldset">
-            <legend>When would you like to start?</legend>
-            <p class="availability-help">You do not need to know the timetable. Choose what suits you and we will confirm the best session.</p>
-            <div class="availability-options">
-              <label class="availability-option"><input type="radio" name="availability" value="As soon as possible" required><span>As soon as possible</span></label>
-              <label class="availability-option"><input type="radio" name="availability" value="This week"><span>This week</span></label>
-              <label class="availability-option"><input type="radio" name="availability" value="This weekend"><span>This weekend</span></label>
-              <label class="availability-option"><input type="radio" name="availability" value="Next week"><span>Next week</span></label>
-              <label class="availability-option"><input type="radio" name="availability" value="I need help choosing"><span>Help me choose</span></label>
+          <fieldset class="field full schedule-fieldset">
+            <legend>Choose your preferred session</legend>
+            <p class="schedule-help" id="schedule-help">Select a class above and its current days and times will appear here.</p>
+            <div class="schedule-panel" id="class-schedule-panel" aria-live="polite">
+              <div class="schedule-placeholder">Choose a class to view available sessions.</div>
             </div>
           </fieldset>
           <div class="form-submit">
-            <button class="btn gold" type="submit">Find my class time on WhatsApp ↗</button>
-            <p class="form-help">A short message will open. Send it and we’ll recommend the best session.</p>
+            <button class="btn gold" id="class-enquiry-submit" type="submit" disabled>Continue on WhatsApp ↗</button>
+            <p class="form-help">Your selected class and session will be added to a short WhatsApp message.</p>
           </div>
         </form>
       </div>
@@ -386,27 +405,106 @@
   <footer class="site-footer"><div class="wrap footer-grid"><div><a class="wordmark" href="home.html">Go <span>Limitless</span></a><p class="footer-motto">Train · Evolve · Go Limitless</p><p>Tamraght · Agadir · Morocco<br>© 2026 Go Limitless</p></div><div class="footer-links"><a href="https://www.instagram.com/limitless_dojo/">Dojo</a><a href="https://www.instagram.com/dannii_askari/">Founder</a><a href="https://www.instagram.com/limitlessnextgen/">Next Gen</a></div></div></footer>
 
   <script>
-    document.addEventListener('submit', (event) => {
-      const form = event.target.closest?.('#class-enquiry-form');
-      if (!form) return;
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('class-enquiry-form');
+      const classSelect = document.getElementById('enquiry-class');
+      const schedulePanel = document.getElementById('class-schedule-panel');
+      const scheduleHelp = document.getElementById('schedule-help');
+      const submitButton = document.getElementById('class-enquiry-submit');
 
-      event.preventDefault();
-      event.stopPropagation();
+      if (!form || !classSelect || !schedulePanel || !submitButton) return;
 
-      const data = new FormData(form);
-      const name = String(data.get('name') || '').trim();
-      const className = String(data.get('class') || '').trim();
-      const availability = String(data.get('availability') || '').trim();
-      const lines = [
-        `Hi, my name is ${name}.`,
-        `I’m interested in ${className}.`,
-        `I would like to start: ${availability}.`,
-        '',
-        'Could you recommend the best session for me?'
-      ];
+      const classSchedules = {
+        'BJJ / Grappling': [
+          { label: 'Monday', detail: 'BJJ · 16:00', value: 'Monday BJJ at 16:00' },
+          { label: 'Thursday', detail: 'BJJ · 16:00', value: 'Thursday BJJ at 16:00' },
+          { label: 'Saturday', detail: 'Open Mat BJJ · 16:00', value: 'Saturday Community Open Mat BJJ at 16:00' }
+        ],
+        'Muay Thai': [
+          { label: 'Monday', detail: 'Muay Thai · 17:30', value: 'Monday Muay Thai at 17:30' },
+          { label: 'Thursday', detail: 'Muay Thai · 17:30', value: 'Thursday Muay Thai at 17:30' },
+          { label: 'Saturday', detail: 'Muay Thai · 17:30', value: 'Saturday Muay Thai at 17:30' }
+        ],
+        'Women’s Strength': [
+          { label: 'Monday', detail: 'Women’s Strength · 08:00', value: 'Monday Women’s Strength at 08:00' },
+          { label: 'Wednesday', detail: 'Women’s Strength · 08:00', value: 'Wednesday Women’s Strength at 08:00' },
+          { label: 'Friday', detail: 'Women’s Strength · 08:00', value: 'Friday Women’s Strength at 08:00' },
+          { label: 'Saturday', detail: 'Women’s Strength · 08:00', value: 'Saturday Women’s Strength at 08:00' },
+          { label: 'Sunday', detail: 'Women’s Strength · 11:00', value: 'Sunday Women’s Strength at 11:00' }
+        ],
+        'Rooftop Strength': [
+          { label: 'Monday', detail: 'Rooftop Strength · 09:30', value: 'Monday Rooftop Strength at 09:30' },
+          { label: 'Wednesday', detail: 'Rooftop Strength · 09:30', value: 'Wednesday Rooftop Strength at 09:30' },
+          { label: 'Friday', detail: 'Rooftop Strength · 09:30', value: 'Friday Rooftop Strength at 09:30' }
+        ],
+        'Community Open Mat BJJ': [
+          { label: 'Saturday', detail: 'Community Open Mat · 16:00', value: 'Saturday Community Open Mat BJJ at 16:00' }
+        ],
+        'Online Coaching': [
+          { label: 'Arrange a call', detail: 'We’ll agree a suitable time on WhatsApp', value: 'Please help me arrange an online coaching call' }
+        ],
+        'Not sure yet': [
+          { label: 'Help me choose', detail: 'Recommend the best class and session for me', value: 'Please help me choose the right class and session' }
+        ]
+      };
 
-      window.location.href = `https://wa.me/212666664225?text=${encodeURIComponent(lines.join('\n'))}`;
-    }, true);
+      const renderSchedule = () => {
+        const className = classSelect.value;
+        const sessions = classSchedules[className] || [];
+        submitButton.disabled = true;
+
+        if (!sessions.length) {
+          schedulePanel.classList.remove('is-ready');
+          schedulePanel.innerHTML = '<div class="schedule-placeholder">Choose a class to view available sessions.</div>';
+          scheduleHelp.textContent = 'Select a class above and its current days and times will appear here.';
+          return;
+        }
+
+        schedulePanel.classList.add('is-ready');
+        scheduleHelp.textContent = className === 'Online Coaching' || className === 'Not sure yet'
+          ? 'Choose the option below and we’ll continue the conversation on WhatsApp.'
+          : `Current ${className} sessions. Select the one you would prefer.`;
+
+        const options = sessions.map((session, index) => `
+          <label class="schedule-option">
+            <input type="radio" name="session" value="${session.value.replace(/"/g, '&quot;')}" ${index === 0 && sessions.length === 1 ? 'checked' : ''} required>
+            <span><strong>${session.label}</strong><small>${session.detail}</small></span>
+          </label>
+        `).join('');
+
+        schedulePanel.innerHTML = `<div class="schedule-options">${options}</div>`;
+
+        const checkedSession = schedulePanel.querySelector('input[name="session"]:checked');
+        submitButton.disabled = !checkedSession;
+      };
+
+      classSelect.addEventListener('change', renderSchedule);
+      schedulePanel.addEventListener('change', (event) => {
+        if (event.target.matches('input[name="session"]')) submitButton.disabled = false;
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const data = new FormData(form);
+        const name = String(data.get('name') || '').trim();
+        const className = String(data.get('class') || '').trim();
+        const session = String(data.get('session') || '').trim();
+
+        if (!name || !className || !session) return;
+
+        const lines = [
+          `Hi, my name is ${name}.`,
+          `I’m interested in ${className}.`,
+          `My preferred session is: ${session}.`,
+          '',
+          'Could you confirm whether I can join this session?'
+        ];
+
+        window.location.href = `https://wa.me/212666664225?text=${encodeURIComponent(lines.join('\n'))}`;
+      }, true);
+    });
   </script>
 </body>
 </html>
