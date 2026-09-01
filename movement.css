@@ -284,3 +284,25 @@
   .founder-facts,.topic-list,.press-facts{grid-template-columns:1fr}
   .movement-ribbon{font-size:.65rem}
 }
+
+/* Next Gen hero: make the people and setting slightly more visible without reducing text contrast. */
+.nextgen-page .movement-hero > img{
+  opacity:.88!important;
+  filter:saturate(1.02) contrast(1.03) brightness(1.12)!important;
+}
+.nextgen-page .movement-hero::before{
+  background:
+    linear-gradient(90deg,rgba(13,11,12,.84) 0%,rgba(13,11,12,.58) 42%,rgba(13,11,12,.18) 100%),
+    linear-gradient(0deg,rgba(13,11,12,.46),transparent 60%)!important;
+}
+
+@media(max-width:760px){
+  .nextgen-page .movement-hero > img{
+    opacity:.84!important;
+    filter:saturate(1.02) contrast(1.02) brightness(1.10)!important;
+  }
+  .nextgen-page .movement-hero::before{
+    background:
+      linear-gradient(0deg,rgba(13,11,12,.62) 0%,rgba(13,11,12,.34) 58%,rgba(13,11,12,.10) 100%)!important;
+  }
+}
