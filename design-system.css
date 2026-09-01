@@ -34,6 +34,25 @@
   font-size: clamp(1.9rem, 3vw, 2.7rem) !important;
 }
 
+/* Keep the final Our Story menu fully visible on laptop and desktop. */
+@media (min-width: 1041px) {
+  .nav-links {
+    overflow: visible !important;
+  }
+
+  .nav-links > .nav-group:last-child .nav-submenu {
+    right: 0 !important;
+    left: auto !important;
+    width: max-content;
+    min-width: 285px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .nav-links > .nav-group:last-child .nav-submenu a {
+    white-space: nowrap !important;
+  }
+}
+
 @media (max-width: 760px) {
   .display,
   .page-hero .display {
