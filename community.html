@@ -26,11 +26,82 @@
     }
     .discord-support .card{padding:clamp(26px,4vw,42px)}
     .discord-support .card p{margin-bottom:22px}
+
+    .community-rooted{
+      padding-top:clamp(44px,5vw,66px);
+      padding-bottom:clamp(44px,5vw,66px);
+    }
+    .community-rooted .rooted-layout{
+      display:grid;
+      grid-template-columns:minmax(240px,330px) minmax(0,1fr);
+      gap:clamp(34px,5vw,64px);
+      align-items:center;
+    }
+    .community-rooted .portrait-frame{
+      width:100%;
+      max-width:330px;
+      aspect-ratio:4 / 5;
+      justify-self:center;
+    }
+    .community-rooted .portrait-frame img{
+      object-position:center 48%;
+    }
+    .community-rooted .rooted-copy{
+      width:100%;
+      max-width:650px;
+    }
+    .community-rooted .section-title{
+      max-width:15ch;
+      margin-bottom:18px;
+      font-size:clamp(2rem,3.6vw,3.45rem);
+      line-height:1;
+    }
+    .community-rooted .lead{
+      max-width:55ch;
+      margin-bottom:14px;
+      font-size:1.02rem;
+      line-height:1.58;
+    }
+    .community-rooted .rooted-copy>p:not(.eyebrow):not(.lead){
+      max-width:58ch;
+      margin-bottom:20px;
+      line-height:1.6;
+    }
+    .community-rooted .actions{
+      margin-top:20px;
+    }
+
     @media(max-width:900px){
       .discord-support{grid-template-columns:1fr}
+      .community-rooted .rooted-layout{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+      .community-rooted .portrait-frame{
+        max-width:300px;
+        justify-self:start;
+      }
+      .community-rooted .rooted-copy{
+        max-width:700px;
+      }
     }
     @media(max-width:560px){
       body.has-discord-float .whatsapp-greeting{bottom:calc(66px + env(safe-area-inset-bottom))}
+      .community-rooted{
+        padding-top:36px;
+        padding-bottom:40px;
+      }
+      .community-rooted .portrait-frame{
+        max-width:270px;
+        justify-self:center;
+      }
+      .community-rooted .section-title{
+        max-width:13ch;
+        font-size:clamp(1.9rem,9vw,2.55rem);
+      }
+      .community-rooted .actions{
+        gap:10px;
+      }
     }
   </style>
 </head>
@@ -139,10 +210,10 @@
       </div>
     </section>
 
-    <section class="section plum">
-      <div class="wrap split even">
+    <section class="section plum community-rooted">
+      <div class="wrap rooted-layout">
         <figure class="photo-frame portrait-frame"><img src="assets/rooftop-community-strength.webp" alt="Danielle and members of the rooftop strength community"><figcaption>Rooftop strength · Community · Tamraght</figcaption></figure>
-        <div>
+        <div class="rooted-copy">
           <p class="eyebrow">Rooted in Tamraght</p>
           <h2 class="display section-title">Built by the people who keep showing up.</h2>
           <p class="lead">Every class, event, pop up and free project adds another person to the movement.</p>
