@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { href: 'movement.html', label: 'I Am Limitless Movement', path: '/movement.html' },
       { href: 'founder.html', label: 'Founder · Danielle Askari', path: '/founder.html' },
       { href: 'nextgen.html', label: 'Limitless Next Gen · Impact', path: '/nextgen.html' },
-      { href: 'media-partnerships.html', label: 'Media & Partnerships', path: '/media-partnerships.html' }
+      { href: 'media-partnerships.html', label: 'Media & Partnerships', path: '/media-partnerships.html' },
+      { href: 'press-kit.html', label: 'Official Press Kit', path: '/press-kit.html' }
     ];
 
     document.querySelectorAll('.nav-links').forEach((nav) => {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggle = group?.querySelector('.nav-group-toggle');
         if (toggle && movementItems.some((item) => path.endsWith(item.path))) toggle.classList.add('is-active');
       } else {
-        movementItems.forEach((item) => {
+        movementItems.slice(0, 4).forEach((item) => {
           if (nav.querySelector(`a[href="${item.href}"]`)) return;
           const link = document.createElement('a');
           link.href = item.href;
@@ -39,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ['movement.html', 'I Am Limitless'],
         ['founder.html', 'Founder'],
         ['nextgen.html', 'Impact'],
-        ['media-partnerships.html', 'Media & Partnerships']
+        ['media-partnerships.html', 'Media & Partnerships'],
+        ['press-kit.html', 'Press Kit']
       ].forEach(([href, label]) => {
         if (footer.querySelector(`a[href="${href}"]`)) return;
         const link = document.createElement('a');
@@ -48,5 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
         footer.insertBefore(link, footer.firstChild);
       });
     });
+
+    if (path.endsWith('/media-partnerships.html')) {
+      const mediaActions = document.querySelector('#media .actions');
+      if (mediaActions && !mediaActions.querySelector('a[href="press-kit.html"]')) {
+        const pressKit = document.createElement('a');
+        pressKit.className = 'btn';
+        pressKit.href = 'press-kit.html';
+        pressKit.textContent = 'Open official press kit';
+        mediaActions.appendChild(pressKit);
+      }
+    }
   }, 0);
 });
