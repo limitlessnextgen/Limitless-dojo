@@ -66,9 +66,11 @@
 }
 
 .landing-home .home-hero .display {
-  max-width: 11ch;
-  font-size: clamp(2.8rem, 5.55vw, 5rem);
-  line-height: .97;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(2.25rem, 4.15vw, 3.95rem);
+  line-height: .98;
   letter-spacing: -.035em;
 }
 
@@ -99,8 +101,10 @@
   }
 
   .landing-home .home-hero .display {
-    max-width: 10ch;
-    font-size: clamp(2.55rem, 6vw, 4.25rem);
+    width: max-content;
+    max-width: none;
+    white-space: nowrap;
+    font-size: clamp(2rem, 4.5vw, 3rem);
   }
 
   .home-hero-panel {
@@ -140,7 +144,9 @@
   }
 
   .landing-home .home-hero .display {
-    max-width: 9.5ch;
+    width: auto;
+    max-width: 15ch;
+    white-space: normal;
     font-size: clamp(2.2rem, 9.4vw, 3rem);
     line-height: 1;
   }
@@ -183,7 +189,9 @@
   }
 
   .landing-home .home-hero .display {
-    max-width: 9ch;
+    width: auto;
+    max-width: 13ch;
+    white-space: normal;
     font-size: clamp(2rem, 8.8vw, 2.55rem);
   }
 
