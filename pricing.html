@@ -11,28 +11,177 @@
   <link rel="stylesheet" href="design-system.css">
   <link rel="stylesheet" href="photo-layout.css">
   <style>
-    .pricing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
-    .price-card{display:flex;flex-direction:column;min-height:100%;padding:clamp(28px,4vw,50px);border:1px solid var(--line);background:rgba(255,255,255,.28);box-shadow:var(--shadow)}
-    .price-card.featured{background:var(--ink);color:var(--ivory)}
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:26px;
+      align-items:stretch;
+    }
+    .price-card{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      padding:clamp(26px,3.2vw,40px);
+      border:1px solid rgba(176,138,82,.38);
+      background:#fffaf0;
+      box-shadow:0 18px 42px rgba(32,23,22,.08);
+    }
+    .price-card.featured{
+      border-color:rgba(211,183,126,.72);
+      background:var(--ink);
+      color:var(--ivory);
+    }
+    .membership-kicker{
+      display:inline-flex;
+      width:max-content;
+      margin:0 0 16px;
+      padding:7px 10px;
+      border:1px solid rgba(176,138,82,.42);
+      background:rgba(176,138,82,.1);
+      color:var(--plum);
+      font-size:.67rem;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .price-card.featured .membership-kicker{
+      border-color:rgba(211,183,126,.55);
+      background:rgba(211,183,126,.1);
+      color:var(--gold-light);
+    }
     .price-card .eyebrow{color:var(--plum)}
     .price-card.featured .eyebrow{color:var(--gold-light)}
-    .price-card h2{margin:0 0 14px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4vw,3.3rem);line-height:.96;text-transform:uppercase}
-    .price-card>p{margin-top:0}
-    .included-list{margin:18px 0 0;padding:18px 20px;border:1px solid var(--line);background:rgba(174,134,80,.08)}
-    .included-list strong{display:block;margin-bottom:8px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
-    .included-list p{margin:0}
-    .price-list{margin:24px 0 0;border-top:1px solid var(--line)}
-    .price-row{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;padding:22px 0;border-bottom:1px solid var(--line)}
-    .price-row h3{margin:0 0 5px;font-size:1rem}.price-row p{margin:0;font-size:.9rem;opacity:.78}
-    .price{text-align:right;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3vw,2.55rem);font-weight:700;line-height:.95;white-space:nowrap}
-    .price small{display:block;margin-top:7px;font-family:Inter,Arial,sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
-    .local-rate{margin-top:22px;padding:22px;border:1px solid var(--line);background:var(--ivory-deep);color:var(--ink)}
-    .local-rate h3{margin:0 0 8px}.local-rate p{margin:0 0 14px}
-    .price-card .actions{margin-top:auto;padding-top:28px}
-    .membership-note{padding:clamp(24px,4vw,38px);border-left:4px solid var(--gold);background:var(--ivory-deep)}
+    .price-card h2{
+      max-width:13ch;
+      margin:0 0 12px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(1.8rem,3vw,2.65rem);
+      line-height:1;
+      text-transform:none;
+    }
+    .membership-intro{
+      max-width:58ch;
+      margin:0;
+      font-size:.97rem;
+      line-height:1.62;
+      opacity:.86;
+    }
+    .included-list{
+      margin:20px 0 0;
+      padding:16px 18px;
+      border-left:3px solid var(--gold);
+      background:rgba(174,134,80,.08);
+    }
+    .included-list strong{
+      display:block;
+      margin-bottom:7px;
+      font-size:.67rem;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .included-list p{margin:0;font-size:.94rem}
+    .price-list{
+      display:grid;
+      gap:11px;
+      margin:24px 0 0;
+    }
+    .price-row{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:18px;
+      align-items:center;
+      padding:17px 18px;
+      border:1px solid rgba(176,138,82,.28);
+      background:rgba(255,255,255,.38);
+    }
+    .featured .price-row{
+      border-color:rgba(241,231,213,.17);
+      background:rgba(255,255,255,.045);
+    }
+    .price-row h3{
+      margin:0 0 4px;
+      font-size:.96rem;
+      line-height:1.25;
+    }
+    .price-row p{
+      margin:0;
+      font-size:.82rem;
+      line-height:1.45;
+      opacity:.72;
+    }
+    .price{
+      min-width:116px;
+      text-align:right;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(1.45rem,2.2vw,1.95rem);
+      font-weight:700;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .price small{
+      display:block;
+      margin-top:6px;
+      font-family:Inter,Arial,sans-serif;
+      font-size:.56rem;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+      opacity:.65;
+    }
+    .local-rate{
+      margin-top:18px;
+      padding:19px;
+      border:1px solid rgba(176,138,82,.42);
+      background:var(--ivory-deep);
+      color:var(--ink);
+    }
+    .local-rate .eyebrow{margin-bottom:8px}
+    .local-rate h3{margin:0 0 7px;font-size:1.05rem}
+    .local-rate p{margin:0 0 14px;font-size:.88rem;line-height:1.5}
+    .local-rate .price{
+      min-width:0;
+      text-align:left;
+      font-size:1.75rem;
+    }
+    .price-card .actions{
+      margin-top:auto;
+      padding-top:24px;
+    }
+    .price-card .actions .btn{
+      width:100%;
+      min-height:54px;
+      text-align:center;
+    }
+    .membership-note{
+      padding:clamp(24px,4vw,38px);
+      border-left:4px solid var(--gold);
+      background:var(--ivory-deep);
+    }
     .membership-note h3{margin-top:0}
-    .private-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,7vw,80px);align-items:center}
-    @media(max-width:780px){.pricing-grid,.private-grid{grid-template-columns:1fr}.price-row{grid-template-columns:1fr}.price{text-align:left}}
+    .private-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:clamp(34px,7vw,80px);
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .pricing-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:780px){
+      .private-grid{grid-template-columns:1fr}
+      .price-card{padding:24px 20px}
+      .price-row{padding:16px}
+    }
+    @media(max-width:520px){
+      .price-row{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+      .price{
+        min-width:0;
+        text-align:left;
+      }
+      .price-card h2{font-size:clamp(1.75rem,9vw,2.3rem)}
+    }
   </style>
   <script src="script.js" defer></script>
 </head>
@@ -53,8 +202,8 @@
       <img src="assets/brand-community.jpg" alt="The Go Limitless training community in Tamraght">
       <div class="wrap page-hero-content">
         <p class="eyebrow">Simple options · Clear memberships</p>
-        <h1 class="display">Training prices.</h1>
-        <p class="hero-lead">Choose the Limitless Dojo membership or the combined Strength membership. The two memberships are separate.</p>
+        <h1 class="display">Training memberships.</h1>
+        <p class="hero-lead">Choose martial arts or combined strength. Each membership has flexible options for regular training, short stays and single sessions.</p>
         <div class="actions"><a class="btn gold" href="#passes">View memberships</a><a class="btn light" href="timetable.html">View timetable</a></div>
       </div>
     </section>
@@ -63,46 +212,53 @@
 
     <section class="section" id="passes">
       <div class="wrap section-head">
-        <div><p class="eyebrow">International and local options</p><h2 class="display section-title">Choose your membership.</h2></div>
+        <div><p class="eyebrow">Choose how you want to train</p><h2 class="display section-title">Find your membership.</h2></div>
         <p class="lead">The dojo is one membership. Women’s strength and rooftop strength are combined in one separate strength membership.</p>
       </div>
 
       <div class="wrap pricing-grid">
         <article class="price-card featured">
-          <p class="eyebrow">Limitless Dojo Membership</p>
-          <h2>Martial Arts</h2>
-          <p>For scheduled BJJ, grappling, Muay Thai and martial arts group sessions at Limitless Dojo.</p>
+          <span class="membership-kicker">Martial arts membership</span>
+          <h2>Limitless Dojo</h2>
+          <p class="membership-intro">For scheduled Brazilian Jiu-Jitsu, grappling and Muay Thai group sessions at Limitless Dojo.</p>
+
           <div class="price-list">
-            <div class="price-row"><div><h3>Nomad Monthly Unlimited</h3><p>Unlimited scheduled dojo group sessions for one month.</p></div><div class="price">500 MAD<small>Per month</small></div></div>
-            <div class="price-row"><div><h3>Nomad 4 Class Multi Pack</h3><p>Four dojo group sessions. Valid for 14 days.</p></div><div class="price">320 MAD<small>4 classes</small></div></div>
-            <div class="price-row"><div><h3>Nomad Pay As You Go</h3><p>One scheduled dojo group session.</p></div><div class="price">100 MAD<small>Per class</small></div></div>
+            <div class="price-row"><div><h3>Monthly Unlimited</h3><p>Unlimited scheduled dojo group sessions for one month.</p></div><div class="price">500 MAD<small>Visitor / nomad · per month</small></div></div>
+            <div class="price-row"><div><h3>Four-Class Pass</h3><p>Four dojo group sessions, valid for 14 days.</p></div><div class="price">320 MAD<small>Visitor / nomad · 4 classes</small></div></div>
+            <div class="price-row"><div><h3>Single Class</h3><p>One scheduled dojo group session.</p></div><div class="price">100 MAD<small>Visitor / nomad · per class</small></div></div>
           </div>
+
           <div class="local-rate">
-            <p class="eyebrow">Local Moroccan Community</p>
+            <p class="eyebrow">Local Moroccan membership</p>
             <h3>Local Dojo Monthly Unlimited</h3>
-            <p>Unlimited scheduled dojo martial arts classes. Moroccan identification is required. This membership does not include strength classes.</p>
+            <p>Unlimited scheduled dojo martial arts classes. Moroccan identification is required. Strength classes are not included.</p>
             <div class="price">200 MAD<small>Per month</small></div>
           </div>
-          <div class="actions"><a class="btn gold" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20to%20join%20the%20Limitless%20Dojo%20membership.">Enquire about dojo membership</a></div>
+
+          <div class="actions"><a class="btn gold" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20to%20choose%20the%20Limitless%20Dojo%20membership.">Choose dojo membership</a></div>
         </article>
 
         <article class="price-card">
-          <p class="eyebrow">Combined Strength Membership</p>
-          <h2>Strength Classes</h2>
-          <p>One membership covering women’s strength classes at Nassim Gym and scheduled rooftop strength and conditioning classes.</p>
-          <div class="included-list"><strong>Included in this membership</strong><p>Women’s Strength Classes + Rooftop Strength Classes</p></div>
+          <span class="membership-kicker">Strength membership</span>
+          <h2>Combined Strength</h2>
+          <p class="membership-intro">One membership covering women’s strength at Nassim Gym and scheduled rooftop strength and conditioning classes.</p>
+
+          <div class="included-list"><strong>Your membership includes</strong><p>Women’s Strength Classes + Rooftop Strength Classes</p></div>
+
           <div class="price-list">
-            <div class="price-row"><div><h3>Nomad Monthly Unlimited</h3><p>Unlimited scheduled women’s strength and rooftop strength classes for one month.</p></div><div class="price">500 MAD<small>Per month</small></div></div>
-            <div class="price-row"><div><h3>Nomad 4 Class Multi Pack</h3><p>Use four classes across women’s strength or rooftop strength. Valid for 14 days.</p></div><div class="price">320 MAD<small>4 classes</small></div></div>
-            <div class="price-row"><div><h3>Nomad Pay As You Go</h3><p>One scheduled women’s strength or rooftop strength class.</p></div><div class="price">100 MAD<small>Per class</small></div></div>
+            <div class="price-row"><div><h3>Monthly Unlimited</h3><p>Unlimited scheduled women’s strength and rooftop strength classes for one month.</p></div><div class="price">500 MAD<small>Visitor / nomad · per month</small></div></div>
+            <div class="price-row"><div><h3>Four-Class Pass</h3><p>Use four classes across women’s strength or rooftop strength, valid for 14 days.</p></div><div class="price">320 MAD<small>Visitor / nomad · 4 classes</small></div></div>
+            <div class="price-row"><div><h3>Single Class</h3><p>One scheduled women’s strength or rooftop strength class.</p></div><div class="price">100 MAD<small>Visitor / nomad · per class</small></div></div>
           </div>
+
           <div class="local-rate">
-            <p class="eyebrow">Local Moroccan Community</p>
+            <p class="eyebrow">Local Moroccan membership</p>
             <h3>Local Strength Monthly Unlimited</h3>
-            <p>Unlimited scheduled women’s strength and rooftop strength classes. Moroccan identification is required. This membership does not include dojo classes.</p>
+            <p>Unlimited scheduled women’s strength and rooftop strength classes. Moroccan identification is required. Dojo classes are not included.</p>
             <div class="price">200 MAD<small>Per month</small></div>
           </div>
-          <div class="actions"><a class="btn primary" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20to%20join%20the%20combined%20strength%20membership.">Enquire about strength membership</a></div>
+
+          <div class="actions"><a class="btn primary" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20to%20choose%20the%20combined%20strength%20membership.">Choose strength membership</a></div>
         </article>
       </div>
     </section>
@@ -122,7 +278,7 @@
       </div>
     </section>
 
-    <section class="cta"><div class="wrap"><p class="eyebrow">Not sure which option fits?</p><h2 class="display">Message us before you train.</h2><p>Tell us whether you are local or visiting, what you would like to train and which days you are available.</p><div class="actions"><a class="btn primary" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20help%20choosing%20the%20right%20training%20option.">Message on WhatsApp</a><a class="btn" href="classes.html">Explore classes</a></div></div></section>
+    <section class="cta"><div class="wrap"><p class="eyebrow">Not sure which membership fits?</p><h2 class="display">We’ll help you choose.</h2><p>Tell us whether you are local or visiting, what you would like to train and how often you want to come.</p><div class="actions"><a class="btn primary" href="https://wa.me/212666664225?text=Hello%20Go%20Limitless%2C%20I%20would%20like%20help%20choosing%20the%20right%20membership.">Help me choose on WhatsApp</a><a class="btn" href="classes.html">Explore classes</a></div></div></section>
   </main>
 
   <footer class="site-footer"><div class="wrap footer-grid"><div><a class="wordmark" href="index.html">Go <span>Limitless</span></a><p class="footer-motto">Train · Evolve · Go Limitless</p><p>Tamraght · Agadir · Morocco<br>© 2026 Go Limitless</p></div><div class="footer-links"><a href="classes.html">Train</a><a href="timetable.html">Timetable</a><a href="pricing.html">Pricing</a><a href="https://www.instagram.com/limitless_dojo/">Dojo Instagram</a><a href="https://www.instagram.com/dannii_askari/">Founder</a><a href="https://www.instagram.com/limitlessnextgen/">Next Gen</a></div></div></footer>
