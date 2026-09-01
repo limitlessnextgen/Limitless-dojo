@@ -176,6 +176,16 @@
   color:var(--ivory);
 }
 
+/* Events page: let more of the competition photograph show through. */
+.movement-hero > img[src$="event-beach-wrestling.jpg"]{
+  opacity:.68;
+}
+.movement-hero:has(> img[src$="event-beach-wrestling.jpg"])::before{
+  background:
+    linear-gradient(90deg,rgba(10,8,9,.88) 0%,rgba(10,8,9,.54) 48%,rgba(10,8,9,.10) 100%),
+    linear-gradient(0deg,rgba(10,8,9,.72),transparent 58%);
+}
+
 @media(max-width:920px){
   .manifesto{
     grid-template-columns:1fr;
