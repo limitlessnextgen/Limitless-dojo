@@ -79,6 +79,63 @@ body:has(#classes-offered) .page-hero .display {
   line-height: .94;
 }
 
+/* Classes page: make the first-session section quieter and more balanced. */
+#classes-offered + .section.dark {
+  padding: clamp(38px, 4.8vw, 62px) 0;
+}
+
+#classes-offered + .section.dark .split.even {
+  width: min(1040px, calc(100% - 42px));
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+}
+
+#classes-offered + .section.dark .eyebrow {
+  margin-bottom: 8px;
+}
+
+#classes-offered + .section.dark .section-title {
+  max-width: 13ch;
+  font-size: clamp(2.25rem, 4vw, 3.55rem);
+  line-height: .96;
+}
+
+#classes-offered + .section.dark .lead {
+  max-width: 560px;
+  margin: 14px 0 18px;
+  font-size: clamp(.98rem, 1.35vw, 1.08rem);
+  line-height: 1.5;
+}
+
+#classes-offered + .section.dark .check-list {
+  max-width: 620px;
+  gap: 0 18px;
+}
+
+#classes-offered + .section.dark .check-list li {
+  padding: 9px 0;
+  font-size: .92rem;
+  line-height: 1.35;
+}
+
+#classes-offered + .section.dark .photo-frame {
+  width: 100%;
+  max-width: 360px;
+  justify-self: end;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .26);
+}
+
+#classes-offered + .section.dark .photo-frame img {
+  aspect-ratio: 4 / 4.35;
+  object-position: center 42%;
+}
+
+#classes-offered + .section.dark .photo-frame figcaption {
+  padding: 9px 12px;
+  font-size: .6rem;
+}
+
 /* Classes page: compact Try a Class enquiry panel. */
 #enquire {
   padding-top: clamp(44px, 5vw, 66px);
@@ -187,6 +244,14 @@ body:has(#classes-offered) .page-hero .display {
     width: min(50%, 520px);
     justify-self: center;
   }
+
+  #classes-offered + .section.dark .split.even {
+    grid-template-columns: minmax(0, 1.15fr) minmax(240px, .85fr);
+  }
+
+  #classes-offered + .section.dark .photo-frame {
+    max-width: 320px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -209,6 +274,34 @@ body:has(#classes-offered) .page-hero .display {
 
   body:has(#classes-offered) .page-hero .display {
     font-size: clamp(2.25rem, 10vw, 3.25rem);
+  }
+
+  #classes-offered + .section.dark {
+    padding: 34px 0 38px;
+  }
+
+  #classes-offered + .section.dark .split.even {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  #classes-offered + .section.dark .section-title {
+    font-size: clamp(2.15rem, 9vw, 3rem);
+  }
+
+  #classes-offered + .section.dark .check-list {
+    grid-template-columns: 1fr;
+  }
+
+  #classes-offered + .section.dark .photo-frame {
+    width: min(100%, 420px);
+    max-width: none;
+    justify-self: start;
+  }
+
+  #classes-offered + .section.dark .photo-frame img {
+    aspect-ratio: 16 / 11;
   }
 
   #enquire {
