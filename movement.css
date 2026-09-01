@@ -309,7 +309,7 @@
   }
 }
 
-/* Next Gen introduction: balance the text first, then use a wide image to remove the empty column gap. */
+/* Earlier Next Gen introduction rules retained for compatibility. */
 .nextgen-page .movement-ribbon + .section{
   padding-top:clamp(52px,6vw,78px);
   padding-bottom:clamp(36px,4vw,52px);
@@ -407,5 +407,121 @@
   .nextgen-page .nextgen-intro-photo img{
     height:clamp(220px,62vw,320px)!important;
     object-position:center 38%!important;
+  }
+}
+
+/* Final Next Gen intro layout: keep the image sharp by limiting its size and using a landscape crop. */
+.nextgen-page .movement-ribbon + .section{
+  padding-top:clamp(46px,5vw,66px)!important;
+  padding-bottom:clamp(38px,4.5vw,58px)!important;
+}
+.nextgen-page .nextgen-intro{
+  display:grid!important;
+  grid-template-columns:minmax(300px,.9fr) minmax(0,1.1fr)!important;
+  gap:clamp(30px,4.5vw,58px)!important;
+  align-items:start!important;
+}
+.nextgen-page .nextgen-intro-left{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:15px!important;
+  align-content:start!important;
+}
+.nextgen-page .nextgen-intro-left > .eyebrow,
+.nextgen-page .nextgen-intro-left > .section-title,
+.nextgen-page .nextgen-intro-photo,
+.nextgen-page .nextgen-intro-copy{
+  grid-column:auto!important;
+  grid-row:auto!important;
+}
+.nextgen-page .nextgen-intro-left > .eyebrow{
+  margin:0!important;
+  align-self:auto!important;
+}
+.nextgen-page .nextgen-intro-left > .section-title{
+  max-width:12ch!important;
+  margin:0!important;
+}
+.nextgen-page .nextgen-intro-photo{
+  width:100%!important;
+  max-width:520px!important;
+  margin:4px 0 0!important;
+  justify-self:start!important;
+  overflow:hidden!important;
+  border:1px solid rgba(174,134,80,.28);
+  box-shadow:0 16px 36px rgba(25,18,20,.12);
+}
+.nextgen-page .nextgen-intro-photo img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:16 / 10!important;
+  object-fit:cover!important;
+  object-position:center 42%!important;
+  filter:none!important;
+}
+.nextgen-page .nextgen-intro-copy{
+  width:100%!important;
+  max-width:620px!important;
+  padding:0!important;
+  align-self:start!important;
+}
+.nextgen-page .nextgen-intro-copy .lead{
+  margin-top:0!important;
+}
+.nextgen-page .nextgen-intro-copy .institutional-note{
+  margin-top:18px!important;
+}
+
+@media(max-width:920px){
+  .nextgen-page .nextgen-intro{
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+  }
+  .nextgen-page .nextgen-intro-left{
+    display:contents!important;
+  }
+  .nextgen-page .nextgen-intro-left > .eyebrow{
+    grid-column:1!important;
+    grid-row:1!important;
+  }
+  .nextgen-page .nextgen-intro-left > .section-title{
+    grid-column:1!important;
+    grid-row:2!important;
+    max-width:15ch!important;
+  }
+  .nextgen-page .nextgen-intro-copy{
+    grid-column:1!important;
+    grid-row:3!important;
+    max-width:720px!important;
+  }
+  .nextgen-page .nextgen-intro-photo{
+    grid-column:1!important;
+    grid-row:4!important;
+    width:min(100%,640px)!important;
+    max-width:640px!important;
+    margin-top:6px!important;
+  }
+}
+
+@media(max-width:760px){
+  .nextgen-page .movement-ribbon + .section{
+    padding-top:38px!important;
+    padding-bottom:36px!important;
+  }
+  .nextgen-page .nextgen-intro{
+    gap:15px!important;
+  }
+  .nextgen-page .nextgen-intro-photo{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  .nextgen-page .nextgen-intro-photo img{
+    aspect-ratio:16 / 11!important;
+    object-position:center 40%!important;
+  }
+  .nextgen-page .nextgen-intro-copy .institutional-note{
+    margin-top:15px!important;
+    padding:18px!important;
   }
 }
