@@ -7,13 +7,13 @@
 .location-list{display:grid;gap:14px;margin:24px 0;padding:0;list-style:none}
 .location-list li{padding-bottom:14px;border-bottom:1px solid rgba(16,14,15,.16)}
 .location-list strong{display:block;font-size:.69rem;letter-spacing:.13em;text-transform:uppercase}
+.sales-home .whatsapp-greeting{display:none!important}
 .mobile-sales-bar{display:none}
 @media(max-width:780px){
-  body{padding-bottom:68px}
+  body.sales-home{padding-bottom:68px}
   .location-panel{grid-template-columns:1fr}
   .mobile-sales-bar{position:fixed;left:0;right:0;bottom:0;z-index:240;display:grid;grid-template-columns:repeat(3,1fr);min-height:58px;border-top:1px solid var(--gold);background:rgba(13,11,12,.98);color:var(--ivory);box-shadow:0 -12px 34px rgba(0,0,0,.28)}
   .mobile-sales-bar a{display:flex;align-items:center;justify-content:center;padding:9px 6px;border-right:1px solid rgba(241,231,213,.14);font-size:.64rem;font-weight:900;letter-spacing:.08em;text-align:center;text-transform:uppercase}
   .mobile-sales-bar a:last-child{border-right:0;background:var(--gold);color:var(--ink)}
-  .whatsapp-float,.back-to-top{display:none!important}
-  .whatsapp-greeting{bottom:76px!important}
+  .sales-home .whatsapp-float,.sales-home .back-to-top{display:none!important}
 }
