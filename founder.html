@@ -17,6 +17,64 @@
   <link rel="stylesheet" href="design-system.css">
   <link rel="stylesheet" href="photo-layout.css">
   <link rel="stylesheet" href="movement.css">
+  <style>
+    .founder-page .movement-hero{
+      min-height:62svh;
+      align-items:center;
+    }
+    .founder-page .movement-hero>img{
+      opacity:.60;
+    }
+    .founder-page .movement-hero::before{
+      background:
+        linear-gradient(90deg,rgba(10,8,9,.90) 0%,rgba(10,8,9,.58) 48%,rgba(10,8,9,.12) 100%),
+        linear-gradient(0deg,rgba(10,8,9,.76),transparent 58%);
+    }
+    .founder-page .movement-hero .page-hero-content{
+      padding:clamp(42px,6vw,72px) 0;
+      max-width:700px;
+    }
+    .founder-page .movement-hero .eyebrow{
+      margin-bottom:10px;
+    }
+    .founder-page .movement-hero .display{
+      max-width:8ch;
+      font-size:clamp(3rem,5.8vw,5.3rem);
+      line-height:.88;
+    }
+    .founder-page .movement-hero .hero-lead{
+      max-width:610px;
+      margin:18px 0 22px;
+      font-size:clamp(1rem,1.5vw,1.16rem);
+      line-height:1.5;
+    }
+    .founder-page .movement-hero .actions{
+      gap:10px;
+    }
+    .founder-page .movement-hero .btn{
+      min-height:46px;
+      padding:12px 17px;
+    }
+    @media(max-width:760px){
+      .founder-page .movement-hero{
+        min-height:560px;
+        align-items:end;
+      }
+      .founder-page .movement-hero>img{
+        opacity:.56;
+      }
+      .founder-page .movement-hero .page-hero-content{
+        padding:44px 0 38px;
+      }
+      .founder-page .movement-hero .display{
+        font-size:clamp(2.7rem,13vw,4rem);
+      }
+      .founder-page .movement-hero .hero-lead{
+        margin:15px 0 19px;
+        font-size:.96rem;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -33,7 +91,7 @@
   <script src="script.js" defer></script>
   <script src="movement-nav.js" defer></script>
 </head>
-<body>
+<body class="founder-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><nav class="wrap nav-shell" aria-label="Main navigation"><a class="wordmark" href="index.html">Go <span>Limitless</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><div class="nav-links" id="site-nav"><a href="classes.html">Train</a><a href="movement.html" aria-current="page">Story</a><a href="nextgen.html">Community</a></div></nav></header>
 
