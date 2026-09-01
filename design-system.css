@@ -95,8 +95,8 @@ body {
 
 .pathway-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 .pathway-card {
   position: relative;
@@ -130,7 +130,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 28px;
+  padding: 30px;
 }
 .pathway-card h3 {
   margin: 10px 0;
@@ -140,6 +140,24 @@ body {
 }
 .pathway-card p { margin: 0; color: rgba(241,231,213,.88); }
 .pathway-card .card-link { margin-top: 18px; width: fit-content; color: var(--gold-light); }
+
+#choose-path .section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+#choose-path .section-head > div {
+  max-width: 820px;
+}
+#choose-path .section-head .section-title {
+  max-width: 17ch;
+}
+#choose-path .section-head > .lead {
+  max-width: 620px;
+  margin: 0;
+}
 
 .schedule-preview {
   display: grid;
@@ -211,8 +229,20 @@ body {
 }
 
 @media (max-width: 1040px) {
-  .pathway-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pathway-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .pathway-card-body { padding: 24px; }
+  .pathway-card h3 { font-size: 1.38rem; }
   .nav-cta { background: transparent; color: var(--gold-light) !important; }
+}
+
+@media (max-width: 900px) {
+  .pathway-grid {
+    grid-template-columns: 1fr;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  .pathway-card,
+  .pathway-card-body { min-height: 380px; }
 }
 
 @media (max-width: 760px) {
