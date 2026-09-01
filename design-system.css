@@ -51,6 +51,35 @@
   backdrop-filter: blur(1.5px) !important;
 }
 
+/* Timetable page: show the full team image clearly instead of cropping the group. */
+body:has(.mobile-times) .page-hero.compact {
+  min-height: clamp(600px, 62vw, 760px);
+  overflow: hidden;
+  background: #0d0b0c;
+}
+
+body:has(.mobile-times) .page-hero.compact > img {
+  right: 0;
+  left: auto;
+  width: 58%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: right center !important;
+  opacity: .94 !important;
+  filter: saturate(1.02) contrast(1.03) brightness(1.10) !important;
+}
+
+body:has(.mobile-times) .page-hero.compact::before {
+  background:
+    linear-gradient(90deg, rgba(13,11,12,.98) 0%, rgba(13,11,12,.92) 34%, rgba(13,11,12,.66) 54%, rgba(13,11,12,.12) 78%, rgba(13,11,12,.03) 100%),
+    linear-gradient(0deg, rgba(13,11,12,.58), transparent 58%) !important;
+}
+
+body:has(.mobile-times) .page-hero.compact .page-hero-content {
+  max-width: 720px;
+  padding: clamp(52px, 7vw, 84px) 0;
+}
+
 /* Keep the final Our Story menu fully visible on laptop and desktop. */
 @media (min-width: 1041px) {
   .nav-links {
@@ -67,6 +96,17 @@
 
   .nav-links > .nav-group:last-child .nav-submenu a {
     white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 900px) {
+  body:has(.mobile-times) .page-hero.compact {
+    min-height: 650px;
+  }
+
+  body:has(.mobile-times) .page-hero.compact > img {
+    width: 64%;
+    opacity: .88 !important;
   }
 }
 
@@ -104,6 +144,32 @@
     background:
       linear-gradient(0deg, rgba(13,11,12,.68) 0%, rgba(13,11,12,.30) 60%, rgba(13,11,12,.08) 100%) !important;
   }
+
+  body:has(.mobile-times) .page-hero.compact {
+    min-height: 680px;
+    align-items: end;
+  }
+
+  body:has(.mobile-times) .page-hero.compact > img {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 58%;
+    object-fit: contain !important;
+    object-position: center top !important;
+    opacity: .92 !important;
+  }
+
+  body:has(.mobile-times) .page-hero.compact::before {
+    background:
+      linear-gradient(0deg, rgba(13,11,12,.98) 0%, rgba(13,11,12,.88) 42%, rgba(13,11,12,.28) 72%, rgba(13,11,12,.05) 100%) !important;
+  }
+
+  body:has(.mobile-times) .page-hero.compact .page-hero-content {
+    padding: 310px 0 42px;
+  }
 }
 
 @media (max-width: 430px) {
@@ -122,5 +188,13 @@
 
   .cta .display {
     font-size: clamp(1.7rem, 7vw, 2.2rem) !important;
+  }
+
+  body:has(.mobile-times) .page-hero.compact {
+    min-height: 650px;
+  }
+
+  body:has(.mobile-times) .page-hero.compact .page-hero-content {
+    padding-top: 280px;
   }
 }
