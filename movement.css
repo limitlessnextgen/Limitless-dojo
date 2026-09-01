@@ -7,6 +7,8 @@
   background:var(--gold);
   color:var(--ink);
   text-align:center;
+  font-size:clamp(.7rem,.82vw,.84rem);
+  line-height:1.35;
   font-weight:900;
   letter-spacing:.12em;
   text-transform:uppercase;
@@ -282,7 +284,7 @@
 
 @media(max-width:620px){
   .founder-facts,.topic-list,.press-facts{grid-template-columns:1fr}
-  .movement-ribbon{font-size:.65rem}
+  .movement-ribbon{font-size:.62rem}
 }
 
 /* Next Gen hero: make the people and setting slightly more visible without reducing text contrast. */
