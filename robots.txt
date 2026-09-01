@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /programme-2027.html
 
 Sitemap: https://golimitless.ma/sitemap.xml
