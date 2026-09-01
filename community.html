@@ -1,70 +1,173 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Join the free Go Limitless Discord community forum for local members, travellers, nomads, athletes and martial artists across Morocco."><meta name="theme-color" content="#100e0f">
-  <title>Discord Community Forum | Go Limitless</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="responsive.css"><link rel="stylesheet" href="design-system.css"><link rel="stylesheet" href="photo-layout.css"><script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover the locally built Go Limitless community in Tamraght: women’s strength, youth access, athlete opportunity, martial arts, events and grassroots projects.">
+  <meta name="theme-color" content="#100e0f">
+  <title>Community & Impact | Go Limitless</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="design-system.css">
+  <link rel="stylesheet" href="photo-layout.css">
+  <script src="script.js" defer></script>
   <style>
-    #discord .intro-grid {
-      grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
-      gap: clamp(2.5rem, 5vw, 5.5rem);
-      align-items: start;
+    body .discord-float{display:none!important}
+    body.has-discord-float .whatsapp-greeting{bottom:calc(86px + env(safe-area-inset-bottom))}
+    .impact-actions{margin-top:28px}
+    .community-impact-grid{margin-top:36px}
+    .community-impact-grid .card{min-height:100%}
+    .community-impact-grid .card h3{margin-bottom:12px}
+    .discord-support{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
+      gap:clamp(2rem,5vw,5rem);
+      align-items:center;
     }
-    #discord .discord-section-title {
-      max-width: none;
-      font-size: clamp(2.55rem, 4vw, 4.65rem);
-      line-height: .92;
-      letter-spacing: -.035em;
-      text-wrap: balance;
-      overflow-wrap: normal;
-      word-break: normal;
-      hyphens: none;
+    .discord-support .card{padding:clamp(26px,4vw,42px)}
+    .discord-support .card p{margin-bottom:22px}
+    @media(max-width:900px){
+      .discord-support{grid-template-columns:1fr}
     }
-    @media (max-width: 900px) {
-      #discord .intro-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      #discord .discord-section-title {
-        max-width: 13ch;
-        font-size: clamp(2.35rem, 10vw, 4rem);
-      }
+    @media(max-width:560px){
+      body.has-discord-float .whatsapp-greeting{bottom:calc(66px + env(safe-area-inset-bottom))}
     }
   </style>
 </head>
-<body><a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="wrap nav-shell" aria-label="Main navigation"><a class="wordmark" href="home.html">Go <span>Limitless</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><div class="nav-links" id="site-nav"><a href="founder.html">Founder</a><a href="coaches.html">Coaches</a><a href="classes.html">Classes</a><a href="timetable.html">Timetable</a><a href="coaching.html">Coaching</a><a href="events.html">Events</a><a href="community.html" aria-current="page">Community</a><a href="nextgen.html">Next Gen</a></div></nav></header>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="wrap nav-shell" aria-label="Main navigation">
+      <a class="wordmark" href="home.html">Go <span>Limitless</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <div class="nav-links" id="site-nav">
+        <a href="founder.html">Founder</a><a href="coaches.html">Coaches</a><a href="classes.html">Classes</a><a href="timetable.html">Timetable</a><a href="coaching.html">Coaching</a><a href="events.html">Events</a><a href="community.html" aria-current="page">Community</a><a href="nextgen.html">Next Gen</a>
+      </div>
+    </nav>
+  </header>
+
   <main id="main">
-    <section class="page-hero"><img src="assets/community-training.jpeg" alt="Members of the Go Limitless fitness and martial arts community together"><div class="wrap page-hero-content"><p class="eyebrow">Free Discord community forum · Members · Travellers · Athletes</p><h1 class="display">Join the Go Limitless Discord community.</h1><p class="hero-lead">The online meeting point for local members, travellers, nomads, coaches and athletes to discover Go Limitless events, join discussions, arrange meetups and stay connected across Morocco.</p><div class="actions"><a class="btn gold" href="https://discord.gg/ZdepHuTgnm" target="_blank" rel="noopener noreferrer">Open Discord Community Forum ↗</a><a class="btn light" href="#discord">See what happens inside</a></div></div></section>
-
-    <section class="section"><div class="wrap intro-grid"><div><p class="eyebrow">Fitness · Martial arts · Community across Morocco</p><h2 class="display section-title">More than a dojo. A movement.</h2><div class="rule"></div></div><div><p class="lead">Limitless Dojo is our training base in Tamraght. Go Limitless is the wider movement bringing people together wherever we can train, compete, learn or meet.</p><p>Sometimes it is a major beach wrestling competition. Sometimes it is sunset Muay Thai, sandboarding, a Tap Me Out challenge, a free open mat or a spontaneous session with a few roll mats and whoever is nearby.</p></div></div></section>
-
-    <section class="section dark" id="discord">
-      <div class="wrap intro-grid"><div><p class="eyebrow">The online home of the movement</p><h2 class="display section-title discord-section-title">A community forum for members and travellers.</h2><div class="rule"></div></div><div><p class="lead">The Go Limitless Discord is where the wider community connects, discovers what is happening and helps create the next event.</p><p>It is free and open to local members, Moroccan athletes, coaches, nomads, visitors, international travellers and anyone interested in fitness or martial arts.</p><div class="actions"><a class="btn gold" href="https://discord.gg/ZdepHuTgnm" target="_blank" rel="noopener noreferrer">Join the Discord Forum ↗</a></div></div></div>
-      <div class="wrap card-grid two">
-        <article class="card"><div class="card-number">01</div><h3>Go Limitless Events</h3><p>Find beach wrestling competitions, sunset Muay Thai, Tap Me Out challenges, free open mats, sandboarding and social meetups organised by Go Limitless.</p></article>
-        <article class="card"><div class="card-number">02</div><h3>Pop Ups Across Morocco</h3><p>We post a location, bring a few roll mats, see who is around and create the energy together. The movement can happen anywhere.</p></article>
-        <article class="card"><div class="card-number">03</div><h3>Free Education</h3><p>Access useful content about fitness, martial arts, recovery, nutrition, competition preparation and athlete development.</p></article>
-        <article class="card"><div class="card-number">04</div><h3>Community Discussions</h3><p>Ask questions, discuss training, share opportunities, arrange meetups, connect with athletes and help shape future events.</p></article>
+    <section class="page-hero">
+      <img src="assets/community-training.jpeg" alt="Members of the locally built Go Limitless fitness and martial arts community together">
+      <div class="wrap page-hero-content">
+        <p class="eyebrow">Built in Tamraght · Women · Youth · Athletes · Community</p>
+        <h1 class="display">Join a community built from the ground up.</h1>
+        <p class="hero-lead">Go Limitless grows through the people who keep showing up. From rooftop training and women’s strength to youth projects, athlete support and independent events, this is movement creating real local impact.</p>
+        <div class="actions">
+          <a class="btn gold" href="#community-impact">See our community impact</a>
+          <a class="btn light" href="classes.html#enquire">Join a class</a>
+        </div>
       </div>
     </section>
 
-    <section class="section dark" id="community-moments"><div class="wrap tile-gallery"><figure><img src="assets/moment-basketball.jpg" alt="Community basketball at sunset"><figcaption>Free sport · Sunset sessions</figcaption></figure><figure><img src="assets/moment-green-challenge-friends.jpg" alt="Friends after the Green Challenge"><figcaption>Challenge together · Grow together</figcaption></figure><figure><img src="assets/moment-posing-coaching.jpg" alt="Women practising posing"><figcaption>Confidence · Coaching · Presentation</figcaption></figure><figure><img src="assets/moment-limitless-athletes.jpg" alt="Limitless athletes together at the beach"><figcaption>Proud to represent Limitless</figcaption></figure><figure><img src="assets/moment-beach-community.jpg" alt="Community gathered for a beach event"><figcaption>Beach events · Community energy</figcaption></figure><figure><img src="assets/moment-community-dog.jpg" alt="Women relaxing together after an activity"><figcaption>More than training</figcaption></figure><figure><img src="assets/moment-cycling.jpg" alt="Women gathering with bicycles"><figcaption>Adventure · Movement · Connection</figcaption></figure><figure><img src="assets/moment-race-finish.jpg" alt="Go Limitless participants celebrating after a race"><figcaption>Every finish matters</figcaption></figure><figure><img src="assets/moment-womens-energy.jpg" alt="Two women celebrating outdoors"><figcaption>Energy · Support · Belonging</figcaption></figure></div></section>
+    <section class="section" id="community-impact">
+      <div class="wrap intro-grid">
+        <div>
+          <p class="eyebrow">Locally built · Community led</p>
+          <h2 class="display section-title">More than a dojo. A movement.</h2>
+          <div class="rule"></div>
+        </div>
+        <div>
+          <p class="lead">Limitless Dojo is our training base in Tamraght. Go Limitless is the wider movement creating access, confidence, visibility and connection through sport.</p>
+          <p>The work happens in classes, on rooftops, at the beach, in local gyms and anywhere people are willing to come together. Each project is built around participation rather than perfection.</p>
+        </div>
+      </div>
 
-    <section class="section" id="reviews"><div class="wrap section-head"><div><p class="eyebrow">Google Reviews · Limitless Dojo</p><h2 class="display section-title">What the community says.</h2></div><div><div class="stars" style="font-size:1.5rem">★★★★★</div></div></div><div class="wrap reviews-track">
-      <article class="review"><div class="stars">★★★★★</div><blockquote>“Your sessions are always so positive, motivating and welcoming. You’ve created an amazing community where everyone feels supported, encouraged and comfortable being themselves.”</blockquote><p class="reviewer">Nisrine Chequira<span>Google Review</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote>“I train with Dani since two years and she’s the best trainer I ever had. She is as caring as she is motivating, and adapts to our goals and injuries.”</blockquote><p class="reviewer">Colette Friedrich<span>Google Review</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote lang="es">“Estuve un mes entrenando en Limitless Dojo y fue increíble. Todo el equipo fue acogedor y de gran compañerismo. Fue como sentirme en casa. OSS.”</blockquote><p class="reviewer">Axel Sosa<span>Google Review · Spanish</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote>“Great gym and great vibe. If you want to train BJJ or Muay Thai, drop by and visit Danni and the crew here!”</blockquote><p class="reviewer">Mouncif<span>Google Review</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote>“Whether it’s at the gym or on the rooftop, it’s always a solid experience. I feel much stronger, fitter and more confident.”</blockquote><p class="reviewer">Shiraz Ksaiba<span>Google Review</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote>“Cool vibes, great training experience. Highly recommended whether you are a resident or a tourist. Just go and experience the magic!”</blockquote><p class="reviewer">Laura Farina<span>Google Review</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote>“If you’re looking for someone who will push you beyond your limits and help you achieve amazing results, you’ve found the perfect coach.”</blockquote><p class="reviewer">Samia Abbar<span>Google Review</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote>“I’ve had an incredible experience training here. It is the perfect place to let out the whole week’s stress. Highly recommend.”</blockquote><p class="reviewer">Noureddine Benbella<span>Google Review</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote lang="fr">“Très bonne expérience, une équipe au top. Je recommande si vous êtes de passage au Maroc.”</blockquote><p class="reviewer">Aymen el Moudene<span>Google Review · French</span></p></article>
-      <article class="review"><div class="stars">★★★★★</div><blockquote lang="fr">“Dès les premières minutes, Dannii a pris le temps de m’écouter, de respecter mes limites et de créer un espace de confiance.”</blockquote><p class="reviewer">Limitless Dojo Member<span>Google Review · French</span></p></article>
-    </div></section>
+      <div class="wrap card-grid two community-impact-grid">
+        <article class="card">
+          <div class="card-number">01</div>
+          <h3>Women’s Access</h3>
+          <p>Supportive strength and movement spaces where women can build confidence, consistency and physical capability together.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">02</div>
+          <h3>Youth Pathways</h3>
+          <p>Free guided sport and development opportunities designed to help young people move, learn, lead and see what may be possible.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">03</div>
+          <h3>Athlete Opportunity</h3>
+          <p>Coaching, competition support, visibility and practical opportunities for emerging athletes who are ready to work and grow.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">04</div>
+          <h3>Locally Produced Events</h3>
+          <p>Beach wrestling, grappling, open mats, challenges and community activations created locally and opened to a wider audience.</p>
+        </article>
+      </div>
 
-    <section class="section plum"><div class="wrap split even"><figure class="photo-frame portrait-frame"><img src="assets/rooftop-community-strength.webp" alt="Danielle and members of the rooftop strength community"><figcaption>Rooftop strength · Community · Tamraght</figcaption></figure><div><p class="eyebrow">Rooted in Tamraght</p><h2 class="display section-title">Built by the people who keep showing up.</h2><p class="lead">Every class, event, pop up and free project adds another person to the movement.</p><p>You do not need to live in Tamraght or already feel confident to belong. You only need to be willing to show up, connect and move.</p><div class="actions"><a class="btn light" href="https://discord.gg/ZdepHuTgnm" target="_blank" rel="noopener noreferrer">Join the Discord Forum ↗</a><a class="btn light" href="nextgen.html">See the social impact</a></div></div></div></section>
+      <div class="wrap actions impact-actions">
+        <a class="btn gold" href="nextgen.html">Explore Limitless Next Gen</a>
+        <a class="btn" href="events.html">See our events</a>
+      </div>
+    </section>
+
+    <section class="section dark" id="community-moments">
+      <div class="wrap section-head">
+        <div><p class="eyebrow">The work in action</p><h2 class="display section-title">Built through real people and real moments.</h2></div>
+        <p class="lead">The community is not an online idea. It is what happens when people train, compete, support one another and keep coming back.</p>
+      </div>
+      <div class="wrap tile-gallery">
+        <figure><img src="assets/moment-basketball.jpg" alt="Community basketball at sunset"><figcaption>Free sport · Sunset sessions</figcaption></figure>
+        <figure><img src="assets/moment-green-challenge-friends.jpg" alt="Friends after the Green Challenge"><figcaption>Challenge together · Grow together</figcaption></figure>
+        <figure><img src="assets/moment-posing-coaching.jpg" alt="Women practising posing"><figcaption>Confidence · Coaching · Presentation</figcaption></figure>
+        <figure><img src="assets/moment-limitless-athletes.jpg" alt="Limitless athletes together at the beach"><figcaption>Proud to represent Limitless</figcaption></figure>
+        <figure><img src="assets/moment-beach-community.jpg" alt="Community gathered for a beach event"><figcaption>Beach events · Community energy</figcaption></figure>
+        <figure><img src="assets/moment-community-dog.jpg" alt="Women relaxing together after an activity"><figcaption>More than training</figcaption></figure>
+        <figure><img src="assets/moment-cycling.jpg" alt="Women gathering with bicycles"><figcaption>Adventure · Movement · Connection</figcaption></figure>
+        <figure><img src="assets/moment-race-finish.jpg" alt="Go Limitless participants celebrating after a race"><figcaption>Every finish matters</figcaption></figure>
+        <figure><img src="assets/moment-womens-energy.jpg" alt="Two women celebrating outdoors"><figcaption>Energy · Support · Belonging</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="wrap section-head">
+        <div><p class="eyebrow">Google Reviews · Limitless Dojo</p><h2 class="display section-title">What the community says.</h2></div>
+        <div><div class="stars" style="font-size:1.5rem">★★★★★</div></div>
+      </div>
+      <div class="wrap reviews-track">
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“Your sessions are always so positive, motivating and welcoming. You’ve created an amazing community where everyone feels supported, encouraged and comfortable being themselves.”</blockquote><p class="reviewer">Nisrine Chequira<span>Google Review</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“I train with Dani since two years and she’s the best trainer I ever had. She is as caring as she is motivating, and adapts to our goals and injuries.”</blockquote><p class="reviewer">Colette Friedrich<span>Google Review</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote lang="es">“Estuve un mes entrenando en Limitless Dojo y fue increíble. Todo el equipo fue acogedor y de gran compañerismo. Fue como sentirme en casa. OSS.”</blockquote><p class="reviewer">Axel Sosa<span>Google Review · Spanish</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“Great gym and great vibe. If you want to train BJJ or Muay Thai, drop by and visit Danni and the crew here!”</blockquote><p class="reviewer">Mouncif<span>Google Review</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“Whether it’s at the gym or on the rooftop, it’s always a solid experience. I feel much stronger, fitter and more confident.”</blockquote><p class="reviewer">Shiraz Ksaiba<span>Google Review</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“Cool vibes, great training experience. Highly recommended whether you are a resident or a tourist. Just go and experience the magic!”</blockquote><p class="reviewer">Laura Farina<span>Google Review</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“If you’re looking for someone who will push you beyond your limits and help you achieve amazing results, you’ve found the perfect coach.”</blockquote><p class="reviewer">Samia Abbar<span>Google Review</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“I’ve had an incredible experience training here. It is the perfect place to let out the whole week’s stress. Highly recommend.”</blockquote><p class="reviewer">Noureddine Benbella<span>Google Review</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote lang="fr">“Très bonne expérience, une équipe au top. Je recommande si vous êtes de passage au Maroc.”</blockquote><p class="reviewer">Aymen el Moudene<span>Google Review · French</span></p></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote lang="fr">“Dès les premières minutes, Dannii a pris le temps de m’écouter, de respecter mes limites et de créer un espace de confiance.”</blockquote><p class="reviewer">Limitless Dojo Member<span>Google Review · French</span></p></article>
+      </div>
+    </section>
+
+    <section class="section plum">
+      <div class="wrap split even">
+        <figure class="photo-frame portrait-frame"><img src="assets/rooftop-community-strength.webp" alt="Danielle and members of the rooftop strength community"><figcaption>Rooftop strength · Community · Tamraght</figcaption></figure>
+        <div>
+          <p class="eyebrow">Rooted in Tamraght</p>
+          <h2 class="display section-title">Built by the people who keep showing up.</h2>
+          <p class="lead">Every class, event, pop up and free project adds another person to the movement.</p>
+          <p>You do not need to live in Tamraght or already feel confident to belong. You only need to be willing to show up, connect and move.</p>
+          <div class="actions"><a class="btn light" href="classes.html#enquire">Join a class</a><a class="btn light" href="nextgen.html">See the social impact</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="discord">
+      <div class="wrap discord-support">
+        <div>
+          <p class="eyebrow">Stay connected online</p>
+          <h2 class="display section-title">The community comes first. Discord keeps it connected.</h2>
+          <p class="lead">Go Limitless is built through in-person classes, events, youth projects and local relationships. Our free Discord forum is simply one place to hear about what is happening next.</p>
+        </div>
+        <article class="card">
+          <h3>Join the online community</h3>
+          <p>Discover upcoming sessions and events, ask questions, arrange meetups and connect with members, athletes, coaches and travellers.</p>
+          <a class="btn gold" href="https://discord.gg/ZdepHuTgnm" target="_blank" rel="noopener noreferrer">Open Discord Forum ↗</a>
+        </article>
+      </div>
+    </section>
   </main>
+
   <footer class="site-footer"><div class="wrap footer-grid"><div><a class="wordmark" href="home.html">Go <span>Limitless</span></a><p class="footer-motto">Train · Evolve · Go Limitless</p><p>Tamraght · Agadir · Morocco<br>© 2026 Go Limitless</p></div><div class="footer-links"><a href="https://www.instagram.com/limitless_dojo/">Dojo</a><a href="https://www.instagram.com/dannii_askari/">Founder</a><a href="https://www.instagram.com/limitlessnextgen/">Next Gen</a></div></div></footer>
-</body></html>
+</body>
+</html>
