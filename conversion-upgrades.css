@@ -18,85 +18,69 @@
 .landing-home .home-hero {
   height: calc(100svh - 76px);
   min-height: 560px;
-  align-items: stretch;
+  align-items: center;
   background: var(--ink);
 }
 
-/* Give the photograph its own area so the wording no longer covers it. */
 .landing-home .home-hero > img {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: 62%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  opacity: 1;
-  background: var(--ink);
-  filter: saturate(.86) contrast(.96) brightness(.88);
+  opacity: .82;
+  object-position: 70% center;
+  filter: saturate(.78) contrast(.94) brightness(.82);
 }
 
 .landing-home .home-hero::before {
-  background: linear-gradient(
-    90deg,
-    rgba(13,11,12,1) 0%,
-    rgba(13,11,12,1) 34%,
-    rgba(13,11,12,.94) 40%,
-    rgba(13,11,12,.25) 52%,
-    transparent 64%
-  );
+  background:
+    linear-gradient(90deg, rgba(10,8,9,.92) 0%, rgba(10,8,9,.66) 43%, rgba(10,8,9,.1) 78%),
+    linear-gradient(0deg, rgba(10,8,9,.52), transparent 55%);
 }
 
 .landing-home .home-hero .page-hero-content {
-  display: flex;
   width: min(var(--max), calc(100% - 42px));
   max-width: none;
-  min-height: 100%;
-  align-items: center;
-  margin-inline: auto;
-  padding: 28px 0;
+  padding: 32px 0;
 }
 
 .home-hero-panel {
-  width: min(455px, 39vw);
-  padding: clamp(24px, 2.6vw, 34px);
+  width: min(540px, 100%);
+  padding: clamp(26px, 3vw, 38px);
   border-left: 3px solid var(--gold);
-  background: rgba(13,11,12,.72);
-  box-shadow: 0 22px 58px rgba(0,0,0,.22);
-  backdrop-filter: blur(5px);
+  background: rgba(13,11,12,.78);
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+  backdrop-filter: blur(7px);
 }
 
 .landing-home .home-hero .eyebrow {
-  margin-bottom: 11px;
+  margin-bottom: 12px;
   color: var(--gold-light);
-  font-size: .62rem;
+  font-size: .64rem;
   letter-spacing: .18em;
 }
 
 .landing-home .home-hero .display {
-  max-width: 9.5ch;
-  font-size: clamp(2.55rem, 4vw, 4rem);
-  line-height: .99;
+  max-width: 10ch;
+  font-size: clamp(2.75rem, 4.7vw, 4.55rem);
+  line-height: .98;
   letter-spacing: -.035em;
 }
 
 .landing-home .home-hero .hero-lead {
-  max-width: 420px;
-  margin: 17px 0 0;
-  font-size: clamp(.92rem, 1vw, 1rem);
-  line-height: 1.5;
+  max-width: 470px;
+  margin: 19px 0 0;
+  font-size: clamp(.95rem, 1.05vw, 1.05rem);
+  line-height: 1.52;
 }
 
 .landing-home .home-hero .actions {
   display: flex;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 .landing-home .home-hero .actions .btn {
   width: auto;
-  min-width: 180px;
-  min-height: 48px;
-  padding: 12px 19px;
-  font-size: .68rem;
+  min-width: 190px;
+  min-height: 50px;
+  padding: 13px 20px;
+  font-size: .7rem;
   letter-spacing: .12em;
 }
 
@@ -105,46 +89,36 @@
     width: min(1120px, calc(100% - 42px));
   }
 
-  .landing-home .home-hero > img {
-    width: 61%;
-  }
-
   .home-hero-panel {
-    width: min(430px, 39vw);
-    padding: 27px 29px;
+    width: min(500px, 100%);
+    padding: 30px 32px;
   }
 
   .landing-home .home-hero .display {
-    font-size: clamp(2.45rem, 3.8vw, 3.7rem);
+    font-size: clamp(2.65rem, 4.35vw, 4.15rem);
   }
 }
 
 @media (max-width: 1040px) {
   .landing-home .home-hero > img {
-    width: 58%;
+    object-position: 64% center;
   }
 
   .landing-home .home-hero::before {
-    background: linear-gradient(
-      90deg,
-      rgba(13,11,12,1) 0%,
-      rgba(13,11,12,1) 39%,
-      rgba(13,11,12,.86) 47%,
-      rgba(13,11,12,.16) 61%,
-      transparent 72%
-    );
+    background:
+      linear-gradient(90deg, rgba(10,8,9,.94) 0%, rgba(10,8,9,.68) 55%, rgba(10,8,9,.18) 100%),
+      linear-gradient(0deg, rgba(10,8,9,.58), transparent 58%);
   }
 
   .home-hero-panel {
-    width: min(400px, 43vw);
+    width: min(470px, 100%);
   }
 
   .landing-home .home-hero .display {
-    font-size: clamp(2.3rem, 4.8vw, 3.35rem);
+    font-size: clamp(2.5rem, 5.5vw, 3.8rem);
   }
 }
 
-/* Mobile: photograph above, message below. Both stay visible in one screen. */
 @media (max-width: 760px) {
   .landing-home main {
     min-height: calc(100svh - 64px);
@@ -152,113 +126,90 @@
 
   .landing-home .home-hero {
     height: calc(100svh - 64px);
-    min-height: 560px;
+    min-height: 520px;
     align-items: end;
   }
 
   .landing-home .home-hero > img {
-    inset: 0 0 auto 0;
-    width: 100%;
-    height: 44%;
-    object-fit: contain;
-    object-position: center;
-    opacity: 1;
-    background: var(--ink);
-    filter: saturate(.84) contrast(.95) brightness(.88);
+    opacity: .68;
+    object-position: 63% center;
+    filter: saturate(.72) contrast(.92) brightness(.78);
   }
 
   .landing-home .home-hero::before {
-    background: linear-gradient(
-      0deg,
-      rgba(13,11,12,1) 0%,
-      rgba(13,11,12,1) 52%,
-      rgba(13,11,12,.35) 62%,
-      transparent 72%
-    );
+    background:
+      linear-gradient(0deg, rgba(10,8,9,.98) 0%, rgba(10,8,9,.76) 48%, rgba(10,8,9,.18) 100%);
   }
 
   .landing-home .home-hero .page-hero-content {
     width: calc(100% - 32px);
-    min-height: 100%;
-    align-items: flex-end;
-    padding: 18px 0 22px;
+    padding: 22px 0 26px;
   }
 
   .home-hero-panel {
     width: 100%;
-    padding: 20px 21px 22px;
+    padding: 22px 22px 24px;
     border-left: 0;
     border-top: 2px solid var(--gold);
-    background: rgba(13,11,12,.9);
-    box-shadow: none;
-    backdrop-filter: blur(4px);
+    background: rgba(13,11,12,.86);
+    backdrop-filter: blur(6px);
   }
 
   .landing-home .home-hero .display {
-    max-width: 9ch;
-    font-size: clamp(2.05rem, 8.8vw, 2.8rem);
+    max-width: 9.5ch;
+    font-size: clamp(2.2rem, 9.4vw, 3rem);
     line-height: 1;
   }
 
   .landing-home .home-hero .hero-lead {
     max-width: 32ch;
-    margin-top: 14px;
-    font-size: .91rem;
-    line-height: 1.45;
+    margin-top: 15px;
+    font-size: .94rem;
+    line-height: 1.48;
   }
 
   .landing-home .home-hero .actions {
-    margin-top: 16px;
+    margin-top: 18px;
   }
 
   .landing-home .home-hero .actions .btn {
     width: 100%;
-    max-width: 270px;
+    max-width: 280px;
     min-width: 0;
-    min-height: 46px;
+    min-height: 48px;
   }
 }
 
 @media (max-width: 430px) {
   .landing-home .home-hero {
-    min-height: 540px;
+    min-height: 500px;
   }
 
   .landing-home .home-hero > img {
-    height: 41%;
-  }
-
-  .landing-home .home-hero::before {
-    background: linear-gradient(
-      0deg,
-      rgba(13,11,12,1) 0%,
-      rgba(13,11,12,1) 56%,
-      rgba(13,11,12,.34) 65%,
-      transparent 74%
-    );
+    object-position: 66% center;
   }
 
   .landing-home .home-hero .page-hero-content {
     width: calc(100% - 24px);
-    padding-bottom: 14px;
+    padding-bottom: 18px;
   }
 
   .home-hero-panel {
-    padding: 17px 17px 19px;
+    padding: 18px 18px 20px;
   }
 
   .landing-home .home-hero .eyebrow {
-    font-size: .56rem;
+    font-size: .58rem;
   }
 
   .landing-home .home-hero .display {
     max-width: 9ch;
-    font-size: clamp(1.9rem, 8.1vw, 2.4rem);
+    font-size: clamp(2rem, 8.8vw, 2.55rem);
   }
 
   .landing-home .home-hero .hero-lead {
-    max-width: 29ch;
-    font-size: .86rem;
+    max-width: 30ch;
+    font-size: .9rem;
   }
 
   .landing-home .home-hero .actions .btn {
