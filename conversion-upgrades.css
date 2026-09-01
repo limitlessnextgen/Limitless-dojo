@@ -1,9 +1,24 @@
 /* Go Limitless single-screen homepage — original full-photo style */
-.sales-home .whatsapp-greeting,
-.sales-home .whatsapp-float,
 .sales-home .back-to-top,
 .sales-home .mobile-sales-bar {
   display: none !important;
+}
+
+.sales-home .whatsapp-float {
+  width: 58px;
+  height: 58px;
+  min-height: 58px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.sales-home .whatsapp-float span {
+  display: none;
+}
+
+.sales-home .whatsapp-float svg {
+  width: 27px;
+  height: 27px;
 }
 
 .landing-home {
