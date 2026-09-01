@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover the locally built Go Limitless community in Tamraght: women’s strength, youth access, athlete opportunity, martial arts, events and grassroots projects.">
+  <meta name="description" content="Join the Go Limitless community in Tamraght for welcoming classes, beach events, challenges, friendships, youth projects and locally built opportunities through sport.">
   <meta name="theme-color" content="#100e0f">
   <title>Community & Impact | Go Limitless</title>
   <link rel="stylesheet" href="styles.css">
@@ -14,9 +14,82 @@
   <style>
     body .discord-float{display:none!important}
     body.has-discord-float .whatsapp-greeting{bottom:calc(86px + env(safe-area-inset-bottom))}
+
+    .community-hero{
+      min-height:calc(100svh - 76px);
+      align-items:center;
+    }
+    .community-hero>img{
+      opacity:.72;
+      object-position:center 48%;
+      filter:saturate(.92) contrast(1.03);
+    }
+    .community-hero::before{
+      background:
+        linear-gradient(90deg,rgba(13,11,12,.92) 0%,rgba(13,11,12,.70) 46%,rgba(13,11,12,.22) 100%),
+        linear-gradient(0deg,rgba(13,11,12,.72),transparent 58%);
+    }
+    .community-hero .page-hero-content{
+      max-width:820px;
+      padding:clamp(54px,7vw,88px) 0;
+    }
+    .community-hero-panel{
+      max-width:760px;
+      padding:clamp(24px,3.2vw,36px);
+      border-left:3px solid var(--gold-light);
+      background:linear-gradient(90deg,rgba(13,11,12,.72),rgba(13,11,12,.36));
+      box-shadow:0 22px 58px rgba(0,0,0,.24);
+      backdrop-filter:blur(3px);
+    }
+    .community-hero .eyebrow{
+      margin-bottom:12px;
+      color:var(--gold-light);
+    }
+    .community-hero .display{
+      max-width:14ch;
+      font-size:clamp(2.65rem,4.3vw,4.25rem)!important;
+      line-height:.98!important;
+    }
+    .community-hero .hero-lead{
+      max-width:650px;
+      margin:20px 0 22px;
+      font-size:clamp(1rem,1.45vw,1.16rem);
+      line-height:1.58;
+    }
+    .community-hero-points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin:0 0 24px;
+    }
+    .community-hero-points span{
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:7px 11px;
+      border:1px solid rgba(212,183,123,.48);
+      background:rgba(13,11,12,.44);
+      color:var(--ivory);
+      font-size:.66rem;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .community-hero .actions{
+      gap:10px;
+    }
+    .community-hero .btn{
+      min-height:48px;
+      padding:12px 17px;
+    }
+
     .impact-actions{margin-top:28px}
     .community-impact-grid{margin-top:36px}
-    .community-impact-grid .card{min-height:100%}
+    .community-impact-grid .card{
+      min-height:100%;
+      border-top:3px solid rgba(176,138,82,.68);
+      background:#fffaf0;
+    }
     .community-impact-grid .card h3{margin-bottom:12px}
     .discord-support{
       display:grid;
@@ -72,6 +145,7 @@
     }
 
     @media(max-width:900px){
+      .community-hero{min-height:680px}
       .discord-support{grid-template-columns:1fr}
       .community-rooted .rooted-layout{
         grid-template-columns:1fr;
@@ -87,6 +161,38 @@
     }
     @media(max-width:560px){
       body.has-discord-float .whatsapp-greeting{bottom:calc(66px + env(safe-area-inset-bottom))}
+      .community-hero{
+        min-height:auto;
+        align-items:end;
+      }
+      .community-hero>img{
+        opacity:.64;
+        object-position:center 44%;
+      }
+      .community-hero .page-hero-content{
+        padding:42px 0 32px;
+      }
+      .community-hero-panel{
+        padding:20px;
+        border-left-width:2px;
+        background:rgba(13,11,12,.70);
+      }
+      .community-hero .display{
+        font-size:clamp(2.1rem,9vw,2.85rem)!important;
+      }
+      .community-hero .hero-lead{
+        margin:16px 0 18px;
+        font-size:.96rem;
+      }
+      .community-hero-points{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:7px;
+        margin-bottom:20px;
+      }
+      .community-hero-points span{
+        min-height:32px;
+      }
       .community-rooted{
         padding-top:36px;
         padding-bottom:40px;
@@ -118,15 +224,22 @@
   </header>
 
   <main id="main">
-    <section class="page-hero">
-      <img src="assets/community-training.jpeg" alt="Members of the locally built Go Limitless fitness and martial arts community together">
+    <section class="page-hero community-hero">
+      <img src="assets/community-training.jpeg" alt="Members of the Go Limitless community together at a local event in Tamraght">
       <div class="wrap page-hero-content">
-        <p class="eyebrow">Built in Tamraght · Women · Youth · Athletes · Community</p>
-        <h1 class="display">Join a community built from the ground up.</h1>
-        <p class="hero-lead">Go Limitless grows through the people who keep showing up. From rooftop training and women’s strength to youth projects, athlete support and independent events, this is movement creating real local impact.</p>
-        <div class="actions">
-          <a class="btn gold" href="#community-impact">See our community impact</a>
-          <a class="btn light" href="classes.html#enquire">Join a class</a>
+        <div class="community-hero-panel">
+          <p class="eyebrow">Classes · Events · Friends · Community</p>
+          <h1 class="display">Come for the training. Stay for the people.</h1>
+          <p class="hero-lead">Join a welcoming community where locals, travellers and athletes train together, make friends and share classes, beach events, challenges and experiences across Tamraght.</p>
+          <div class="community-hero-points" aria-label="Community highlights">
+            <span>Train together</span>
+            <span>Make real friends</span>
+            <span>Join events & adventures</span>
+          </div>
+          <div class="actions">
+            <a class="btn gold" href="classes.html#enquire">Find your first class</a>
+            <a class="btn light" href="events.html">See upcoming events</a>
+          </div>
         </div>
       </div>
     </section>
@@ -134,49 +247,49 @@
     <section class="section" id="community-impact">
       <div class="wrap intro-grid">
         <div>
-          <p class="eyebrow">Locally built · Community led</p>
-          <h2 class="display section-title">More than a dojo. A movement.</h2>
+          <p class="eyebrow">A place to train · Connect · Belong</p>
+          <h2 class="display section-title">More than classes. People you look forward to seeing.</h2>
           <div class="rule"></div>
         </div>
         <div>
-          <p class="lead">Limitless Dojo is our training base in Tamraght. Go Limitless is the wider movement creating access, confidence, visibility and connection through sport.</p>
-          <p>The work happens in classes, on rooftops, at the beach, in local gyms and anywhere people are willing to come together. Each project is built around participation rather than perfection.</p>
+          <p class="lead">Go Limitless brings people together through training, beach events, challenges, meetups and community projects in Tamraght.</p>
+          <p>You can arrive alone, new to the area or completely new to training. The goal is simple: move, meet people, build confidence and become part of something real.</p>
         </div>
       </div>
 
       <div class="wrap card-grid two community-impact-grid">
         <article class="card">
           <div class="card-number">01</div>
-          <h3>Women’s Access</h3>
-          <p>Supportive strength and movement spaces where women can build confidence, consistency and physical capability together.</p>
+          <h3>Train Together</h3>
+          <p>Welcoming martial arts and strength sessions where complete beginners, regular members and visiting athletes can learn side by side.</p>
         </article>
         <article class="card">
           <div class="card-number">02</div>
-          <h3>Youth Pathways</h3>
-          <p>Free guided sport and development opportunities designed to help young people move, learn, lead and see what may be possible.</p>
+          <h3>Make Friends</h3>
+          <p>Meet local residents, travellers, coaches and athletes through shared training, social moments and a community that notices when you return.</p>
         </article>
         <article class="card">
           <div class="card-number">03</div>
-          <h3>Athlete Opportunity</h3>
-          <p>Coaching, competition support, visibility and practical opportunities for emerging athletes who are ready to work and grow.</p>
+          <h3>Join Events</h3>
+          <p>Take part in beach competitions, open mats, challenges, community gatherings and experiences that bring everyone together outside class.</p>
         </article>
         <article class="card">
           <div class="card-number">04</div>
-          <h3>Locally Produced Events</h3>
-          <p>Beach wrestling, grappling, open mats, challenges and community activations created locally and opened to a wider audience.</p>
+          <h3>Grow Through Sport</h3>
+          <p>Build confidence, support local youth and athletes, and help create more opportunities through a community rooted in real participation.</p>
         </article>
       </div>
 
       <div class="wrap actions impact-actions">
-        <a class="btn gold" href="nextgen.html">Explore Limitless Next Gen</a>
-        <a class="btn" href="events.html">See our events</a>
+        <a class="btn gold" href="classes.html#enquire">Join your first class</a>
+        <a class="btn" href="events.html">Explore community events</a>
       </div>
     </section>
 
     <section class="section dark" id="community-moments">
       <div class="wrap section-head">
-        <div><p class="eyebrow">The work in action</p><h2 class="display section-title">Built through real people and real moments.</h2></div>
-        <p class="lead">The community is not an online idea. It is what happens when people train, compete, support one another and keep coming back.</p>
+        <div><p class="eyebrow">Community life</p><h2 class="display section-title">The moments that turn training partners into friends.</h2></div>
+        <p class="lead">Classes are only the beginning. The real community grows through shared challenges, beach days, events, celebrations and the people who keep showing up for one another.</p>
       </div>
       <div class="wrap tile-gallery">
         <figure><img src="assets/moment-basketball.jpg" alt="Community basketball at sunset"><figcaption>Free sport · Sunset sessions</figcaption></figure>
@@ -215,10 +328,10 @@
         <figure class="photo-frame portrait-frame"><img src="assets/rooftop-community-strength.webp" alt="Danielle and members of the rooftop strength community"><figcaption>Rooftop strength · Community · Tamraght</figcaption></figure>
         <div class="rooted-copy">
           <p class="eyebrow">Rooted in Tamraght</p>
-          <h2 class="display section-title">Built by the people who keep showing up.</h2>
-          <p class="lead">Every class, event, pop up and free project adds another person to the movement.</p>
-          <p>You do not need to live in Tamraght or already feel confident to belong. You only need to be willing to show up, connect and move.</p>
-          <div class="actions"><a class="btn light" href="classes.html#enquire">Join a class</a><a class="btn light" href="nextgen.html">See the social impact</a></div>
+          <h2 class="display section-title">Arrive alone. Leave knowing people.</h2>
+          <p class="lead">Every class, event, pop up and free project creates another chance to connect.</p>
+          <p>You do not need to live in Tamraght, know anyone already or feel confident before you arrive. Just show up. We will help you find your place.</p>
+          <div class="actions"><a class="btn light" href="classes.html#enquire">Join a class</a><a class="btn light" href="events.html">See the next event</a></div>
         </div>
       </div>
     </section>
@@ -227,12 +340,12 @@
       <div class="wrap discord-support">
         <div>
           <p class="eyebrow">Stay connected online</p>
-          <h2 class="display section-title">Join the Go Limitless online community forum.</h2>
-          <p class="lead">Stay connected to upcoming classes, events, meetups and community updates. The free Discord forum is open to local members, athletes, coaches, travellers and anyone interested in Go Limitless.</p>
+          <h2 class="display section-title">Meet people before your next class or event.</h2>
+          <p class="lead">Use the free Go Limitless community forum to find upcoming sessions, events and meetups, ask questions and connect with local members, coaches, athletes and travellers.</p>
         </div>
         <article class="card">
-          <h3>What you can do inside</h3>
-          <p>Discover upcoming sessions and events, ask questions, arrange meetups, share opportunities and connect with members, athletes, coaches and travellers.</p>
+          <h3>Join the conversation</h3>
+          <p>Discover what is happening, arrange meetups, introduce yourself, share opportunities and stay connected with the people you meet through Go Limitless.</p>
           <a class="btn gold" href="https://discord.gg/ZdepHuTgnm" target="_blank" rel="noopener noreferrer">Join the Online Community Forum ↗</a>
         </article>
       </div>
