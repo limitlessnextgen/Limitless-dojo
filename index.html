@@ -35,7 +35,7 @@
         const isWhatsAppGreeting = delay === 1100 && String(callback).includes('setGreetingOpen');
         if (isWhatsAppGreeting) {
           window.setTimeout = originalSetTimeout;
-          return originalSetTimeout(callback, 8000, ...args);
+          return originalSetTimeout(callback, 20000, ...args);
         }
         return originalSetTimeout(callback, delay, ...args);
       };
