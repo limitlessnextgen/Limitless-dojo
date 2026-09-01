@@ -18,6 +18,37 @@
   <link rel="stylesheet" href="photo-layout.css">
   <link rel="stylesheet" href="movement.css">
   <style>
+    .nextgen-intro{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      gap:clamp(34px,5vw,72px);
+      align-items:start;
+    }
+    .nextgen-intro-left{
+      display:grid;
+      gap:18px;
+      align-content:start;
+    }
+    .nextgen-intro-left .section-title{
+      max-width:10ch;
+      margin:0;
+    }
+    .nextgen-intro-photo{
+      width:100%;
+      max-width:420px;
+      margin-top:6px;
+    }
+    .nextgen-intro-photo img{
+      display:block;
+      width:100%;
+      height:100%;
+      aspect-ratio:4 / 5;
+      object-fit:cover;
+      object-position:center 40%;
+    }
+    .nextgen-intro-copy{
+      max-width:640px;
+    }
     .nextgen-page #youth .founder-authority{
       grid-template-columns:minmax(0,1.28fr) minmax(260px,340px);
       gap:clamp(34px,5vw,66px);
@@ -70,6 +101,13 @@
       object-position:center 42%;
     }
     @media(max-width:920px){
+      .nextgen-intro{
+        grid-template-columns:1fr;
+        gap:28px;
+      }
+      .nextgen-intro-photo{
+        max-width:360px;
+      }
       .nextgen-page #youth .founder-authority,
       .nextgen-stories .split.even{
         grid-template-columns:minmax(0,1fr) minmax(230px,300px);
@@ -82,6 +120,12 @@
       }
     }
     @media(max-width:760px){
+      .nextgen-intro-photo{
+        max-width:100%;
+      }
+      .nextgen-intro-photo img{
+        aspect-ratio:16 / 11;
+      }
       .nextgen-page #youth .founder-authority,
       .nextgen-stories .split.even{
         grid-template-columns:minmax(0,1fr);
@@ -121,9 +165,16 @@
     <div class="movement-ribbon">Belonging · Confidence · Discipline · Leadership · Visibility · Opportunity</div>
 
     <section class="section">
-      <div class="wrap next-grid">
-        <div><p class="eyebrow">What Limitless Next Gen does</p><h2 class="display section-title">Where someone starts should not decide how far they can go.</h2></div>
-        <div>
+      <div class="wrap nextgen-intro">
+        <div class="nextgen-intro-left">
+          <p class="eyebrow">What Limitless Next Gen does</p>
+          <h2 class="display section-title">Where someone starts should not decide how far they can go.</h2>
+          <figure class="photo-frame nextgen-intro-photo">
+            <img loading="lazy" src="assets/youth-rooftop-martial-arts.webp" alt="Young people training with Limitless Next Gen in Tamraght">
+            <figcaption>Access · Guidance · Opportunity</figcaption>
+          </figure>
+        </div>
+        <div class="nextgen-intro-copy">
           <p class="lead">Limitless Next Gen creates free and low-cost opportunities through sport, mentorship, events and community.</p>
           <p>The work began in Tamraght with outdoor calisthenics, fitness and community movement. It now includes youth training, women’s access, athlete support and independent competitions that help people build confidence, skills and visibility.</p>
           <div class="institutional-note"><strong>Transparency:</strong> Limitless Next Gen is currently a grassroots community initiative while its formal nonprofit structure is developed. Partner-funded projects are agreed clearly, with defined budgets, delivery responsibilities and reporting.</div>
