@@ -34,6 +34,23 @@
   font-size: clamp(1.9rem, 3vw, 2.7rem) !important;
 }
 
+/* Community page: let the people and event atmosphere show through more clearly. */
+.community-hero > img {
+  opacity: .88 !important;
+  filter: saturate(1) contrast(1.02) brightness(1.06) !important;
+}
+
+.community-hero::before {
+  background:
+    linear-gradient(90deg, rgba(13,11,12,.82) 0%, rgba(13,11,12,.50) 46%, rgba(13,11,12,.08) 100%),
+    linear-gradient(0deg, rgba(13,11,12,.55), transparent 60%) !important;
+}
+
+.community-hero-panel {
+  background: linear-gradient(90deg, rgba(13,11,12,.62), rgba(13,11,12,.24)) !important;
+  backdrop-filter: blur(1.5px) !important;
+}
+
 /* Keep the final Our Story menu fully visible on laptop and desktop. */
 @media (min-width: 1041px) {
   .nav-links {
@@ -76,6 +93,16 @@
 
   .enquiry-title {
     font-size: clamp(1.75rem, 7vw, 2.3rem) !important;
+  }
+
+  .community-hero > img {
+    opacity: .80 !important;
+    filter: saturate(1) contrast(1.02) brightness(1.04) !important;
+  }
+
+  .community-hero::before {
+    background:
+      linear-gradient(0deg, rgba(13,11,12,.68) 0%, rgba(13,11,12,.30) 60%, rgba(13,11,12,.08) 100%) !important;
   }
 }
 
