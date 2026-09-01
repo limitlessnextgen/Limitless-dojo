@@ -1,27 +1,249 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Jujitsu, BJJ, grappling, Muay Thai and strength classes with Go Limitless in Tamraght."><meta name="theme-color" content="#100e0f">
-  <title>Classes | Go Limitless</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="responsive.css"><link rel="stylesheet" href="design-system.css"><link rel="stylesheet" href="photo-layout.css"><script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Brazilian Jiu-Jitsu, BJJ, grappling, Muay Thai and strength classes with Go Limitless in Tamraght.">
+  <meta name="theme-color" content="#100e0f">
+  <title>Classes | Go Limitless</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="design-system.css">
+  <link rel="stylesheet" href="photo-layout.css">
+  <style>
+    .class-options{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+      background:transparent;
+      border:0;
+    }
+    .class-options .class-option-card{
+      position:relative;
+      display:grid;
+      grid-template-rows:220px minmax(0,1fr);
+      min-height:100%;
+      overflow:hidden;
+      border:1px solid rgba(174,134,80,.56);
+      background:#171316;
+      color:#f1e7d5;
+      box-shadow:0 18px 44px rgba(10,7,8,.18);
+      transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+    }
+    .class-options .class-option-card:hover,
+    .class-options .class-option-card:focus-visible{
+      transform:translateY(-5px);
+      border-color:#d4b77b;
+      box-shadow:0 24px 54px rgba(10,7,8,.28);
+      outline:3px solid transparent;
+    }
+    .class-options .class-option-card>img{
+      display:block;
+      width:100%;
+      height:100%;
+      min-height:0;
+      object-fit:cover;
+      filter:saturate(.9) contrast(1.04);
+    }
+    .class-options .image-card-body{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      padding:24px;
+      background:#171316;
+    }
+    .class-options .tag{
+      width:max-content;
+      margin-bottom:14px;
+      border-color:rgba(212,183,123,.6);
+      color:#d4b77b;
+      background:rgba(174,134,80,.12);
+    }
+    .class-options h3{
+      margin:0 0 12px;
+      color:#f1e7d5;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(1.45rem,2vw,2rem);
+      line-height:1.08;
+    }
+    .class-options p{
+      margin:0 0 22px;
+      color:rgba(241,231,213,.82);
+      font-size:.96rem;
+      line-height:1.6;
+    }
+    .class-card-cta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-top:auto;
+      padding-top:16px;
+      border-top:1px solid rgba(241,231,213,.18);
+      color:#d4b77b;
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .class-card-cta::after{
+      content:"→";
+      font-size:1.15rem;
+      line-height:1;
+    }
+    .class-note{
+      margin-top:26px;
+      padding:18px 20px;
+      border-left:4px solid var(--gold);
+      background:var(--ivory-deep);
+    }
+    @media(max-width:980px){
+      .class-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:680px){
+      .class-options{grid-template-columns:1fr;gap:16px}
+      .class-options .class-option-card{grid-template-rows:195px minmax(0,1fr)}
+      .class-options .image-card-body{padding:21px}
+    }
+  </style>
+  <script src="script.js" defer></script>
 </head>
-<body><a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="wrap nav-shell" aria-label="Main navigation"><a class="wordmark" href="home.html">Go <span>Limitless</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><div class="nav-links" id="site-nav"><a href="founder.html">Founder</a><a href="coaches.html">Coaches</a><a href="classes.html" aria-current="page">Classes</a><a href="timetable.html">Timetable</a><a href="coaching.html">Coaching</a><a href="events.html">Events</a><a href="community.html">Community</a><a href="nextgen.html">Next Gen</a></div></nav></header>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="wrap nav-shell" aria-label="Main navigation">
+      <a class="wordmark" href="home.html">Go <span>Limitless</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <div class="nav-links" id="site-nav">
+        <a href="founder.html">Founder</a><a href="coaches.html">Coaches</a><a href="classes.html" aria-current="page">Classes</a><a href="timetable.html">Timetable</a><a href="coaching.html">Coaching</a><a href="events.html">Events</a><a href="community.html">Community</a><a href="nextgen.html">Next Gen</a>
+      </div>
+    </nav>
+  </header>
+
   <main id="main">
-    <section class="page-hero"><img src="assets/class-jujutsu-grappling.jpg" alt="Jujitsu and grappling training at Limitless Dojo" style="object-position:center 43%"><div class="wrap page-hero-content"><p class="eyebrow">The home of martial arts and strength</p><h1 class="display">Train with purpose.</h1><p class="hero-lead">Jujitsu, BJJ, grappling, Muay Thai and strength training for complete beginners through to experienced athletes.</p><div class="actions"><a class="btn gold" href="#enquire">Try a class</a><a class="btn light" href="timetable.html">View timetable</a></div></div></section>
+    <section class="page-hero">
+      <img src="assets/class-jujutsu-grappling.jpg" alt="Brazilian Jiu-Jitsu and grappling training at Limitless Dojo" style="object-position:center 43%">
+      <div class="wrap page-hero-content">
+        <p class="eyebrow">The home of martial arts and strength</p>
+        <h1 class="display">Train with purpose.</h1>
+        <p class="hero-lead">Brazilian Jiu-Jitsu, grappling, Muay Thai and strength training for complete beginners through to experienced athletes.</p>
+        <div class="actions"><a class="btn gold" href="#classes-offered">See our classes</a><a class="btn light" href="timetable.html">View timetable</a></div>
+      </div>
+    </section>
+
     <div class="ticker">All levels welcome · Equipment available · Tamraght · Morocco</div>
-    <section class="section"><div class="wrap section-head"><div><p class="eyebrow">Limitless Dojo</p><h2 class="display section-title">Find your way to move.</h2></div><p class="lead">Train for technique, strength, confidence, fitness or community. You do not need previous experience to begin.</p></div><div class="wrap image-card-grid">
-      <article class="image-card"><img src="assets/class-jujutsu-grappling.jpg" alt="Jujitsu and grappling class" style="object-position:center 45%"><div class="image-card-body"><span class="tag">Martial arts</span><h3>Jujitsu, BJJ & Grappling</h3><p>Technique, drilling and live work across gi and no gi training. Beginners are welcome.</p></div></article>
-      <article class="image-card"><img src="assets/muay-thai-padwork.jpg" alt="Muay Thai pad work at Limitless Dojo" style="object-position:center top"><div class="image-card-body"><span class="tag">Striking</span><h3>Muay Thai</h3><p>Pad work, technique, conditioning and confidence in a supportive rooftop setting.</p></div></article>
-      <article class="image-card"><img src="assets/class-strength-conditioning.jpg" alt="Strength and conditioning training"><div class="image-card-body"><span class="tag">Performance</span><h3>Strength & Conditioning</h3><p>Structured training for resilience, movement quality, fitness and real world performance.</p></div></article>
-      <article class="image-card"><img src="assets/class-womens.jpg" alt="Women together after a Go Limitless class" style="object-position:center 55%"><div class="image-card-body"><span class="tag">Women</span><h3>Women’s Strength</h3><p>Individualised coaching in a group setting at Nassim Gym, Tamraght. All levels welcome.</p></div></article>
-      <article class="image-card"><img src="assets/class-open-mat.jpg" alt="Community BJJ open mat at Limitless Dojo" style="object-position:center 56%"><div class="image-card-body"><span class="tag">Community</span><h3>Open Mat BJJ</h3><p>Saturday community training connecting local athletes, travellers and coaches.</p></div></article>
-      <article class="image-card"><img src="assets/class-next-gen.jpg" alt="Limitless Next Gen youth athlete" style="object-position:center 43%"><div class="image-card-body"><span class="tag">Youth</span><h3>Next Gen Academy</h3><p>Free guided sport and development opportunities for young people in the community.</p></div></article>
-    </div></section>
-    <section class="section dark"><div class="wrap split even"><div><p class="eyebrow">What to expect</p><h2 class="display section-title">Your first session.</h2><p class="lead">Come as you are. We will show you where to start.</p><ul class="check-list"><li>Complete beginners welcome</li><li>Equipment available to use</li><li>Supportive coaching</li><li>Mixed experience levels</li><li>Women’s sessions available</li><li>Community focused atmosphere</li></ul></div><figure class="photo-frame"><img src="assets/muay-thai-team.jpg" alt="Go Limitless Muay Thai community"><figcaption>Train together · Grow together</figcaption></figure></div></section>
-    <section class="section" id="enquire"><div class="wrap enquiry-panel"><p class="eyebrow">Your first session</p><h2 class="display">Interested in trying a class?</h2><p class="lead">Leave your details and tell us what you would like to try. Your enquiry will open in WhatsApp, ready to send directly to Go Limitless.</p><form class="form-grid" id="class-enquiry-form"><div class="field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" type="text" autocomplete="name" required></div><div class="field"><label for="enquiry-phone">Your WhatsApp number</label><input id="enquiry-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div><div class="field"><label for="enquiry-class">Class you want to try</label><select id="enquiry-class" name="class" required><option value="" selected disabled>Choose a class</option><option>BJJ / Grappling</option><option>Muay Thai</option><option>Women’s Strength</option><option>Rooftop Strength</option><option>Community Open Mat BJJ</option><option>Online Coaching</option><option>Not sure yet</option></select></div><div class="field"><label for="enquiry-level">Experience level</label><select id="enquiry-level" name="level" required><option value="" selected disabled>Choose your level</option><option>Complete beginner</option><option>Some experience</option><option>Experienced</option></select></div><div class="field full"><label for="enquiry-time">Preferred day and time</label><input id="enquiry-time" name="preferredTime" type="text" placeholder="For example: Monday at 17:30" required></div><div class="field full"><label for="enquiry-message">Anything else we should know? (optional)</label><textarea id="enquiry-message" name="message" placeholder="Questions, injuries or anything that will help us guide you"></textarea></div><div class="form-submit"><button class="btn gold" type="submit">Send enquiry on WhatsApp ↗</button><p class="form-help">WhatsApp will open with your details ready to send. Press send there to complete your enquiry.</p></div></form></div></section>
-    <section class="cta"><div class="wrap"><p class="eyebrow">Come in alone. Leave together.</p><h2 class="display">The next session can be your first.</h2><div class="actions"><a class="btn primary" href="timetable.html">See all class times</a><a class="btn" href="coaches.html">Meet the coaches</a></div></div></section>
+
+    <section class="section" id="classes-offered">
+      <div class="wrap section-head">
+        <div><p class="eyebrow">What we offer</p><h2 class="display section-title">Choose your class.</h2></div>
+        <p class="lead">Select a class to go directly to its weekly times. Complete beginners are welcome.</p>
+      </div>
+
+      <div class="wrap class-options">
+        <a class="image-card class-option-card" href="timetable.html#bjj" aria-label="View Brazilian Jiu-Jitsu and grappling class times">
+          <img src="assets/class-jujutsu-grappling.jpg" alt="Brazilian Jiu-Jitsu and grappling class" style="object-position:center 45%">
+          <div class="image-card-body">
+            <span class="tag">Martial arts</span>
+            <h3>Brazilian Jiu-Jitsu & Grappling</h3>
+            <p>Technique, drilling and live training across gi and no-gi sessions. Beginners are welcome.</p>
+            <span class="class-card-cta">View BJJ class times</span>
+          </div>
+        </a>
+
+        <a class="image-card class-option-card" href="timetable.html#muay-thai" aria-label="View Muay Thai class times">
+          <img src="assets/muay-thai-padwork.jpg" alt="Muay Thai pad work at Limitless Dojo" style="object-position:center top">
+          <div class="image-card-body">
+            <span class="tag">Striking</span>
+            <h3>Muay Thai</h3>
+            <p>Pad work, technique, conditioning and confidence in a supportive rooftop setting.</p>
+            <span class="class-card-cta">View Muay Thai times</span>
+          </div>
+        </a>
+
+        <a class="image-card class-option-card" href="timetable.html#rooftop-strength" aria-label="View rooftop strength and conditioning class times">
+          <img src="assets/class-strength-conditioning.jpg" alt="Strength and conditioning training">
+          <div class="image-card-body">
+            <span class="tag">Performance</span>
+            <h3>Rooftop Strength & Conditioning</h3>
+            <p>Structured training for resilience, movement quality, fitness and real-world performance.</p>
+            <span class="class-card-cta">View strength times</span>
+          </div>
+        </a>
+
+        <a class="image-card class-option-card" href="timetable.html#womens-strength" aria-label="View women's strength class times">
+          <img src="assets/class-womens.jpg" alt="Women together after a Go Limitless strength class" style="object-position:center 55%">
+          <div class="image-card-body">
+            <span class="tag">Women</span>
+            <h3>Women’s Strength</h3>
+            <p>Individualised coaching in a group setting at Nassim Gym, Tamraght. All levels welcome.</p>
+            <span class="class-card-cta">View women’s class times</span>
+          </div>
+        </a>
+
+        <a class="image-card class-option-card" href="timetable.html#bjj" aria-label="View community open mat BJJ time">
+          <img src="assets/class-open-mat.jpg" alt="Community BJJ open mat at Limitless Dojo" style="object-position:center 56%">
+          <div class="image-card-body">
+            <span class="tag">Community</span>
+            <h3>Community Open Mat BJJ</h3>
+            <p>Saturday training connecting local athletes, travellers and coaches through Brazilian Jiu-Jitsu.</p>
+            <span class="class-card-cta">View open mat time</span>
+          </div>
+        </a>
+
+        <a class="image-card class-option-card" href="nextgen.html" aria-label="Learn about the Limitless Next Gen youth programme">
+          <img src="assets/class-next-gen.jpg" alt="Limitless Next Gen youth athlete" style="object-position:center 43%">
+          <div class="image-card-body">
+            <span class="tag">Youth</span>
+            <h3>Next Gen Academy</h3>
+            <p>Free guided sport and development opportunities for young people in the local community.</p>
+            <span class="class-card-cta">View the youth programme</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="wrap class-note"><strong>Not sure which class suits you?</strong> Use the enquiry form below and we will help you choose the right starting point.</div>
+    </section>
+
+    <section class="section dark">
+      <div class="wrap split even">
+        <div>
+          <p class="eyebrow">What to expect</p>
+          <h2 class="display section-title">Your first session.</h2>
+          <p class="lead">Come as you are. We will show you where to start.</p>
+          <ul class="check-list"><li>Complete beginners welcome</li><li>Equipment available to use</li><li>Supportive coaching</li><li>Mixed experience levels</li><li>Women’s sessions available</li><li>Community focused atmosphere</li></ul>
+        </div>
+        <figure class="photo-frame"><img src="assets/muay-thai-team.jpg" alt="Go Limitless Muay Thai community"><figcaption>Train together · Grow together</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="enquire">
+      <div class="wrap enquiry-panel">
+        <p class="eyebrow">Your first session</p>
+        <h2 class="display">Interested in trying a class?</h2>
+        <p class="lead">Leave your details and tell us what you would like to try. Your enquiry will open in WhatsApp, ready to send directly to Go Limitless.</p>
+        <form class="form-grid" id="class-enquiry-form">
+          <div class="field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="enquiry-phone">Your WhatsApp number</label><input id="enquiry-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="enquiry-class">Class you want to try</label><select id="enquiry-class" name="class" required><option value="" selected disabled>Choose a class</option><option>BJJ / Grappling</option><option>Muay Thai</option><option>Women’s Strength</option><option>Rooftop Strength</option><option>Community Open Mat BJJ</option><option>Online Coaching</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="enquiry-level">Experience level</label><select id="enquiry-level" name="level" required><option value="" selected disabled>Choose your level</option><option>Complete beginner</option><option>Some experience</option><option>Experienced</option></select></div>
+          <div class="field full"><label for="enquiry-time">Preferred day and time</label><input id="enquiry-time" name="preferredTime" type="text" placeholder="For example: Monday at 17:30" required></div>
+          <div class="field full"><label for="enquiry-message">Anything else we should know? (optional)</label><textarea id="enquiry-message" name="message" placeholder="Questions, injuries or anything that will help us guide you"></textarea></div>
+          <div class="form-submit"><button class="btn gold" type="submit">Send enquiry on WhatsApp ↗</button><p class="form-help">WhatsApp will open with your details ready to send. Press send there to complete your enquiry.</p></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <p class="eyebrow">Come in alone. Leave together.</p>
+        <h2 class="display">The next session can be your first.</h2>
+        <div class="actions"><a class="btn primary" href="timetable.html">See all class times</a><a class="btn" href="coaches.html">Meet the coaches</a></div>
+      </div>
+    </section>
   </main>
-  <div class="mobile-times" aria-label="Key martial arts class times"><a href="timetable.html"><strong>16:00</strong><span>BJJ · Mon · Thu · Sat</span></a><a href="timetable.html"><strong>17:30</strong><span>Muay Thai · Mon · Thu · Sat</span></a></div>
+
+  <div class="mobile-times" aria-label="Key martial arts class times"><a href="timetable.html#bjj"><strong>16:00</strong><span>BJJ · Mon · Thu · Sat</span></a><a href="timetable.html#muay-thai"><strong>17:30</strong><span>Muay Thai · Mon · Thu · Sat</span></a></div>
+
   <footer class="site-footer"><div class="wrap footer-grid"><div><a class="wordmark" href="home.html">Go <span>Limitless</span></a><p class="footer-motto">Train · Evolve · Go Limitless</p><p>Tamraght · Agadir · Morocco<br>© 2026 Go Limitless</p></div><div class="footer-links"><a href="https://www.instagram.com/limitless_dojo/">Dojo</a><a href="https://www.instagram.com/dannii_askari/">Founder</a><a href="https://www.instagram.com/limitlessnextgen/">Next Gen</a></div></div></footer>
-</body></html>
+</body>
+</html>
