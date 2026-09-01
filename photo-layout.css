@@ -79,9 +79,68 @@ body:has(#classes-offered) .page-hero .display {
   line-height: .94;
 }
 
-/* Classes page: keep the enquiry and closing action visually connected. */
+/* Classes page: compact Try a Class enquiry panel. */
 #enquire {
+  padding-top: clamp(44px, 5vw, 66px);
   padding-bottom: clamp(30px, 3.5vw, 48px);
+}
+
+#enquire .enquiry-panel {
+  width: min(880px, calc(100% - 42px));
+  max-width: 880px;
+  padding: clamp(24px, 3.2vw, 34px);
+}
+
+#enquire .enquiry-panel .enquiry-title {
+  max-width: 11ch;
+  margin-bottom: 12px;
+  font-size: clamp(2.15rem, 3.5vw, 3.15rem);
+  line-height: .96;
+}
+
+#enquire .enquiry-panel > .lead {
+  max-width: 650px;
+  margin-bottom: 20px;
+  font-size: .98rem;
+  line-height: 1.5;
+}
+
+#enquire .simple-enquiry {
+  max-width: 100%;
+  gap: 14px 18px;
+  margin-top: 20px;
+}
+
+#enquire .field input,
+#enquire .field select,
+#enquire .field textarea {
+  min-height: 44px;
+  padding: 9px 11px;
+}
+
+#enquire .schedule-help {
+  margin-bottom: 10px;
+  font-size: .84rem;
+}
+
+#enquire .schedule-panel {
+  min-height: 68px;
+  padding: 12px;
+}
+
+#enquire .schedule-placeholder {
+  min-height: 42px;
+  font-size: .86rem;
+}
+
+#enquire .simple-enquiry .form-submit {
+  gap: 14px;
+  margin-top: 0;
+}
+
+#enquire .simple-enquiry .form-submit .btn {
+  min-width: 240px;
+  min-height: 50px;
 }
 
 #enquire + .cta {
@@ -153,7 +212,33 @@ body:has(#classes-offered) .page-hero .display {
   }
 
   #enquire {
+    padding-top: 34px;
     padding-bottom: 26px;
+  }
+
+  #enquire .enquiry-panel {
+    width: calc(100% - 24px);
+    padding: 20px;
+  }
+
+  #enquire .enquiry-panel .enquiry-title {
+    max-width: 10ch;
+    font-size: clamp(2rem, 9vw, 2.55rem);
+  }
+
+  #enquire .enquiry-panel > .lead {
+    margin-bottom: 16px;
+    font-size: .92rem;
+  }
+
+  #enquire .simple-enquiry {
+    margin-top: 16px;
+    gap: 14px;
+  }
+
+  #enquire .simple-enquiry .form-submit .btn {
+    width: 100%;
+    min-width: 0;
   }
 
   #enquire + .cta {
