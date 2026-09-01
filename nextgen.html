@@ -17,10 +17,93 @@
   <link rel="stylesheet" href="design-system.css">
   <link rel="stylesheet" href="photo-layout.css">
   <link rel="stylesheet" href="movement.css">
+  <style>
+    .nextgen-page #youth .founder-authority{
+      grid-template-columns:minmax(0,1.28fr) minmax(260px,340px);
+      gap:clamp(34px,5vw,66px);
+      align-items:center;
+    }
+    .nextgen-page #youth .founder-authority > div{
+      max-width:720px;
+    }
+    .nextgen-page #youth .portrait-frame{
+      width:100%;
+      max-width:340px;
+      aspect-ratio:4 / 5;
+      justify-self:end;
+    }
+    .nextgen-page #youth .portrait-frame img{
+      object-position:center 38%;
+    }
+    .nextgen-gallery{
+      margin-top:34px;
+    }
+    .nextgen-gallery .photo-frame img{
+      aspect-ratio:4 / 3;
+      object-position:center;
+    }
+    .nextgen-stories .split.even{
+      grid-template-columns:minmax(0,1.38fr) minmax(260px,340px);
+      gap:clamp(34px,5vw,66px);
+      align-items:center;
+    }
+    .nextgen-stories .split.even > div{
+      max-width:720px;
+    }
+    .nextgen-stories .section-title{
+      max-width:13ch;
+    }
+    .nextgen-stories .lead{
+      max-width:56ch;
+    }
+    .nextgen-story-photo{
+      width:100%;
+      max-width:340px;
+      aspect-ratio:4 / 5;
+      justify-self:end;
+    }
+    .nextgen-story-photo img{
+      width:100%;
+      height:100%;
+      aspect-ratio:4 / 5;
+      object-fit:cover;
+      object-position:center 42%;
+    }
+    @media(max-width:920px){
+      .nextgen-page #youth .founder-authority,
+      .nextgen-stories .split.even{
+        grid-template-columns:minmax(0,1fr) minmax(230px,300px);
+        gap:30px;
+        align-items:start;
+      }
+      .nextgen-page #youth .portrait-frame,
+      .nextgen-story-photo{
+        max-width:300px;
+      }
+    }
+    @media(max-width:760px){
+      .nextgen-page #youth .founder-authority,
+      .nextgen-stories .split.even{
+        grid-template-columns:minmax(0,1fr);
+      }
+      .nextgen-page #youth .portrait-frame,
+      .nextgen-story-photo{
+        width:min(100%,380px);
+        max-width:none;
+        justify-self:center;
+      }
+      .nextgen-gallery{
+        margin-top:28px;
+      }
+      .nextgen-gallery .photo-frame img{
+        aspect-ratio:16 / 11;
+      }
+    }
+  </style>
   <script src="script.js" defer></script>
   <script src="movement-nav.js" defer></script>
 </head>
-<body>
+<body class="nextgen-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><nav class="wrap nav-shell" aria-label="Main navigation"><a class="wordmark" href="index.html">Go <span>Limitless</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><div class="nav-links" id="site-nav"><a href="movement.html">Movement</a><a href="founder.html">Founder</a><a href="nextgen.html" aria-current="page">Impact</a><a href="media-partnerships.html">Partner</a></div></nav></header>
 
@@ -28,10 +111,10 @@
     <section class="page-hero movement-hero">
       <img src="assets/youth-outdoor-movement.webp" alt="Danielle Askari cycling with young people in Tamraght" style="object-position:center 46%">
       <div class="wrap page-hero-content">
-        <p class="eyebrow">The community-impact arm of the I Am Limitless movement</p>
+        <p class="eyebrow">Grassroots sport · Youth · Women · Athlete opportunity</p>
         <h1 class="display">Access without<br>barriers.</h1>
-        <p class="hero-lead">Free sport, youth development, women’s access and athlete opportunity rooted in Tamraght, Morocco.</p>
-        <div class="actions"><a class="btn gold" href="#programmes">See the programmes</a><a class="btn light" href="media-partnerships.html#opportunities">Fund an outcome</a></div>
+        <p class="hero-lead">Free sport, guidance and visible pathways for young people, women and emerging athletes in Tamraght.</p>
+        <div class="actions"><a class="btn gold" href="#programmes">See the programmes</a><a class="btn light" href="media-partnerships.html#opportunities">Support a programme</a></div>
       </div>
     </section>
 
@@ -39,11 +122,11 @@
 
     <section class="section">
       <div class="wrap next-grid">
-        <div><p class="eyebrow">What Limitless Next Gen is</p><h2 class="display section-title">A grassroots pathway built step by step.</h2></div>
+        <div><p class="eyebrow">What Limitless Next Gen does</p><h2 class="display section-title">Where someone starts should not decide how far they can go.</h2></div>
         <div>
-          <p class="lead">Limitless Next Gen is the community-impact initiative within Go Limitless, created to make sport, guidance and opportunity more accessible where cost or circumstance can be a barrier.</p>
-          <p>The work began in Tamraght through free calisthenics, fitness and community movement. It has expanded into youth development, women’s access, athlete support and independent competitions.</p>
-          <div class="institutional-note"><strong>Transparency:</strong> Limitless Next Gen is developing its formal nonprofit structure. Until that process is complete, it is presented accurately as a grassroots community initiative. Project funding, delivery responsibilities and reporting expectations are agreed directly with each partner.</div>
+          <p class="lead">Limitless Next Gen creates free and low-cost opportunities through sport, mentorship, events and community.</p>
+          <p>The work began in Tamraght with outdoor calisthenics, fitness and community movement. It now includes youth training, women’s access, athlete support and independent competitions that help people build confidence, skills and visibility.</p>
+          <div class="institutional-note"><strong>Transparency:</strong> Limitless Next Gen is currently a grassroots community initiative while its formal nonprofit structure is developed. Partner-funded projects are agreed clearly, with defined budgets, delivery responsibilities and reporting.</div>
         </div>
       </div>
     </section>
@@ -51,11 +134,11 @@
     <section class="impact-band" aria-label="Current Limitless Next Gen impact snapshot"><div class="wrap stats"><div class="stat"><strong>2 YEARS</strong><span>Grassroots work in Tamraght</span></div><div class="stat"><strong>500+</strong><span>People connected through community, training and events</span></div><div class="stat"><strong>4</strong><span>Independent competitions delivered</span></div><div class="stat"><strong>2</strong><span>Official athlete sponsorships created</span></div></div></section>
 
     <section class="section dark" id="programmes">
-      <div class="wrap section-head"><div><p class="eyebrow">Programme areas</p><h2 class="display section-title">From access to opportunity.</h2></div><p class="lead">The next phase is to turn proven grassroots activity into clearly defined programmes with budgets, outcomes and reporting.</p></div>
+      <div class="wrap section-head"><div><p class="eyebrow">Programme areas</p><h2 class="display section-title">Three pathways. One purpose.</h2></div><p class="lead">Each programme removes a different barrier: access to training, confidence to take part, or support to compete and progress.</p></div>
       <div class="wrap partner-grid">
-        <article class="partner-card"><p class="eyebrow">Youth Pathway</p><h3>Free sport. Real guidance. A place to grow.</h3><p>Martial arts, movement, challenges and leadership experiences designed to build confidence, discipline and belonging.</p><p><strong>Funding can support:</strong> coaching, safe equipment, transport, workshops, safeguarding systems and programme evaluation.</p><div class="actions"><a class="card-link" href="media-partnerships.html#opportunities">Explore youth partnership</a></div></article>
-        <article class="partner-card"><p class="eyebrow">Women’s Access</p><h3>Make strength and sport feel open.</h3><p>Supportive movement, strength, martial arts and community experiences that reduce barriers and create confidence.</p><p><strong>Funding can support:</strong> subsidised places, coaching, equipment, workshops and community events.</p><div class="actions"><a class="card-link" href="media-partnerships.html#opportunities">Explore women’s access partnership</a></div></article>
-        <article class="partner-card"><p class="eyebrow">Athlete Opportunity</p><h3>Compete. Get seen. Create opportunity.</h3><p>Competition access, coaching support, equipment and responsible storytelling for emerging athletes.</p><p><strong>Funding can support:</strong> travel, entry fees, equipment, medical requirements, media and development support.</p><div class="actions"><a class="card-link" href="media-partnerships.html#opportunities">Explore athlete partnership</a></div></article>
+        <article class="partner-card"><p class="eyebrow">Youth Pathway</p><h3>A safe place to train, belong and lead.</h3><p>Free martial arts, movement, challenges and leadership experiences that build confidence, discipline and connection.</p><p><strong>Support can provide:</strong> coaching, safe equipment, transport, workshops, safeguarding and programme evaluation.</p><div class="actions"><a class="card-link" href="media-partnerships.html#opportunities">Support the youth pathway</a></div></article>
+        <article class="partner-card"><p class="eyebrow">Women’s Access</p><h3>Strength, confidence and community.</h3><p>Supportive strength, movement and martial arts experiences that make taking part feel safe, welcoming and possible.</p><p><strong>Support can provide:</strong> subsidised places, coaching, equipment, workshops and community events.</p><div class="actions"><a class="card-link" href="media-partnerships.html#opportunities">Support women’s access</a></div></article>
+        <article class="partner-card"><p class="eyebrow">Athlete Opportunity</p><h3>Compete. Get seen. Create opportunity.</h3><p>Practical support that helps emerging athletes prepare, compete, travel and tell their stories responsibly.</p><p><strong>Support can provide:</strong> entry fees, travel, equipment, medical requirements, coaching and media.</p><div class="actions"><a class="card-link" href="media-partnerships.html#opportunities">Support an athlete pathway</a></div></article>
       </div>
     </section>
 
@@ -63,36 +146,44 @@
       <div class="wrap founder-authority">
         <div>
           <p class="eyebrow">Limitless Youth Project</p>
-          <h2 class="display section-title">Confidence grows when someone has somewhere to belong.</h2>
-          <p class="lead">The youth pathway creates free opportunities through martial arts, movement, education and community experiences.</p>
-          <p>Young people are encouraged to train, learn, take on new challenges and develop confidence, discipline, leadership and a sense of belonging.</p>
-          <p>The next development goal is to formalise a repeatable programme structure with participant consent, safeguarding procedures, attendance records, outcome measures and partner reporting.</p>
-          <div class="actions"><a class="btn primary" href="media-partnerships.html">Become a Youth Pathway Partner</a></div>
+          <h2 class="display section-title">A place to train. A reason to believe.</h2>
+          <p class="lead">Free martial arts, movement and community experiences help young people build confidence, discipline and belonging.</p>
+          <p>The goal is simple: give young people somewhere positive to show up, learn, take responsibility and discover what they are capable of.</p>
+          <p>As the programme grows, Limitless Next Gen is formalising safeguarding, consent, attendance and progress tracking so every participant is protected and every partner can see what their support delivers.</p>
+          <div class="actions"><a class="btn primary" href="media-partnerships.html">Support the Youth Pathway</a></div>
         </div>
-        <figure class="photo-frame portrait-frame"><img loading="lazy" src="assets/youth-rooftop-martial-arts.webp" alt="Young people training martial arts at Limitless Dojo"><figcaption>Free sport · Guidance · Belonging</figcaption></figure>
+        <figure class="photo-frame portrait-frame"><img loading="lazy" src="assets/class-next-gen.jpg" alt="A young athlete training through Limitless Next Gen"><figcaption>Free sport · Guidance · Belonging</figcaption></figure>
       </div>
-      <div class="wrap photo-trio" style="margin-top:46px"><figure class="photo-frame"><img loading="lazy" src="assets/youth-rooftop-martial-arts.webp" alt="Youth martial arts access"><figcaption>Martial arts access</figcaption></figure><figure class="photo-frame"><img loading="lazy" src="assets/youth-creative-project.webp" alt="Young people in a creative project"><figcaption>Creativity · Confidence · Expression</figcaption></figure><figure class="photo-frame"><img loading="lazy" src="assets/youth-outdoor-movement.webp" alt="Outdoor movement with young people"><figcaption>Movement beyond the dojo</figcaption></figure></div>
+      <div class="wrap photo-trio nextgen-gallery"><figure class="photo-frame"><img loading="lazy" src="assets/youth-rooftop-martial-arts.webp" alt="Youth martial arts access"><figcaption>Martial arts access</figcaption></figure><figure class="photo-frame"><img loading="lazy" src="assets/youth-creative-project.webp" alt="Young people in a creative project"><figcaption>Creativity · Confidence · Expression</figcaption></figure><figure class="photo-frame"><img loading="lazy" src="assets/youth-outdoor-movement.webp" alt="Outdoor movement with young people"><figcaption>Movement beyond the dojo</figcaption></figure></div>
     </section>
 
     <section class="section paper-deep">
-      <div class="wrap section-head"><div><p class="eyebrow">How impact will be evidenced</p><h2 class="display section-title">From powerful stories to accountable programmes.</h2></div><p class="lead">Partners need both human stories and reliable evidence. The movement is building the systems to provide both.</p></div>
+      <div class="wrap section-head"><div><p class="eyebrow">How impact is measured</p><h2 class="display section-title">Real stories. Clear evidence.</h2></div><p class="lead">The human impact matters. So do the systems that protect participants and show partners what changed.</p></div>
       <div class="wrap card-grid three">
-        <article class="card"><div class="card-number">01</div><h3>Participation</h3><p>Record unique participants, attendance, session delivery and programme completion.</p></article>
+        <article class="card"><div class="card-number">01</div><h3>Participation</h3><p>Record who takes part, how often sessions run and whether people stay engaged.</p></article>
         <article class="card"><div class="card-number">02</div><h3>Progress</h3><p>Track confidence, skills, retention, leadership opportunities and participant feedback.</p></article>
         <article class="card"><div class="card-number">03</div><h3>Protection</h3><p>Use clear safeguarding, consent, image-use, risk and referral procedures.</p></article>
-        <article class="card"><div class="card-number">04</div><h3>Financial Clarity</h3><p>Agree programme budgets, eligible costs, responsibilities and evidence before funding begins.</p></article>
-        <article class="card"><div class="card-number">05</div><h3>Partner Reporting</h3><p>Provide agreed updates, outputs, learning and responsible participant stories.</p></article>
-        <article class="card"><div class="card-number">06</div><h3>Long-Term Learning</h3><p>Use data and community feedback to improve future programmes rather than only reporting activity.</p></article>
+        <article class="card"><div class="card-number">04</div><h3>Financial Clarity</h3><p>Agree the budget, responsibilities and evidence before funding begins.</p></article>
+        <article class="card"><div class="card-number">05</div><h3>Partner Updates</h3><p>Share agreed outputs, learning and responsible participant stories.</p></article>
+        <article class="card"><div class="card-number">06</div><h3>Keep Improving</h3><p>Use data and community feedback to strengthen the next programme.</p></article>
       </div>
     </section>
 
-    <section class="section dark">
+    <section class="section dark nextgen-stories">
       <div class="wrap split even">
-        <div><p class="eyebrow">Stories from the movement</p><h2 class="display section-title">Let people see the work.</h2><p class="lead">Training, youth projects, women’s access, competitions and athlete stories become more powerful when they are documented responsibly.</p><p>The Limitless YouTube and social channels show the movement in action while the website builds a more formal evidence base for partners and funders.</p><div class="actions"><a class="btn gold" href="https://youtube.com/@limitless_dojo?si=g9ernsAFhEQYKAO-" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a><a class="btn light" href="movement.html">Read the movement manifesto</a></div></div><figure class="photo-frame"><img loading="lazy" src="assets/event-winner.jpg" alt="An athlete recognised at a Limitless event"><figcaption>Compete · Get seen · Create opportunity</figcaption></figure></div>
+        <div>
+          <p class="eyebrow">Stories from the movement</p>
+          <h2 class="display section-title">Let the work be seen.</h2>
+          <p class="lead">Real training, youth projects, women’s access and athlete journeys—documented with dignity and purpose.</p>
+          <p>Our social channels show the people, progress and moments behind the movement. This website records the outcomes for partners who want to support what comes next.</p>
+          <div class="actions"><a class="btn gold" href="https://youtube.com/@limitless_dojo?si=g9ernsAFhEQYKAO-" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a><a class="btn light" href="movement.html">Read the movement manifesto</a></div>
+        </div>
+        <figure class="photo-frame nextgen-story-photo"><img loading="lazy" src="assets/event-winner.jpg" alt="An athlete recognised at a Limitless event"><figcaption>Compete · Get seen · Create opportunity</figcaption></figure>
+      </div>
     </section>
 
     <section class="section partnership-band">
-      <div class="wrap next-grid"><div><p class="eyebrow">Fund a defined outcome</p><h2 class="display section-title">Help turn grassroots proof into lasting opportunity.</h2></div><div><p class="lead">We welcome conversations with grant makers, brands, universities, sport organisations and community partners who value transparent, locally rooted work.</p><div class="actions"><a class="btn gold" href="media-partnerships.html">Explore funding and partnership routes</a><a class="btn light" href="https://wa.me/212666664225?text=Hello%20Danielle%2C%20I%20would%20like%20to%20discuss%20supporting%20Limitless%20Next%20Gen.">Contact Danielle</a></div></div></div>
+      <div class="wrap next-grid"><div><p class="eyebrow">Fund a defined outcome</p><h2 class="display section-title">Help turn local momentum into lasting opportunity.</h2></div><div><p class="lead">We welcome grant makers, brands, universities, sport organisations and community partners who value transparent, locally rooted work.</p><div class="actions"><a class="btn gold" href="media-partnerships.html">Explore partnership routes</a><a class="btn light" href="https://wa.me/212666664225?text=Hello%20Danielle%2C%20I%20would%20like%20to%20discuss%20supporting%20Limitless%20Next%20Gen.">Contact Danielle</a></div></div></div>
     </section>
   </main>
 
