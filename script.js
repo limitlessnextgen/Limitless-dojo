@@ -372,7 +372,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const DISCORD_URL = 'https://discord.gg/ZdepHuTgnm';
-  const WHATSAPP_URL = `https://wa.me/212666664225?text=${encodeURIComponent('Hello Go Limitless, I would like some more information.')}`;
+  const WHATSAPP_URL = `https://wa.me/212728816850?text=${encodeURIComponent('Hello Go Limitless, I would like some more information.')}`;
   const path = window.location.pathname;
   const isHomepage = path.endsWith('/') || path.endsWith('/index.html');
   const isPricingPage = path.endsWith('/pricing.html');
@@ -676,7 +676,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ];
       const extra = String(data.get('message') || '').trim();
       if (extra) lines.push(`Message: ${extra}`);
-      window.location.href = `https://wa.me/212666664225?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.location.href = `https://wa.me/212728816850?text=${encodeURIComponent(lines.join('\n'))}`;
     });
   }
 });
