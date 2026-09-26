@@ -376,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
   const isHomepage = path.endsWith('/') || path.endsWith('/index.html');
   const isPricingPage = path.endsWith('/pricing.html');
+  const isProgrammesPage = path.endsWith('/programmes.html');
   const isCommunityPage = path.endsWith('/community.html');
 
   if (document.querySelector('.mobile-times')) document.body.classList.add('has-mobile-times');
@@ -453,6 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ], ['/classes.html', '/timetable.html'], true);
 
     const pricingLink = createLink('pricing.html', 'Pricing', { current: isPricingPage });
+    const programmesLink = createLink('programmes.html', 'Programmes', { current: isProgrammesPage });
 
     const teamGroup = createGroup('Meet the Team', [
       { href: 'coaches.html', label: 'Meet the Team', paths: ['/coaches.html'] },
@@ -470,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { href: 'nextgen.html', label: 'Limitless Next Gen · Nonprofit', paths: ['/nextgen.html'] }
     ], ['/founder.html', '/nextgen.html']);
 
-    [trainGroup, pricingLink, teamGroup, communityGroup, storyGroup]
+    [trainGroup, pricingLink, programmesLink, teamGroup, communityGroup, storyGroup]
       .forEach((item) => nav.appendChild(item));
 
     document.addEventListener('click', (event) => {
@@ -479,6 +481,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.footer-links').forEach((footerLinks) => {
+    if (!footerLinks.querySelector('a[href="programmes.html"]')) {
+      const programmesLink = document.createElement('a');
+      programmesLink.href = 'programmes.html';
+      programmesLink.textContent = 'Programmes';
+      const firstExternalLink = [...footerLinks.querySelectorAll('a')]
+        .find((link) => link.href.startsWith('http'));
+      footerLinks.insertBefore(programmesLink, firstExternalLink || null);
+    }
     if (!footerLinks.querySelector('a[href="pricing.html"]')) {
       const pricingLink = document.createElement('a');
       pricingLink.href = 'pricing.html';
